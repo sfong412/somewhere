@@ -4,22 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class Wave
-{
-    public string waveName;
-    public int NoOfEnemies;
-    public GameObject[] typeOfEnemies;
-    public float spawnInterval;
 
-    public float timeBtwWave;
-
-    public bool quarterBeatTiming;
-    public bool halfBeatTiming;
-    public bool threeFourBeatTiming;
-    public bool fullBeatTiming;
-
-    
-}
  
 public class amongus : MonoBehaviour
 {
