@@ -1,13 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[System.Serializable]
+//Created by color!please studios
+
 
 [RequireComponent(typeof(AudioSource))]
+
+public class beatMap
+{
+    public int beatsBtwWave;
+    public int eventType;
+
+    public float noOfEvents;
+
+    public float timeBtwWave;
+
+    public bool beatMode;
+    public bool timeMode;
+
+
+
+}
 
 
  
 public class amongus : MonoBehaviour
 {
+    [SerializeField] beatMap[] Events;
+
+    private beatMap currentEvent;
+    private int currentEventNumber;
+
+    public bool canSpawn;
+
+    public int nextBeatsBtwWave;
+    public float nextTimeBtwWave;
     public static amongus Instance { get; set; }
 
     [Header("Assignables")]
@@ -34,12 +62,6 @@ public class amongus : MonoBehaviour
     public float beatTime;
 
     private int timesQuarterBeat;
-
-    //DELETE THESE COMMENTS
-
-    /*public delegate void Beat();
-    public static event Beat BeatEvent;*/
-
     public bool metronome;
 
     public bool autoPlay = true;
@@ -91,27 +113,29 @@ public class amongus : MonoBehaviour
             }
 
             songPosBeat = (float)songPositionInBeats / 4;
+            ExecuteEvent();
 
-             switch (times)
-        {
-            case 2:
-            HalfBeat(); 
-            break;
-
-            case 3: 
-            ThreeFourBeat();
-            break;
-
-            case 4: 
-            FullBeat();
-            HalfBeat(); 
-            break;
-
-            case 5:
-            times = 1;
-            break;
-
+            
         }
+    }
+
+    void ExecuteEvent()
+    {
+        if (canSpawn == true)
+        {
+            if (currentEvent.beatMode == true)
+            {
+                Debug.Log("sussy");
+            }
+
+            if (currentEvent.timeMode == true)
+            {
+
+            }
+            else
+            {
+                Debug.LogError("Missing Event!!");
+            }
         }
     }
 
@@ -140,20 +164,14 @@ public class amongus : MonoBehaviour
         Debug.Log("quarter");
         metronome_audioSrc.Play();
         
-    }
-
-    public void HalfBeat()
-    {
-        
-
-            Debug.Log("half");
+        if (times == 4)
+        {
+            times = 0;
+        }
         
     }
 
-    public void ThreeFourBeat()
-    {
-        Debug.Log("threefour");
-    }
+   
 
     public void FullBeat()
     {

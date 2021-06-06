@@ -217,7 +217,6 @@ GameObject:
   - component: {fileID: 944396419}
   - component: {fileID: 944396418}
   - component: {fileID: 944396417}
-  - component: {fileID: 944396420}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -237,12 +236,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7a2a2a30656bb4f89cfecc0b700d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 32.4
+  Events:
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 0
+    timeBtwWave: 0
+    beatMode: 0
+    timeMode: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 0
+    timeBtwWave: 0
+    beatMode: 0
+    timeMode: 0
+  canSpawn: 0
+  nextBeatsBtwWave: 0
+  nextTimeBtwWave: 0
+  bpm: 31.83
   secPerBeat: 0
   songPosition: 0
   lastReportedBeat: 0
   dspSongTime: 0
-  firstBeatOffset: 0.4
+  firstBeatOffset: 0
   musicSource: {fileID: 944396418}
   metronome_audioSrc: {fileID: 1252290419}
   secPerRealBeat: 0
@@ -263,7 +278,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d2f4480fa8bfecd498766a04401483be, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2a60a10cc6804214a950e3c81377cef9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -363,18 +378,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &944396420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944396416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94439ea123666984299c04077b20a7a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1252290418
 GameObject:
   m_ObjectHideFlags: 0
