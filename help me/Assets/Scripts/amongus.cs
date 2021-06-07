@@ -44,6 +44,7 @@ public class amongus : MonoBehaviour
     public float bpm = 120;
     public float secPerBeat;
     public float songPosition;
+    public float songDuration;
     private float songPositionInBeatsExact;
     private int songPositionInBeats;
 
@@ -67,6 +68,8 @@ public class amongus : MonoBehaviour
     public bool metronome;
 
     public bool beatGo;
+
+    public bool timeGo;
 
     public bool autoPlay = true;
 
@@ -130,6 +133,7 @@ public class amongus : MonoBehaviour
             canSpawn = true;
             currentEventNumber++;
             currentEvent = Events[currentEventNumber];
+            timeGo = true;
         }
         }
 
@@ -137,11 +141,12 @@ public class amongus : MonoBehaviour
 
         if (currentEvent.timeMode)
         {
-            if (songPosition > currentEvent.songPositionWave && !canSpawn)
+            if (currentEvent.songPositionWave < songPosition)
             {
-                canSpawn = true;
+            canSpawn = true;
             currentEventNumber++;
             currentEvent = Events[currentEventNumber];
+            beatGo = true;
             }
 
            
@@ -157,13 +162,16 @@ public class amongus : MonoBehaviour
               if (currentEvent.beatMode == true && beatGo == true)
               {
                   beatGo = false;
-                    switch (currentEvent.eventType)
-                 {
-                  case 1: 
-                  Debug.Log("impostor");
-                  break;
-                 }
+                  EventType();
+                    
 
+              }
+
+              if (currentEvent.timeMode == true && timeGo == true)
+              {
+                  
+                 timeGo = false;
+                 EventType();
               }
               
             
@@ -174,6 +182,16 @@ public class amongus : MonoBehaviour
               canSpawn = false;
               
           }
+    }
+
+    void EventType()
+    {
+        switch (currentEvent.eventType)
+                 {
+                  case 1: 
+                  Debug.Log("impostor");
+                  break;
+                 }
     }
 
     void ReportBeat()
