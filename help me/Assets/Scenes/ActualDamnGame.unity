@@ -237,13 +237,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Events:
-  - beatsBtwWave: 0
+  - beatsBtwWave: 5
     eventType: 0
     noOfEvents: 0
     timeBtwWave: 0
-    beatMode: 0
+    beatMode: 1
     timeMode: 0
-  - beatsBtwWave: 0
+  currentEvent:
+    beatsBtwWave: 0
     eventType: 0
     noOfEvents: 0
     timeBtwWave: 0

@@ -19,6 +19,8 @@ public class beatMap
     public bool beatMode;
     public bool timeMode;
 
+    
+
 
 
 }
@@ -29,7 +31,7 @@ public class amongus : MonoBehaviour
 {
     [SerializeField] beatMap[] Events;
 
-    private beatMap currentEvent;
+    [SerializeField]private beatMap currentEvent;
     private int currentEventNumber;
 
     public bool canSpawn;
@@ -86,6 +88,7 @@ public class amongus : MonoBehaviour
 
         songLength = musicSource.clip.length;
         Application.targetFrameRate = 60;
+        currentEvent = Events[currentEventNumber];
         
    
     }
@@ -117,26 +120,27 @@ public class amongus : MonoBehaviour
 
             
         }
+
+        if (currentEvent.beatsBtwWave == 0)
+        {
+            canSpawn = true;
+        }
+
     }
 
     void ExecuteEvent()
     {
-        if (canSpawn == true)
-        {
-            if (currentEvent.beatMode == true)
-            {
-                Debug.Log("sussy");
-            }
+          if (canSpawn == true)
+          {
+              switch (currentEvent.eventType)
+              {
+                  case 1: 
+                  Debug.Log("impostor");
+                  break;
+              }
 
-            if (currentEvent.timeMode == true)
-            {
 
-            }
-            else
-            {
-                Debug.LogError("Missing Event!!");
-            }
-        }
+          }
     }
 
     void ReportBeat()
@@ -148,6 +152,10 @@ public class amongus : MonoBehaviour
             beatTime += 0.25f;
             QuarterBeat();
             lastReportedBeat = songPositionInBeats;
+            if (!canSpawn && currentEvent.beatMode == true)
+            {
+                currentEvent.beatsBtwWave -= 1;
+            }
         }
         else
         {
