@@ -243,10 +243,10 @@ MonoBehaviour:
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
-  - beatsBtwWave: 5
+  - beatsBtwWave: 0
     eventType: 1
     noOfEvents: 1
-    songPositionWave: 0
+    songPositionWave: 13
     beatMode: 0
     timeMode: 1
   currentEvent:
@@ -273,6 +273,7 @@ MonoBehaviour:
   songPosBeat: 0
   beatTime: 0
   metronome: 1
+  beatGo: 0
   autoPlay: 1
   times: 0
 --- !u!82 &944396418

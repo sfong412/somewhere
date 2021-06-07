@@ -66,6 +66,8 @@ public class amongus : MonoBehaviour
     private int timesQuarterBeat;
     public bool metronome;
 
+    public bool beatGo;
+
     public bool autoPlay = true;
 
     void Start()
@@ -121,11 +123,28 @@ public class amongus : MonoBehaviour
             
         }
 
-        if (currentEvent.beatsBtwWave == 0 && !canSpawn)
+        if (currentEvent.beatMode)
+        {
+             if (currentEvent.beatsBtwWave == 0 && !canSpawn)
         {
             canSpawn = true;
             currentEventNumber++;
             currentEvent = Events[currentEventNumber];
+        }
+        }
+
+       
+
+        if (currentEvent.timeMode)
+        {
+            if (songPosition > currentEvent.songPositionWave && !canSpawn)
+            {
+                canSpawn = true;
+            currentEventNumber++;
+            currentEvent = Events[currentEventNumber];
+            }
+
+           
         }
 
     }
@@ -134,19 +153,26 @@ public class amongus : MonoBehaviour
     {
           if (canSpawn == true)
           {
-              switch (currentEvent.eventType)
+
+              if (currentEvent.beatMode == true && beatGo == true)
               {
+                  beatGo = false;
+                    switch (currentEvent.eventType)
+                 {
                   case 1: 
                   Debug.Log("impostor");
                   break;
-              }
-            
+                 }
 
+              }
+              
+            
           }
 
           if (currentEvent.noOfEvents == 0)
           {
               canSpawn = false;
+              
           }
     }
 
@@ -179,10 +205,12 @@ public class amongus : MonoBehaviour
             {
                 currentEvent.beatsBtwWave -= 1;
             }
-            if (canSpawn && currentEvent.noOfEvents > 0)
+            if (canSpawn && currentEvent.noOfEvents > 0 && currentEvent.beatMode == true)
             {
+                beatGo = true;
                 currentEvent.noOfEvents--;
             }
+            
         
         if (times == 4)
         {
