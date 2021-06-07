@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Made by Color!Please Studios
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class CharacterController2D : MonoBehaviour
 {
 
@@ -9,8 +12,6 @@ public class CharacterController2D : MonoBehaviour
     public float JumpForce = 1f;
 
     public bool isgrounded;
-
-    public bool doubleJump;
 
     public Rigidbody2D rb2d; 
     // Start is called before the first frame update
@@ -22,28 +23,26 @@ public class CharacterController2D : MonoBehaviour
     
     void FixedUpdate()
     {
-        var movement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
+        //Horizontal Movement 
+        var movementx = Input.GetAxis("Horizontal");
+        transform.position += new Vector3(movementx, 0, 0) * Time.deltaTime * MovementSpeed;
+        //Vertical Movement 
+        //var movementy = Input.GetAxis("Vertical");
+        //transform.position += new Vector3(0, movementy, 0) * Time.deltaTime * MovementSpeed;
+        
+
+        
 
         
     }
 
     void Update()
     {
+        //MAKE SURE TO HAVE A "GROUND" TAG WITH A TRIGGER IF YOU WANT TO USE THE JUMPING FUNCTION
         if (Input.GetButtonDown("Jump") && isgrounded == true)
         {
-            doubleJump = true;
             rb2d.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-            
-
-            
         }
-
-        if (doubleJump == true && Input.GetButtonDown("Jump") && isgrounded == false)
-            {
-                rb2d.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-                doubleJump = false;
-            }
     }
     
 

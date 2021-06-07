@@ -14,7 +14,7 @@ public class beatMap
 
     public float noOfEvents;
 
-    public float timeBtwWave;
+    public float songPositionWave;
 
     public bool beatMode;
     public bool timeMode;
@@ -121,9 +121,11 @@ public class amongus : MonoBehaviour
             
         }
 
-        if (currentEvent.beatsBtwWave == 0)
+        if (currentEvent.beatsBtwWave == 0 && !canSpawn)
         {
             canSpawn = true;
+            currentEventNumber++;
+            currentEvent = Events[currentEventNumber];
         }
 
     }
@@ -138,8 +140,13 @@ public class amongus : MonoBehaviour
                   Debug.Log("impostor");
                   break;
               }
+            
 
+          }
 
+          if (currentEvent.noOfEvents == 0)
+          {
+              canSpawn = false;
           }
     }
 
@@ -152,10 +159,7 @@ public class amongus : MonoBehaviour
             beatTime += 0.25f;
             QuarterBeat();
             lastReportedBeat = songPositionInBeats;
-            if (!canSpawn && currentEvent.beatMode == true)
-            {
-                currentEvent.beatsBtwWave -= 1;
-            }
+           
         }
         else
         {
@@ -171,6 +175,14 @@ public class amongus : MonoBehaviour
        
         Debug.Log("quarter");
         metronome_audioSrc.Play();
+         if (!canSpawn && currentEvent.beatMode == true)
+            {
+                currentEvent.beatsBtwWave -= 1;
+            }
+            if (canSpawn && currentEvent.noOfEvents > 0)
+            {
+                currentEvent.noOfEvents--;
+            }
         
         if (times == 4)
         {

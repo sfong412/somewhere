@@ -238,19 +238,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Events:
   - beatsBtwWave: 5
-    eventType: 0
-    noOfEvents: 0
-    timeBtwWave: 0
+    eventType: 1
+    noOfEvents: 10
+    songPositionWave: 0
     beatMode: 1
     timeMode: 0
+  - beatsBtwWave: 5
+    eventType: 1
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 0
+    timeMode: 1
   currentEvent:
     beatsBtwWave: 0
     eventType: 0
     noOfEvents: 0
-    timeBtwWave: 0
+    songPositionWave: 0
     beatMode: 0
     timeMode: 0
-  canSpawn: 0
+  canSpawn: 1
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
   bpm: 31.83
