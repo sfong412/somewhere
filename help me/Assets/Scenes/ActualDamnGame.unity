@@ -243,12 +243,16 @@ MonoBehaviour:
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
+    beatRest: 1
+    timeRest: 0
   - beatsBtwWave: 0
     eventType: 1
     noOfEvents: 1
     songPositionWave: 13
     beatMode: 0
     timeMode: 1
+    beatRest: 0
+    timeRest: 1
   currentEvent:
     beatsBtwWave: 0
     eventType: 0
@@ -256,12 +260,16 @@ MonoBehaviour:
     songPositionWave: 0
     beatMode: 0
     timeMode: 0
+    beatRest: 0
+    timeRest: 0
+  currentEventNumber: 0
   canSpawn: 1
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
   bpm: 31.83
   secPerBeat: 0
   songPosition: 0
+  songDuration: 0
   lastReportedBeat: 0
   dspSongTime: 0
   firstBeatOffset: 0
@@ -274,6 +282,7 @@ MonoBehaviour:
   beatTime: 0
   metronome: 1
   beatGo: 0
+  timeGo: 0
   autoPlay: 1
   times: 0
 --- !u!82 &944396418

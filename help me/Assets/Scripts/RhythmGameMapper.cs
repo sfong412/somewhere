@@ -19,6 +19,10 @@ public class beatMap
     public bool beatMode;
     public bool timeMode;
 
+    public bool beatRest;
+
+    public bool timeRest;
+
     
 
 
@@ -27,18 +31,18 @@ public class beatMap
 
 
  
-public class amongus : MonoBehaviour
+public class RhythmGameMapper : MonoBehaviour
 {
     [SerializeField] beatMap[] Events;
 
     [SerializeField]private beatMap currentEvent;
-    private int currentEventNumber;
+    [SerializeField]private int currentEventNumber;
 
     public bool canSpawn;
 
     public int nextBeatsBtwWave;
     public float nextTimeBtwWave;
-    public static amongus Instance { get; set; }
+    public static RhythmGameMapper Instance { get; set; }
 
     [Header("Assignables")]
     public float bpm = 120;
@@ -75,7 +79,7 @@ public class amongus : MonoBehaviour
 
     void Start()
     {
-        amongus.Instance = this;
+        RhythmGameMapper.Instance = this;
         //Load the AudioSource attached to the Conductor GameObject
         musicSource.GetComponent<AudioSource>();
         //Metronome
@@ -126,7 +130,7 @@ public class amongus : MonoBehaviour
             
         }
 
-        if (currentEvent.beatMode)
+        if (currentEvent.beatRest)
         {
              if (currentEvent.beatsBtwWave == 0 && !canSpawn)
         {
@@ -139,7 +143,7 @@ public class amongus : MonoBehaviour
 
        
 
-        if (currentEvent.timeMode)
+        if (currentEvent.timeRest)
         {
             if (currentEvent.songPositionWave < songPosition)
             {
@@ -163,15 +167,17 @@ public class amongus : MonoBehaviour
               {
                   beatGo = false;
                   EventType();
+                  metronome_audioSrc.Play();
                     
 
               }
 
-              if (currentEvent.timeMode == true && timeGo == true)
+              if (currentEvent.timeMode == true && beatGo == true)
               {
                   
                  timeGo = false;
                  EventType();
+                 metronome_audioSrc.Play();
               }
               
             
@@ -218,12 +224,12 @@ public class amongus : MonoBehaviour
        
        
         Debug.Log("quarter");
-        metronome_audioSrc.Play();
+       
          if (!canSpawn && currentEvent.beatMode == true)
             {
                 currentEvent.beatsBtwWave -= 1;
             }
-            if (canSpawn && currentEvent.noOfEvents > 0 && currentEvent.beatMode == true)
+            if (canSpawn && currentEvent.noOfEvents > 0)
             {
                 beatGo = true;
                 currentEvent.noOfEvents--;
