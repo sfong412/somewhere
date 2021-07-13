@@ -77,6 +77,9 @@ public class RhythmGameMapper : MonoBehaviour
 
     public bool autoPlay = true;
 
+    public AudioClip hai;
+     public AudioClip Nothai;
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -96,7 +99,7 @@ public class RhythmGameMapper : MonoBehaviour
             musicSource.Play();
 
         songLength = musicSource.clip.length;
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 120;
         currentEvent = Events[currentEventNumber];
         
    
@@ -167,7 +170,7 @@ public class RhythmGameMapper : MonoBehaviour
               {
                   beatGo = false;
                   EventType();
-                  metronome_audioSrc.Play();
+                  
                     
 
               }
@@ -177,7 +180,7 @@ public class RhythmGameMapper : MonoBehaviour
                   
                  timeGo = false;
                  EventType();
-                 metronome_audioSrc.Play();
+                 
               }
               
             
@@ -196,7 +199,11 @@ public class RhythmGameMapper : MonoBehaviour
                  {
                   case 1: 
                   Debug.Log("impostor");
+                  metronome_audioSrc.PlayOneShot(hai, 1f);
                   break;
+                  case 2:
+                   metronome_audioSrc.PlayOneShot(Nothai, 1f);
+                   break;
                  }
     }
 

@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 944396418}
   - component: {fileID: 944396417}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Rhythm Game Mapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,9 +237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Events:
-  - beatsBtwWave: 5
+  - beatsBtwWave: 15
     eventType: 1
-    noOfEvents: 10
+    noOfEvents: 0
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
@@ -248,11 +248,27 @@ MonoBehaviour:
   - beatsBtwWave: 0
     eventType: 1
     noOfEvents: 1
+    songPositionWave: 6.4
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 0
+    eventType: 2
+    noOfEvents: 11
+    songPositionWave: 9
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 0
+    eventType: 1
+    noOfEvents: 3
     songPositionWave: 13
-    beatMode: 0
-    timeMode: 1
-    beatRest: 0
-    timeRest: 1
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
   currentEvent:
     beatsBtwWave: 0
     eventType: 0
@@ -266,13 +282,13 @@ MonoBehaviour:
   canSpawn: 1
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
-  bpm: 31.83
+  bpm: 40.2
   secPerBeat: 0
   songPosition: 0
   songDuration: 0
   lastReportedBeat: 0
   dspSongTime: 0
-  firstBeatOffset: 0
+  firstBeatOffset: 0.1
   musicSource: {fileID: 944396418}
   metronome_audioSrc: {fileID: 1252290419}
   secPerRealBeat: 0
@@ -280,10 +296,12 @@ MonoBehaviour:
   onBeat: 0
   songPosBeat: 0
   beatTime: 0
-  metronome: 1
+  metronome: 0
   beatGo: 0
   timeGo: 0
   autoPlay: 1
+  hai: {fileID: 8300000, guid: 5c2b069ee9df1ae45aa0e2dbd7797a17, type: 3}
+  Nothai: {fileID: 8300000, guid: 4fddb16d8d74ca945b46f88a23d6c8c1, type: 3}
   times: 0
 --- !u!82 &944396418
 AudioSource:
@@ -295,9 +313,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2a60a10cc6804214a950e3c81377cef9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 498ab060f04971349886e7242daa14fa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.793
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -406,7 +424,7 @@ GameObject:
   - component: {fileID: 1252290420}
   - component: {fileID: 1252290419}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Hai Hai Maker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,7 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1910249633}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: I dunno what this does
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
