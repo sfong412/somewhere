@@ -48,12 +48,16 @@ public class RhythmGameMapper : MonoBehaviour
 
     //public float bpmDividedByFour;
     public float secPerBeat;
+
+    public float secPerMeasure;
     public float songPosition;
     public float songDuration;
     private float songPositionInBeatsExact;
-    private int songPositionInBeats;
+    public int songPositionInBeats;
 
-    public float lastReportedBeat = 0f;
+    public int songPositionInMeasures;
+
+    private float lastReportedBeat = 0f;
 
     public float dspSongTime;
     public float firstBeatOffset;
@@ -83,9 +87,9 @@ public class RhythmGameMapper : MonoBehaviour
     public AudioClip hai;
     public AudioClip Nothai;
 
-    public GameObject test1;
-    public GameObject test2;
-    public GameObject test3;
+    public GameObject clickedText;
+    public GameObject failedText;
+    public GameObject successText;
 
     void Start()
     {
@@ -95,8 +99,8 @@ public class RhythmGameMapper : MonoBehaviour
         //Metronome
         //metronome_audioSrc.GetComponent<AudioSource>();
         //Calculate the number of seconds in each beat
-        secPerRealBeat = 60f / (beatsPerSecond / beatsPerMeasure);
-        secPerBeat = 15f / (beatsPerSecond / beatsPerMeasure);
+        secPerRealBeat = 60f / (beatsPerSecond);
+        secPerBeat = 60f / (beatsPerSecond);
         //Record the time when the music starts
         dspSongTime = (float)musicSource.time;
         //Start the music
@@ -115,8 +119,9 @@ public class RhythmGameMapper : MonoBehaviour
         lastReportedBeat = songPositionInBeats;
         if (musicSource.isPlaying)
         {
-            secPerRealBeat = 60f / (beatsPerSecond / beatsPerMeasure);
-            secPerBeat = 15f / (beatsPerSecond / beatsPerMeasure);
+            secPerRealBeat = (60f / (beatsPerSecond));
+            secPerBeat = (60f / (beatsPerSecond));
+            secPerMeasure = secPerRealBeat * beatsPerMeasure;
 
             //determine how many seconds since the song started
             //songPosition = (float)(AudioSettings.dspTime - dspSongTime);
@@ -124,15 +129,16 @@ public class RhythmGameMapper : MonoBehaviour
             //determine how many beats since the song started
             songPositionInBeatsExact = songPosition / secPerBeat;
             songPositionInBeats = (int)songPositionInBeatsExact;
+            songPositionInMeasures = (int)(songPosition / secPerMeasure);
             ReportBeat();
             //GameTimeline();
 
             if (Input.GetKeyDown(KeyCode.J))
             {
-                Debug.Log(songPosBeat);
+                Debug.Log(secPerRealBeat);
             }
 
-            songPosBeat = (float)songPositionInBeats / 4;
+            songPosBeat = (float)songPositionInBeats / beatsPerMeasure;
             ExecuteEvent();
 
         }
@@ -167,15 +173,15 @@ public class RhythmGameMapper : MonoBehaviour
         {
             if (!willPress)
             {
-                test2.SetActive(true);
+                failedText.SetActive(true);
             }
             else if (willPress)
             {
                 metronome_audioSrc.PlayOneShot(Nothai, 1f);
-                test3.SetActive(true);
+                successText.SetActive(true);
                 willPress = false;
             }
-            test1.SetActive(true);
+            clickedText.SetActive(true);
         }
 
 
@@ -238,8 +244,9 @@ public class RhythmGameMapper : MonoBehaviour
             QuarterBeat();
             lastReportedBeat = songPositionInBeats;
 
-            //plays metronome click at every quarter note
-            metronome_audioSrc.PlayOneShot(metronome_audioSrc.clip, 1f);
+            clickedText.SetActive(false);
+            failedText.SetActive(false);
+            successText.SetActive(false);
 
         }
         else
@@ -284,6 +291,8 @@ public class RhythmGameMapper : MonoBehaviour
         {
             Debug.Log("Beat");
 
+            //plays metronome click at every quarter note
+            metronome_audioSrc.PlayOneShot(metronome_audioSrc.clip, 1f);
         }
     }
 
