@@ -600,9 +600,12 @@ MonoBehaviour:
   beatsPerSecond: 125.06
   beatsPerMeasure: 4
   secPerBeat: 0
+  secPerMeasure: 0
   songPosition: 0
   songDuration: 0
-  lastReportedBeat: 0
+  songPositionInBeats: 0
+  songPositionInMeasures: 0
+  beatThreshold: 0.2
   dspSongTime: 0
   firstBeatOffset: 0.1
   musicSource: {fileID: 944396418}
@@ -622,7 +625,7 @@ MonoBehaviour:
   clickedText: {fileID: 617604092}
   failedText: {fileID: 1891339307}
   successText: {fileID: 1076982253}
-  times: 0
+  beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
   m_ObjectHideFlags: 0

@@ -53,9 +53,11 @@ public class RhythmGameMapper : MonoBehaviour
     public float songPosition;
     public float songDuration;
     private float songPositionInBeatsExact;
-    public int songPositionInBeats;
+    public float songPositionInBeats;
 
-    public int songPositionInMeasures;
+    public float songPositionInMeasures;
+
+    public float beatThreshold;
 
     private float lastReportedBeat = 0f;
 
@@ -138,9 +140,11 @@ public class RhythmGameMapper : MonoBehaviour
                 Debug.Log(secPerRealBeat);
             }
 
-            songPosBeat = (float)songPositionInBeats / beatsPerMeasure;
+            songPosBeat = (int)songPositionInBeats / beatsPerMeasure;
             ExecuteEvent();
 
+    InThreshold();
+    Debug.Log(willPress);
         }
 
         if (currentEvent.beatRest)
@@ -228,26 +232,24 @@ public class RhythmGameMapper : MonoBehaviour
                 Debug.Log("impostor");
                 metronome_audioSrc.PlayOneShot(hai, 1f);
                 break;
+
+            //event for input
             case 2:
-                StartCoroutine(slackTimer());
+            //    StartCoroutine(slackTimer());
                 break;
         }
     }
 
     void ReportBeat()
     {
-        if (lastReportedBeat < songPositionInBeats)
+        if (lastReportedBeat < (int)songPositionInBeats)
         {
             onBeat = true;
-            times += 1;
+            beatsInLoop += 1;
             beatTime += 0.25f;
             QuarterBeat();
             lastReportedBeat = songPositionInBeats;
-
-            clickedText.SetActive(false);
-            failedText.SetActive(false);
-            successText.SetActive(false);
-
+            StartCoroutine(fadeText());
         }
         else
         {
@@ -255,11 +257,12 @@ public class RhythmGameMapper : MonoBehaviour
         }
     }
 
-    [SerializeField] private int times;
+    [SerializeField] private int beatsInLoop;
 
     public void QuarterBeat()
     {
-
+        //plays metronome click at every quarter note
+        metronome_audioSrc.PlayOneShot(metronome_audioSrc.clip, 1f);
 
         Debug.Log("quarter");
 
@@ -274,9 +277,9 @@ public class RhythmGameMapper : MonoBehaviour
         }
 
 
-        if (times == 4)
+        if (beatsInLoop == 4)
         {
-            times = 0;
+            beatsInLoop = 0;
         }
 
     }
@@ -290,9 +293,24 @@ public class RhythmGameMapper : MonoBehaviour
         if (metronome == true)
         {
             Debug.Log("Beat");
+        }
+    }
 
-            //plays metronome click at every quarter note
-            metronome_audioSrc.PlayOneShot(metronome_audioSrc.clip, 1f);
+    //sherm's rhythm system test method
+    public void InThreshold()
+    {
+        float[] targetBeats = {1f, 3f};
+
+        for (int i = 0; i < targetBeats.Length; i++)
+        {
+            if (beatsInLoop > 1f - beatThreshold && beatsInLoop < 1f + beatThreshold || beatsInLoop > 3f - beatThreshold && beatsInLoop < 3f + beatThreshold )
+            {
+                willPress = true;
+            }
+            else
+            {
+                willPress = false;
+            }
         }
     }
 
@@ -303,5 +321,12 @@ public class RhythmGameMapper : MonoBehaviour
         willPress = false;
     }
 
+    IEnumerator fadeText()
+    {
+        yield return new WaitForSeconds(0.4f);
+        clickedText.SetActive(false);
+        failedText.SetActive(false);
+        successText.SetActive(false);
+    }
 
 }
