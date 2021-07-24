@@ -59,6 +59,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public float beatThreshold;
 
+    float[] targetBeats = new float[3];
+
     private float lastReportedBeat = 0f;
 
     public float dspSongTime;
@@ -228,13 +230,22 @@ public class RhythmGameMapper : MonoBehaviour
     {
         switch (currentEvent.eventType)
         {
+            case 0:
+            //4th note as needed input
+                targetBeats[0] = 3f;
+                targetBeats[1] = 5f;
+                targetBeats[2] = 5f;
+                break;
             case 1:
                 Debug.Log("impostor");
                 metronome_audioSrc.PlayOneShot(hai, 1f);
                 break;
 
-            //event for input
             case 2:
+            //2nd, 3rd and 4th note only as input
+               targetBeats[0] = 1f;
+               targetBeats[1] = 2f;
+               targetBeats[2] = 3f;
             //    StartCoroutine(slackTimer());
                 break;
         }
@@ -299,13 +310,15 @@ public class RhythmGameMapper : MonoBehaviour
     //sherm's rhythm system test method
     public void InThreshold()
     {
-        float[] targetBeats = {1f, 3f};
-
         for (int i = 0; i < targetBeats.Length; i++)
         {
-            if (beatsInLoop > 1f - beatThreshold && beatsInLoop < 1f + beatThreshold || beatsInLoop > 3f - beatThreshold && beatsInLoop < 3f + beatThreshold )
+            if (beatsInLoop > targetBeats[i] - beatThreshold && beatsInLoop < targetBeats[i] + beatThreshold)
             {
                 willPress = true;
+                if (willPress == true)
+                {
+                    break;
+                }
             }
             else
             {
