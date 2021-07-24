@@ -560,22 +560,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Events:
-  - beatsBtwWave: 4
-    eventType: 1
+  - beatsBtwWave: 1
+    eventType: 0
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 0
-    eventType: 2
+    callBackNumber: 0
+  - beatsBtwWave: 1
+    eventType: 0
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 1
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
   - beatsBtwWave: 0
     eventType: 0
     noOfEvents: 9000
@@ -584,6 +595,862 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 0
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 0
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 2
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 2
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 2
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+    callBackNumber: 0
   currentEvent:
     beatsBtwWave: 0
     eventType: 0
@@ -593,6 +1460,7 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 0
     timeRest: 0
+    callBackNumber: 0
   currentEventNumber: 0
   canSpawn: 1
   nextBeatsBtwWave: 0
@@ -619,9 +1487,15 @@ MonoBehaviour:
   beatGo: 0
   timeGo: 0
   willPress: 0
+  canPress: 0
+  newWaveGenerate: 0
   autoPlay: 1
-  hai: {fileID: 8300000, guid: 49a8d6edb60b3f1449a6d9a9fe303d5b, type: 3}
-  Nothai: {fileID: 8300000, guid: 37527bbd6c77fc944ba2bc39dec392fb, type: 3}
+  randomBirdnumber: 0
+  nextEventRandom: 0
+  sound3: {fileID: 8300000, guid: 49a8d6edb60b3f1449a6d9a9fe303d5b, type: 3}
+  sound5: {fileID: 8300000, guid: 37527bbd6c77fc944ba2bc39dec392fb, type: 3}
+  sound1: {fileID: 8300000, guid: d96a10bc592c26845b0677e9680a5698, type: 3}
+  sound2: {fileID: 8300000, guid: 112b2ceb8c58dae449da17617b0a3e93, type: 3}
   clickedText: {fileID: 617604092}
   failedText: {fileID: 1891339307}
   successText: {fileID: 1076982253}
@@ -638,7 +1512,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -8040312823056929966, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6c1a5deaf6256f842ab97c1a258f1646, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -969,7 +1843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1252290419
 AudioSource:
   m_ObjectHideFlags: 0

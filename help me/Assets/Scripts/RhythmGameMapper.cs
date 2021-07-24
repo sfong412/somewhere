@@ -23,7 +23,7 @@ public class beatMap
 
     public bool timeRest;
 
-    public int callBackNumber;
+   
 
 }
 
@@ -40,6 +40,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public int nextBeatsBtwWave;
     public float nextTimeBtwWave;
+
+     public int callBackNumber;
     public static RhythmGameMapper Instance { get; set; }
 
     [Header("Assignables")]
@@ -175,7 +177,6 @@ public class RhythmGameMapper : MonoBehaviour
                 canSpawn = true;
                 currentEventNumber++;
                 newWaveGenerate = true;
-                 nextEventRandom += 3;
                  randomBirdnumber = Random.Range(0,2);
                 currentEvent = Events[currentEventNumber];
                 timeGo = true;
@@ -212,7 +213,7 @@ public class RhythmGameMapper : MonoBehaviour
             {  
                 successText.SetActive(true);
                 willPress = false;
-                switch(currentEvent.callBackNumber)
+                switch(callBackNumber)
                 {
                     case 0:
                     metronome_audioSrc.PlayOneShot(sound5, 1f);
@@ -229,10 +230,13 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (currentEventNumber == nextEventRandom && newWaveGenerate == true)
                 {
+                    currentEvent.noOfEvents = 0;
                     Debug.Log("slackTimer");
                     switch(randomBirdnumber)
                     {
                         case 0:
+                        Debug.Log("1");
+                        callBackNumber = 0;
                         Events[currentEventNumber + 1].beatsBtwWave = 1;
                         Events[currentEventNumber + 1].eventType = 2;
                         Events[currentEventNumber + 1].noOfEvents = 1;
@@ -247,7 +251,6 @@ public class RhythmGameMapper : MonoBehaviour
                         Events[currentEventNumber + 2].timeMode = false;
                         Events[currentEventNumber + 2].beatRest = true;
                         Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 2].callBackNumber = 0;
                         Events[currentEventNumber + 3].beatsBtwWave = 2;
                         Events[currentEventNumber + 3].eventType = 0;
                         Events[currentEventNumber + 3].noOfEvents = 0;
@@ -258,22 +261,23 @@ public class RhythmGameMapper : MonoBehaviour
                         break;
 
                         case 1: 
-                        Events[currentEventNumber + 1].beatsBtwWave = 0;
+                        Debug.Log("2");
+                        callBackNumber = 1;
+                        Events[currentEventNumber + 1].beatsBtwWave = 1;
                         Events[currentEventNumber + 1].eventType = 3;
                         Events[currentEventNumber + 1].noOfEvents = 1;
                         Events[currentEventNumber + 1].beatMode = true;
                         Events[currentEventNumber + 1].timeMode = false;
                         Events[currentEventNumber + 1].beatRest = true;
                         Events[currentEventNumber + 1].timeRest = false;
-                        Events[currentEventNumber + 2].beatsBtwWave = 2;
+                        Events[currentEventNumber + 2].beatsBtwWave = 1;
                         Events[currentEventNumber + 2].eventType = 4;
                         Events[currentEventNumber + 2].noOfEvents = 1;
                         Events[currentEventNumber + 2].beatMode = true;
                         Events[currentEventNumber + 2].timeMode = false;
                         Events[currentEventNumber + 2].beatRest = true;
                         Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 2].callBackNumber = 1;
-                        Events[currentEventNumber + 3].beatsBtwWave = 2;
+                        Events[currentEventNumber + 3].beatsBtwWave = 1;
                         Events[currentEventNumber + 3].eventType = 0;
                         Events[currentEventNumber + 3].noOfEvents = 0;
                         Events[currentEventNumber + 3].beatMode = true;
@@ -282,23 +286,24 @@ public class RhythmGameMapper : MonoBehaviour
                         Events[currentEventNumber + 3].timeRest = false;
                         break;
 
-                        case 2: 
-                       Events[currentEventNumber + 1].beatsBtwWave = 0;
-                        Events[currentEventNumber + 1].eventType = 3;
+                        case 2:
+                        Debug.Log("1");
+                        callBackNumber = 0;
+                        Events[currentEventNumber + 1].beatsBtwWave = 1;
+                        Events[currentEventNumber + 1].eventType = 2;
                         Events[currentEventNumber + 1].noOfEvents = 1;
                         Events[currentEventNumber + 1].beatMode = true;
                         Events[currentEventNumber + 1].timeMode = false;
                         Events[currentEventNumber + 1].beatRest = true;
                         Events[currentEventNumber + 1].timeRest = false;
-                        Events[currentEventNumber + 2].beatsBtwWave = 2;
-                        Events[currentEventNumber + 2].eventType = 4;
+                        Events[currentEventNumber + 2].beatsBtwWave = 1;
+                        Events[currentEventNumber + 2].eventType = 1;
                         Events[currentEventNumber + 2].noOfEvents = 1;
                         Events[currentEventNumber + 2].beatMode = true;
                         Events[currentEventNumber + 2].timeMode = false;
                         Events[currentEventNumber + 2].beatRest = true;
                         Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 2].callBackNumber = 1;
-                        Events[currentEventNumber + 3].beatsBtwWave = 2;
+                        Events[currentEventNumber + 3].beatsBtwWave = 1;
                         Events[currentEventNumber + 3].eventType = 0;
                         Events[currentEventNumber + 3].noOfEvents = 0;
                         Events[currentEventNumber + 3].beatMode = true;
@@ -306,8 +311,10 @@ public class RhythmGameMapper : MonoBehaviour
                         Events[currentEventNumber + 3].beatRest = true;
                         Events[currentEventNumber + 3].timeRest = false;
                         break;
+
                     } 
                     newWaveGenerate = false;
+                    nextEventRandom += 3;
                 }
 
 
