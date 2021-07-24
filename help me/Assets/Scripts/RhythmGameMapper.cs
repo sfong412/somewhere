@@ -23,20 +23,16 @@ public class beatMap
 
     public bool timeRest;
 
-    
-
-
-
 }
 
 
- 
+
 public class RhythmGameMapper : MonoBehaviour
 {
     [SerializeField] beatMap[] Events;
 
-    [SerializeField]private beatMap currentEvent;
-    [SerializeField]private int currentEventNumber;
+    [SerializeField] private beatMap currentEvent;
+    [SerializeField] private int currentEventNumber;
 
     public bool canSpawn;
 
@@ -45,7 +41,12 @@ public class RhythmGameMapper : MonoBehaviour
     public static RhythmGameMapper Instance { get; set; }
 
     [Header("Assignables")]
-    public float bpmDividedByFour;
+    
+    public float beatsPerSecond;
+
+    public float beatsPerMeasure;
+
+    //public float bpmDividedByFour;
     public float secPerBeat;
     public float songPosition;
     public float songDuration;
@@ -80,11 +81,11 @@ public class RhythmGameMapper : MonoBehaviour
     public bool autoPlay = true;
 
     public AudioClip hai;
-     public AudioClip Nothai;
+    public AudioClip Nothai;
 
-     public GameObject test1;
-     public GameObject test2;
-     public GameObject test3;
+    public GameObject test1;
+    public GameObject test2;
+    public GameObject test3;
 
     void Start()
     {
@@ -94,8 +95,8 @@ public class RhythmGameMapper : MonoBehaviour
         //Metronome
         //metronome_audioSrc.GetComponent<AudioSource>();
         //Calculate the number of seconds in each beat
-        secPerRealBeat = 60f / bpmDividedByFour;
-        secPerBeat = 15f / bpmDividedByFour;
+        secPerRealBeat = 60f / (beatsPerSecond / beatsPerMeasure);
+        secPerBeat = 15f / (beatsPerSecond / beatsPerMeasure);
         //Record the time when the music starts
         dspSongTime = (float)musicSource.time;
         //Start the music
@@ -107,8 +108,6 @@ public class RhythmGameMapper : MonoBehaviour
         songLength = musicSource.clip.length;
         Application.targetFrameRate = 120;
         currentEvent = Events[currentEventNumber];
-        
-   
     }
 
     void Update()
@@ -116,8 +115,8 @@ public class RhythmGameMapper : MonoBehaviour
         lastReportedBeat = songPositionInBeats;
         if (musicSource.isPlaying)
         {
-            secPerRealBeat = 60f / bpmDividedByFour;
-            secPerBeat = 15f / bpmDividedByFour;
+            secPerRealBeat = 60f / (beatsPerSecond / beatsPerMeasure);
+            secPerBeat = 15f / (beatsPerSecond / beatsPerMeasure);
 
             //determine how many seconds since the song started
             //songPosition = (float)(AudioSettings.dspTime - dspSongTime);
@@ -136,49 +135,48 @@ public class RhythmGameMapper : MonoBehaviour
             songPosBeat = (float)songPositionInBeats / 4;
             ExecuteEvent();
 
-            
         }
 
         if (currentEvent.beatRest)
         {
-             if (currentEvent.beatsBtwWave == 0 && !canSpawn)
-        {
-            canSpawn = true;
-            currentEventNumber++;
-            currentEvent = Events[currentEventNumber];
-            timeGo = true;
-        }
+            if (currentEvent.beatsBtwWave == 0 && !canSpawn)
+            {
+                canSpawn = true;
+                currentEventNumber++;
+                currentEvent = Events[currentEventNumber];
+                timeGo = true;
+            }
         }
 
-       
+
 
         if (currentEvent.timeRest)
         {
             if (currentEvent.songPositionWave < songPosition)
             {
-            canSpawn = true;
-            currentEventNumber++;
-            currentEvent = Events[currentEventNumber];
-            beatGo = true;
+                canSpawn = true;
+                currentEventNumber++;
+                currentEvent = Events[currentEventNumber];
+                beatGo = true;
             }
 
-           
+
         }
 
-         if (Input.GetKeyDown(KeyCode.Space))
-         {
-             if (!willPress)
-             {
-                 test2.SetActive(true);
-             }
-             else if (willPress)
-             {
-                 metronome_audioSrc.PlayOneShot(Nothai, 1f);
-                 test3.SetActive(true);
-                 willPress = false;
-             }
-             test1.SetActive(true);
-         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!willPress)
+            {
+                test2.SetActive(true);
+            }
+            else if (willPress)
+            {
+                metronome_audioSrc.PlayOneShot(Nothai, 1f);
+                test3.SetActive(true);
+                willPress = false;
+            }
+            test1.SetActive(true);
+        }
 
 
 
@@ -186,48 +184,48 @@ public class RhythmGameMapper : MonoBehaviour
 
     void ExecuteEvent()
     {
-          if (canSpawn == true)
-          {
+        if (canSpawn == true)
+        {
 
-              if (currentEvent.beatMode == true && beatGo == true)
-              {
-                  beatGo = false;
-                  EventType();
-                  
-                    
+            if (currentEvent.beatMode == true && beatGo == true)
+            {
+                beatGo = false;
+                EventType();
 
-              }
 
-              if (currentEvent.timeMode == true && beatGo == true)
-              {
-                  
-                 timeGo = false;
-                 EventType();
-                 
-              }
-              
-            
-          }
 
-          if (currentEvent.noOfEvents == 0)
-          {
-              canSpawn = false;
-              
-          }
+            }
+
+            if (currentEvent.timeMode == true && beatGo == true)
+            {
+
+                timeGo = false;
+                EventType();
+
+            }
+
+
+        }
+
+        if (currentEvent.noOfEvents == 0)
+        {
+            canSpawn = false;
+
+        }
     }
 
     void EventType()
     {
         switch (currentEvent.eventType)
-                 {
-                  case 1: 
-                  Debug.Log("impostor");
-                  metronome_audioSrc.PlayOneShot(hai, 1f);
-                  break;
-                  case 2:
-                   StartCoroutine(slackTimer());
-                   break;
-                 }
+        {
+            case 1:
+                Debug.Log("impostor");
+                metronome_audioSrc.PlayOneShot(hai, 1f);
+                break;
+            case 2:
+                StartCoroutine(slackTimer());
+                break;
+        }
     }
 
     void ReportBeat()
@@ -239,7 +237,10 @@ public class RhythmGameMapper : MonoBehaviour
             beatTime += 0.25f;
             QuarterBeat();
             lastReportedBeat = songPositionInBeats;
-           
+
+            //plays metronome click at every quarter note
+            metronome_audioSrc.PlayOneShot(metronome_audioSrc.clip, 1f);
+
         }
         else
         {
@@ -247,33 +248,33 @@ public class RhythmGameMapper : MonoBehaviour
         }
     }
 
-    [SerializeField]private int times;
-    
+    [SerializeField] private int times;
+
     public void QuarterBeat()
     {
-       
-       
+
+
         Debug.Log("quarter");
-       
-         if (!canSpawn && currentEvent.beatMode == true)
-            {
-                currentEvent.beatsBtwWave -= 1;
-            }
-            if (canSpawn && currentEvent.noOfEvents > 0)
-            {
-                beatGo = true;
-                currentEvent.noOfEvents--;
-            }
-            
-        
+
+        if (!canSpawn && currentEvent.beatMode == true)
+        {
+            currentEvent.beatsBtwWave -= 1;
+        }
+        if (canSpawn && currentEvent.noOfEvents > 0)
+        {
+            beatGo = true;
+            currentEvent.noOfEvents--;
+        }
+
+
         if (times == 4)
         {
             times = 0;
         }
-        
+
     }
 
-   
+
 
     public void FullBeat()
     {
@@ -282,7 +283,7 @@ public class RhythmGameMapper : MonoBehaviour
         if (metronome == true)
         {
             Debug.Log("Beat");
-            
+
         }
     }
 
