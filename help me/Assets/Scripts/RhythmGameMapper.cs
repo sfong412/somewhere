@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 [System.Serializable]
 //Created by color!please studios
 
@@ -23,7 +24,7 @@ public class beatMap
 
     public bool timeRest;
 
-   
+
 
 }
 
@@ -41,11 +42,11 @@ public class RhythmGameMapper : MonoBehaviour
     public int nextBeatsBtwWave;
     public float nextTimeBtwWave;
 
-     public int callBackNumber;
+    public int callBackNumber;
     public static RhythmGameMapper Instance { get; set; }
 
     [Header("Assignables")]
-    
+
     public float beatsPerSecond;
 
     public float beatsPerMeasure;
@@ -103,8 +104,8 @@ public class RhythmGameMapper : MonoBehaviour
     public AudioClip sound3;
     public AudioClip sound5;
 
-    public AudioClip sound1; 
-    public AudioClip sound2; 
+    public AudioClip sound1;
+    public AudioClip sound2;
 
     public GameObject clickedText;
     public GameObject failedText;
@@ -167,7 +168,7 @@ public class RhythmGameMapper : MonoBehaviour
             songPosBeat = (int)songPositionInBeats / beatsPerMeasure;
             ExecuteEvent();
 
-    InThreshold();
+            InThreshold();
         }
 
         if (currentEvent.beatRest)
@@ -177,7 +178,7 @@ public class RhythmGameMapper : MonoBehaviour
                 canSpawn = true;
                 currentEventNumber++;
                 newWaveGenerate = true;
-                 randomBirdnumber = Random.Range(0,2);
+                randomBirdnumber = Random.Range(0, 2);
                 currentEvent = Events[currentEventNumber];
                 timeGo = true;
             }
@@ -193,7 +194,7 @@ public class RhythmGameMapper : MonoBehaviour
                 currentEventNumber++;
                 nextEventRandom += 3;
                 newWaveGenerate = true;
-                randomBirdnumber = Random.Range(0,2);
+                randomBirdnumber = Random.Range(0, 2);
                 currentEvent = Events[currentEventNumber];
                 beatGo = true;
             }
@@ -205,119 +206,122 @@ public class RhythmGameMapper : MonoBehaviour
         {
             if (canPress)
             {
-                 if (!willPress)
-            {
-                failedText.SetActive(true);
-            }
-            else if (willPress)
-            {  
-                successText.SetActive(true);
-                willPress = false;
-                switch(callBackNumber)
+                if (!willPress)
                 {
-                    case 0:
-                    metronome_audioSrc.PlayOneShot(sound5, 1f);
-                    break;
-                    case 1:
-                    metronome_audioSrc.PlayOneShot(sound1, 1f);
-                    break;
+                    failedText.SetActive(true);
                 }
+                else if (willPress)
+                {
+                    successText.SetActive(true);
+                    willPress = false;
+                    switch (callBackNumber)
+                    {
+                        case 0:
+                            metronome_audioSrc.PlayOneShot(sound5, 1f);
+                            break;
+                        case 1:
+                            metronome_audioSrc.PlayOneShot(sound1, 1f);
+                            break;
+                    }
+                }
+                clickedText.SetActive(true);
             }
-            clickedText.SetActive(true);
-            }
-           
+
         }
 
         if (currentEventNumber == nextEventRandom && newWaveGenerate == true)
-                {
-                    currentEvent.noOfEvents = 0;
-                    Debug.Log("slackTimer");
-                    switch(randomBirdnumber)
-                    {
-                        case 0:
-                        Debug.Log("1");
-                        callBackNumber = 0;
-                        Events[currentEventNumber + 1].beatsBtwWave = 1;
-                        Events[currentEventNumber + 1].eventType = 2;
-                        Events[currentEventNumber + 1].noOfEvents = 1;
-                        Events[currentEventNumber + 1].beatMode = true;
-                        Events[currentEventNumber + 1].timeMode = false;
-                        Events[currentEventNumber + 1].beatRest = true;
-                        Events[currentEventNumber + 1].timeRest = false;
-                        Events[currentEventNumber + 2].beatsBtwWave = 1;
-                        Events[currentEventNumber + 2].eventType = 1;
-                        Events[currentEventNumber + 2].noOfEvents = 1;
-                        Events[currentEventNumber + 2].beatMode = true;
-                        Events[currentEventNumber + 2].timeMode = false;
-                        Events[currentEventNumber + 2].beatRest = true;
-                        Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 3].beatsBtwWave = 2;
-                        Events[currentEventNumber + 3].eventType = 0;
-                        Events[currentEventNumber + 3].noOfEvents = 0;
-                        Events[currentEventNumber + 3].beatMode = true;
-                        Events[currentEventNumber + 3].timeMode = false;
-                        Events[currentEventNumber + 3].beatRest = true;
-                        Events[currentEventNumber + 3].timeRest = false;
-                        break;
+        {
+            currentEvent.noOfEvents = 0;
+            Debug.Log("slackTimer");
+            switch (randomBirdnumber)
+            {
+                case 0:
+                    Debug.Log("1");
+                    callBackNumber = 0;
+                    Events[currentEventNumber + 1].beatsBtwWave = 1;
+                    Events[currentEventNumber + 1].eventType = 2;
+                    Events[currentEventNumber + 1].noOfEvents = 1;
+                    Events[currentEventNumber + 1].beatMode = true;
+                    Events[currentEventNumber + 1].timeMode = false;
+                    Events[currentEventNumber + 1].beatRest = true;
+                    Events[currentEventNumber + 1].timeRest = false;
+                    Events[currentEventNumber + 2].beatsBtwWave = 1;
+                    Events[currentEventNumber + 2].eventType = 1;
+                    Events[currentEventNumber + 2].noOfEvents = 1;
+                    Events[currentEventNumber + 2].beatMode = true;
+                    Events[currentEventNumber + 2].timeMode = false;
+                    Events[currentEventNumber + 2].beatRest = true;
+                    Events[currentEventNumber + 2].timeRest = false;
+                    Events[currentEventNumber + 3].beatsBtwWave = 2;
+                    Events[currentEventNumber + 3].eventType = 0;
+                    Events[currentEventNumber + 3].noOfEvents = 0;
+                    Events[currentEventNumber + 3].beatMode = true;
+                    Events[currentEventNumber + 3].timeMode = false;
+                    Events[currentEventNumber + 3].beatRest = true;
+                    Events[currentEventNumber + 3].timeRest = false;
+                    break;
 
-                        case 1: 
-                        Debug.Log("2");
-                        callBackNumber = 1;
-                        Events[currentEventNumber + 1].beatsBtwWave = 1;
-                        Events[currentEventNumber + 1].eventType = 3;
-                        Events[currentEventNumber + 1].noOfEvents = 1;
-                        Events[currentEventNumber + 1].beatMode = true;
-                        Events[currentEventNumber + 1].timeMode = false;
-                        Events[currentEventNumber + 1].beatRest = true;
-                        Events[currentEventNumber + 1].timeRest = false;
-                        Events[currentEventNumber + 2].beatsBtwWave = 1;
-                        Events[currentEventNumber + 2].eventType = 4;
-                        Events[currentEventNumber + 2].noOfEvents = 1;
-                        Events[currentEventNumber + 2].beatMode = true;
-                        Events[currentEventNumber + 2].timeMode = false;
-                        Events[currentEventNumber + 2].beatRest = true;
-                        Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 3].beatsBtwWave = 1;
-                        Events[currentEventNumber + 3].eventType = 0;
-                        Events[currentEventNumber + 3].noOfEvents = 0;
-                        Events[currentEventNumber + 3].beatMode = true;
-                        Events[currentEventNumber + 3].timeMode = false;
-                        Events[currentEventNumber + 3].beatRest = true;
-                        Events[currentEventNumber + 3].timeRest = false;
-                        break;
+                case 1:
+                    Debug.Log("2");
+                    callBackNumber = 1;
+                    Events[currentEventNumber + 1].beatsBtwWave = 1;
+                    Events[currentEventNumber + 1].eventType = 3;
+                    Events[currentEventNumber + 1].noOfEvents = 1;
+                    Events[currentEventNumber + 1].beatMode = true;
+                    Events[currentEventNumber + 1].timeMode = false;
+                    Events[currentEventNumber + 1].beatRest = true;
+                    Events[currentEventNumber + 1].timeRest = false;
+                    Events[currentEventNumber + 2].beatsBtwWave = 1;
+                    Events[currentEventNumber + 2].eventType = 4;
+                    Events[currentEventNumber + 2].noOfEvents = 1;
+                    Events[currentEventNumber + 2].beatMode = true;
+                    Events[currentEventNumber + 2].timeMode = false;
+                    Events[currentEventNumber + 2].beatRest = true;
+                    Events[currentEventNumber + 2].timeRest = false;
+                    Events[currentEventNumber + 3].beatsBtwWave = 1;
+                    Events[currentEventNumber + 3].eventType = 0;
+                    Events[currentEventNumber + 3].noOfEvents = 0;
+                    Events[currentEventNumber + 3].beatMode = true;
+                    Events[currentEventNumber + 3].timeMode = false;
+                    Events[currentEventNumber + 3].beatRest = true;
+                    Events[currentEventNumber + 3].timeRest = false;
+                    break;
 
-                        case 2:
-                        Debug.Log("1");
-                        callBackNumber = 0;
-                        Events[currentEventNumber + 1].beatsBtwWave = 1;
-                        Events[currentEventNumber + 1].eventType = 2;
-                        Events[currentEventNumber + 1].noOfEvents = 1;
-                        Events[currentEventNumber + 1].beatMode = true;
-                        Events[currentEventNumber + 1].timeMode = false;
-                        Events[currentEventNumber + 1].beatRest = true;
-                        Events[currentEventNumber + 1].timeRest = false;
-                        Events[currentEventNumber + 2].beatsBtwWave = 1;
-                        Events[currentEventNumber + 2].eventType = 1;
-                        Events[currentEventNumber + 2].noOfEvents = 1;
-                        Events[currentEventNumber + 2].beatMode = true;
-                        Events[currentEventNumber + 2].timeMode = false;
-                        Events[currentEventNumber + 2].beatRest = true;
-                        Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 3].beatsBtwWave = 1;
-                        Events[currentEventNumber + 3].eventType = 0;
-                        Events[currentEventNumber + 3].noOfEvents = 0;
-                        Events[currentEventNumber + 3].beatMode = true;
-                        Events[currentEventNumber + 3].timeMode = false;
-                        Events[currentEventNumber + 3].beatRest = true;
-                        Events[currentEventNumber + 3].timeRest = false;
-                        break;
+                case 2:
+                    Debug.Log("1");
+                    callBackNumber = 0;
+                    Events[currentEventNumber + 1].beatsBtwWave = 1;
+                    Events[currentEventNumber + 1].eventType = 2;
+                    Events[currentEventNumber + 1].noOfEvents = 1;
+                    Events[currentEventNumber + 1].beatMode = true;
+                    Events[currentEventNumber + 1].timeMode = false;
+                    Events[currentEventNumber + 1].beatRest = true;
+                    Events[currentEventNumber + 1].timeRest = false;
+                    Events[currentEventNumber + 2].beatsBtwWave = 1;
+                    Events[currentEventNumber + 2].eventType = 1;
+                    Events[currentEventNumber + 2].noOfEvents = 1;
+                    Events[currentEventNumber + 2].beatMode = true;
+                    Events[currentEventNumber + 2].timeMode = false;
+                    Events[currentEventNumber + 2].beatRest = true;
+                    Events[currentEventNumber + 2].timeRest = false;
+                    Events[currentEventNumber + 3].beatsBtwWave = 1;
+                    Events[currentEventNumber + 3].eventType = 0;
+                    Events[currentEventNumber + 3].noOfEvents = 0;
+                    Events[currentEventNumber + 3].beatMode = true;
+                    Events[currentEventNumber + 3].timeMode = false;
+                    Events[currentEventNumber + 3].beatRest = true;
+                    Events[currentEventNumber + 3].timeRest = false;
+                    break;
 
-                    } 
-                    newWaveGenerate = false;
-                    nextEventRandom += 3;
-                }
+            }
+            newWaveGenerate = false;
+            nextEventRandom += 3;
+        }
 
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
 
     }
 
@@ -329,8 +333,8 @@ public class RhythmGameMapper : MonoBehaviour
             if (currentEvent.beatMode == true && beatGo == true)
             {
                 beatGo = false;
-                EventType();          
-                
+                EventType();
+
 
 
             }
@@ -358,7 +362,7 @@ public class RhythmGameMapper : MonoBehaviour
         switch (currentEvent.eventType)
         {
             case 0:
-            //4th note as needed input
+                //4th note as needed input
                 targetBeats[0] = 3f;
                 targetBeats[1] = 5f;
                 targetBeats[2] = 5f;
@@ -368,11 +372,11 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
 
             case 2:
-            //2nd, 3rd and 4th note only as input
-               targetBeats[0] = 1f;
-               targetBeats[1] = 2f;
-               targetBeats[2] = 3f;
-            //    StartCoroutine(slackTimer());
+                //2nd, 3rd and 4th note only as input
+                targetBeats[0] = 1f;
+                targetBeats[1] = 2f;
+                targetBeats[2] = 3f;
+                //    StartCoroutine(slackTimer());
                 metronome_audioSrc.PlayOneShot(sound3, 1f);
                 break;
             case 3:
@@ -380,9 +384,9 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
             case 4:
                 metronome_audioSrc.PlayOneShot(sound2, 1f);
-                break;    
+                break;
         }
-      
+
     }
 
     void ReportBeat()
@@ -406,12 +410,12 @@ public class RhythmGameMapper : MonoBehaviour
 
     public void QuarterBeat()
     {
-          if (metronome == true)
+        if (metronome == true)
         {
-              //plays metronome click at every quarter note
-        metronome_audioSrc.PlayOneShot(metronome_audioSrc.clip, 1f);
+            //plays metronome click at every quarter note
+            metronome_audioSrc.PlayOneShot(metronome_audioSrc.clip, 1f);
         }
-      
+
 
 
 
@@ -439,7 +443,7 @@ public class RhythmGameMapper : MonoBehaviour
     {
         //BeatEvent();
         Debug.Log("Full");
-      
+
     }
 
     //sherm's rhythm system test method
