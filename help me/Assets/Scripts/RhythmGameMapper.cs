@@ -45,7 +45,7 @@ public class RhythmGameMapper : MonoBehaviour
     public static RhythmGameMapper Instance { get; set; }
 
     [Header("Assignables")]
-    public float bpm = 120;
+    public float bpmDividedByFour;
     public float secPerBeat;
     public float songPosition;
     public float songDuration;
@@ -75,10 +75,16 @@ public class RhythmGameMapper : MonoBehaviour
 
     public bool timeGo;
 
+    public bool willPress;
+
     public bool autoPlay = true;
 
     public AudioClip hai;
      public AudioClip Nothai;
+
+     public GameObject test1;
+     public GameObject test2;
+     public GameObject test3;
 
     void Start()
     {
@@ -88,8 +94,8 @@ public class RhythmGameMapper : MonoBehaviour
         //Metronome
         //metronome_audioSrc.GetComponent<AudioSource>();
         //Calculate the number of seconds in each beat
-        secPerRealBeat = 60f / bpm;
-        secPerBeat = 15f / bpm;
+        secPerRealBeat = 60f / bpmDividedByFour;
+        secPerBeat = 15f / bpmDividedByFour;
         //Record the time when the music starts
         dspSongTime = (float)musicSource.time;
         //Start the music
@@ -110,8 +116,8 @@ public class RhythmGameMapper : MonoBehaviour
         lastReportedBeat = songPositionInBeats;
         if (musicSource.isPlaying)
         {
-            secPerRealBeat = 60f / bpm;
-            secPerBeat = 15f / bpm;
+            secPerRealBeat = 60f / bpmDividedByFour;
+            secPerBeat = 15f / bpmDividedByFour;
 
             //determine how many seconds since the song started
             //songPosition = (float)(AudioSettings.dspTime - dspSongTime);
@@ -159,6 +165,23 @@ public class RhythmGameMapper : MonoBehaviour
            
         }
 
+         if (Input.GetKeyDown(KeyCode.Space))
+         {
+             if (!willPress)
+             {
+                 test2.SetActive(true);
+             }
+             else if (willPress)
+             {
+                 metronome_audioSrc.PlayOneShot(Nothai, 1f);
+                 test3.SetActive(true);
+                 willPress = false;
+             }
+             test1.SetActive(true);
+         }
+
+
+
     }
 
     void ExecuteEvent()
@@ -202,7 +225,7 @@ public class RhythmGameMapper : MonoBehaviour
                   metronome_audioSrc.PlayOneShot(hai, 1f);
                   break;
                   case 2:
-                   metronome_audioSrc.PlayOneShot(Nothai, 1f);
+                   StartCoroutine(slackTimer());
                    break;
                  }
     }
@@ -261,6 +284,13 @@ public class RhythmGameMapper : MonoBehaviour
             Debug.Log("Beat");
             
         }
+    }
+
+    IEnumerator slackTimer()
+    {
+        willPress = true;
+        yield return new WaitForSeconds(1f);
+        willPress = false;
     }
 
 
