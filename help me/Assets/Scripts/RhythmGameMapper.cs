@@ -23,6 +23,8 @@ public class beatMap
 
     public bool timeRest;
 
+    public int callBackNumber;
+
 }
 
 
@@ -84,10 +86,21 @@ public class RhythmGameMapper : MonoBehaviour
 
     public bool willPress;
 
+    public bool canPress;
+
+    public bool newWaveGenerate;
+
     public bool autoPlay = true;
 
-    public AudioClip hai;
-    public AudioClip Nothai;
+    public int randomBirdnumber;
+
+    public int nextEventRandom;
+
+    public AudioClip sound3;
+    public AudioClip sound5;
+
+    public AudioClip sound1; 
+    public AudioClip sound2; 
 
     public GameObject clickedText;
     public GameObject failedText;
@@ -114,6 +127,13 @@ public class RhythmGameMapper : MonoBehaviour
         songLength = musicSource.clip.length;
         Application.targetFrameRate = 120;
         currentEvent = Events[currentEventNumber];
+    }
+
+    void Awake()
+    {
+        canPress = true;
+        newWaveGenerate = true;
+        nextEventRandom += 3;
     }
 
     void Update()
@@ -144,7 +164,6 @@ public class RhythmGameMapper : MonoBehaviour
             ExecuteEvent();
 
     InThreshold();
-    Debug.Log(willPress);
         }
 
         if (currentEvent.beatRest)
@@ -153,6 +172,9 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 canSpawn = true;
                 currentEventNumber++;
+                newWaveGenerate = true;
+                 nextEventRandom += 3;
+                 randomBirdnumber = Random.Range(0,2);
                 currentEvent = Events[currentEventNumber];
                 timeGo = true;
             }
@@ -166,6 +188,9 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 canSpawn = true;
                 currentEventNumber++;
+                nextEventRandom += 3;
+                newWaveGenerate = true;
+                randomBirdnumber = Random.Range(0,2);
                 currentEvent = Events[currentEventNumber];
                 beatGo = true;
             }
@@ -175,18 +200,113 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!willPress)
+            if (canPress)
+            {
+                 if (!willPress)
             {
                 failedText.SetActive(true);
             }
             else if (willPress)
-            {
-                metronome_audioSrc.PlayOneShot(Nothai, 1f);
+            {  
                 successText.SetActive(true);
                 willPress = false;
+                switch(currentEvent.callBackNumber)
+                {
+                    case 0:
+                    metronome_audioSrc.PlayOneShot(sound5, 1f);
+                    break;
+                    case 1:
+                    metronome_audioSrc.PlayOneShot(sound1, 1f);
+                    break;
+                }
             }
             clickedText.SetActive(true);
+            }
+           
         }
+
+        if (currentEventNumber == nextEventRandom && newWaveGenerate == true)
+                {
+                    Debug.Log("slackTimer");
+                    switch(randomBirdnumber)
+                    {
+                        case 0:
+                        Events[currentEventNumber + 1].beatsBtwWave = 1;
+                        Events[currentEventNumber + 1].eventType = 2;
+                        Events[currentEventNumber + 1].noOfEvents = 1;
+                        Events[currentEventNumber + 1].beatMode = true;
+                        Events[currentEventNumber + 1].timeMode = false;
+                        Events[currentEventNumber + 1].beatRest = true;
+                        Events[currentEventNumber + 1].timeRest = false;
+                        Events[currentEventNumber + 2].beatsBtwWave = 1;
+                        Events[currentEventNumber + 2].eventType = 1;
+                        Events[currentEventNumber + 2].noOfEvents = 1;
+                        Events[currentEventNumber + 2].beatMode = true;
+                        Events[currentEventNumber + 2].timeMode = false;
+                        Events[currentEventNumber + 2].beatRest = true;
+                        Events[currentEventNumber + 2].timeRest = false;
+                        Events[currentEventNumber + 2].callBackNumber = 0;
+                        Events[currentEventNumber + 3].beatsBtwWave = 2;
+                        Events[currentEventNumber + 3].eventType = 0;
+                        Events[currentEventNumber + 3].noOfEvents = 0;
+                        Events[currentEventNumber + 3].beatMode = true;
+                        Events[currentEventNumber + 3].timeMode = false;
+                        Events[currentEventNumber + 3].beatRest = true;
+                        Events[currentEventNumber + 3].timeRest = false;
+                        break;
+
+                        case 1: 
+                        Events[currentEventNumber + 1].beatsBtwWave = 0;
+                        Events[currentEventNumber + 1].eventType = 3;
+                        Events[currentEventNumber + 1].noOfEvents = 1;
+                        Events[currentEventNumber + 1].beatMode = true;
+                        Events[currentEventNumber + 1].timeMode = false;
+                        Events[currentEventNumber + 1].beatRest = true;
+                        Events[currentEventNumber + 1].timeRest = false;
+                        Events[currentEventNumber + 2].beatsBtwWave = 2;
+                        Events[currentEventNumber + 2].eventType = 4;
+                        Events[currentEventNumber + 2].noOfEvents = 1;
+                        Events[currentEventNumber + 2].beatMode = true;
+                        Events[currentEventNumber + 2].timeMode = false;
+                        Events[currentEventNumber + 2].beatRest = true;
+                        Events[currentEventNumber + 2].timeRest = false;
+                        Events[currentEventNumber + 2].callBackNumber = 1;
+                        Events[currentEventNumber + 3].beatsBtwWave = 2;
+                        Events[currentEventNumber + 3].eventType = 0;
+                        Events[currentEventNumber + 3].noOfEvents = 0;
+                        Events[currentEventNumber + 3].beatMode = true;
+                        Events[currentEventNumber + 3].timeMode = false;
+                        Events[currentEventNumber + 3].beatRest = true;
+                        Events[currentEventNumber + 3].timeRest = false;
+                        break;
+
+                        case 2: 
+                       Events[currentEventNumber + 1].beatsBtwWave = 0;
+                        Events[currentEventNumber + 1].eventType = 3;
+                        Events[currentEventNumber + 1].noOfEvents = 1;
+                        Events[currentEventNumber + 1].beatMode = true;
+                        Events[currentEventNumber + 1].timeMode = false;
+                        Events[currentEventNumber + 1].beatRest = true;
+                        Events[currentEventNumber + 1].timeRest = false;
+                        Events[currentEventNumber + 2].beatsBtwWave = 2;
+                        Events[currentEventNumber + 2].eventType = 4;
+                        Events[currentEventNumber + 2].noOfEvents = 1;
+                        Events[currentEventNumber + 2].beatMode = true;
+                        Events[currentEventNumber + 2].timeMode = false;
+                        Events[currentEventNumber + 2].beatRest = true;
+                        Events[currentEventNumber + 2].timeRest = false;
+                        Events[currentEventNumber + 2].callBackNumber = 1;
+                        Events[currentEventNumber + 3].beatsBtwWave = 2;
+                        Events[currentEventNumber + 3].eventType = 0;
+                        Events[currentEventNumber + 3].noOfEvents = 0;
+                        Events[currentEventNumber + 3].beatMode = true;
+                        Events[currentEventNumber + 3].timeMode = false;
+                        Events[currentEventNumber + 3].beatRest = true;
+                        Events[currentEventNumber + 3].timeRest = false;
+                        break;
+                    } 
+                    newWaveGenerate = false;
+                }
 
 
 
@@ -200,8 +320,8 @@ public class RhythmGameMapper : MonoBehaviour
             if (currentEvent.beatMode == true && beatGo == true)
             {
                 beatGo = false;
-                EventType();
-
+                EventType();          
+                
 
 
             }
@@ -229,15 +349,22 @@ public class RhythmGameMapper : MonoBehaviour
         switch (currentEvent.eventType)
         {
             case 1:
-                Debug.Log("impostor");
-                metronome_audioSrc.PlayOneShot(hai, 1f);
+                StartCoroutine(slackTimer());
                 break;
 
             //event for input
             case 2:
             //    StartCoroutine(slackTimer());
+                metronome_audioSrc.PlayOneShot(sound3, 1f);
                 break;
+            case 3:
+                StartCoroutine(slackTimer());
+                break;
+            case 4:
+                metronome_audioSrc.PlayOneShot(sound2, 1f);
+                break;    
         }
+      
     }
 
     void ReportBeat()
@@ -261,10 +388,14 @@ public class RhythmGameMapper : MonoBehaviour
 
     public void QuarterBeat()
     {
-        //plays metronome click at every quarter note
+          if (metronome == true)
+        {
+              //plays metronome click at every quarter note
         metronome_audioSrc.PlayOneShot(metronome_audioSrc.clip, 1f);
+        }
+      
 
-        Debug.Log("quarter");
+
 
         if (!canSpawn && currentEvent.beatMode == true)
         {
@@ -290,10 +421,7 @@ public class RhythmGameMapper : MonoBehaviour
     {
         //BeatEvent();
         Debug.Log("Full");
-        if (metronome == true)
-        {
-            Debug.Log("Beat");
-        }
+      
     }
 
     //sherm's rhythm system test method
@@ -317,8 +445,9 @@ public class RhythmGameMapper : MonoBehaviour
     IEnumerator slackTimer()
     {
         willPress = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         willPress = false;
+
     }
 
     IEnumerator fadeText()
