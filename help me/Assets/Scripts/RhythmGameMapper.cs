@@ -62,6 +62,12 @@ public class RhythmGameMapper : MonoBehaviour
 
     public float songPositionInMeasures;
 
+    public int completedBeats = 0;
+
+    public int completedMeasures = 0;
+
+    public float loopPositionInBeats;
+
     public float beatThreshold;
 
     float[] targetBeats = new float[3];
@@ -143,6 +149,11 @@ public class RhythmGameMapper : MonoBehaviour
 
     void Update()
     {
+        if (musicSource.isPlaying == false)
+        {
+            return;
+        }
+
         lastReportedBeat = songPositionInBeats;
         if (musicSource.isPlaying)
         {
@@ -155,10 +166,22 @@ public class RhythmGameMapper : MonoBehaviour
             songPosition = (float)(musicSource.time - dspSongTime - firstBeatOffset);
             //determine how many beats since the song started
             songPositionInBeatsExact = songPosition / secPerBeat;
-            songPositionInBeats = (int)songPositionInBeatsExact;
-            songPositionInMeasures = (int)(songPosition / secPerMeasure);
+            songPositionInBeats = (float)songPositionInBeatsExact;
+            songPositionInMeasures = (float)(songPosition / secPerMeasure);
             ReportBeat();
             //GameTimeline();
+
+            if (songPositionInBeats >= (completedBeats + 1))
+            {
+                completedBeats++;
+            }
+
+            if (songPositionInBeats >= (completedMeasures + 1) * beatsPerMeasure)
+            {
+                completedMeasures++;
+            }
+
+            loopPositionInBeats = songPositionInBeats - completedMeasures * beatsPerMeasure;
 
             if (Input.GetKeyDown(KeyCode.J))
             {
@@ -451,7 +474,7 @@ public class RhythmGameMapper : MonoBehaviour
     {
         for (int i = 0; i < targetBeats.Length; i++)
         {
-            if (beatsInLoop > targetBeats[i] - beatThreshold && beatsInLoop < targetBeats[i] + beatThreshold)
+            if (loopPositionInBeats > targetBeats[i] - beatThreshold && loopPositionInBeats < targetBeats[i] + beatThreshold)
             {
                 willPress = true;
                 if (willPress == true)
