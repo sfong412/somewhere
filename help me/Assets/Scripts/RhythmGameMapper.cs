@@ -420,24 +420,25 @@ public class RhythmGameMapper : MonoBehaviour
         switch (currentEvent.eventType)
         {
             case 0:
+
+                break;
+            case 1:
                 //4th note as needed input
                 targetBeats[0] = 3f;
                 targetBeats[1] = 5f;
                 targetBeats[2] = 5f;
-                break;
-            case 1:
                 StartCoroutine(slackTimer());
                 break;
 
             case 2:
+                //StartCoroutine(slackTimer());
+                metronome_audioSrc.PlayOneShot(sound3, 1f);
+                break;
+            case 3:
                 //2nd, 3rd and 4th note only as input
                 targetBeats[0] = 1f;
                 targetBeats[1] = 2f;
                 targetBeats[2] = 3f;
-                //    StartCoroutine(slackTimer());
-                metronome_audioSrc.PlayOneShot(sound3, 1f);
-                break;
-            case 3:
                 StartCoroutine(slackTimer());
                 break;
             case 4:
