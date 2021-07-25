@@ -1387,7 +1387,8 @@ MonoBehaviour:
   completedBeats: 0
   completedMeasures: 0
   loopPositionInBeats: 0
-  beatThreshold: 0.225
+  beatThresholdLate: 0.1
+  beatThresholdEarly: 0.225
   dspSongTime: 0
   firstBeatOffset: 0.1
   musicSource: {fileID: 944396418}

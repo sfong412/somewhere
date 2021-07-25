@@ -68,7 +68,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public float loopPositionInBeats;
 
-    public float beatThreshold;
+    public float beatThresholdLate;
+    public float beatThresholdEarly;
 
     float[] targetBeats = new float[3];
 
@@ -312,7 +313,7 @@ public class RhythmGameMapper : MonoBehaviour
                 {
                     Debug.Log("2");
                     callBackNumber = 1;
-                    Events[currentEventNumber + 1].beatsBtwWave = 1;
+                    Events[currentEventNumber + 1].beatsBtwWave = 2;
                     Events[currentEventNumber + 1].eventType = 3;
                     Events[currentEventNumber + 1].noOfEvents = 1;
                     Events[currentEventNumber + 1].beatMode = true;
@@ -508,7 +509,7 @@ public class RhythmGameMapper : MonoBehaviour
     {
         for (int i = 0; i < targetBeats.Length; i++)
         {
-            if (loopPositionInBeats > targetBeats[i] - beatThreshold && loopPositionInBeats < targetBeats[i] + beatThreshold)
+            if (loopPositionInBeats > targetBeats[i] - beatThresholdEarly && loopPositionInBeats < targetBeats[i] + beatThresholdLate)
             {
                 willPress = true;
                 if (willPress == true)
