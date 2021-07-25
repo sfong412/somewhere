@@ -62,6 +62,12 @@ public class RhythmGameMapper : MonoBehaviour
 
     public float songPositionInMeasures;
 
+    public int completedBeats = 0;
+
+    public int completedMeasures = 0;
+
+    public float loopPositionInBeats;
+
     public float beatThreshold;
 
     float[] targetBeats = new float[3];
@@ -110,6 +116,7 @@ public class RhythmGameMapper : MonoBehaviour
     public GameObject clickedText;
     public GameObject failedText;
     public GameObject successText;
+    public ScoreManager scoreManager;
 
     void Start()
     {
@@ -143,6 +150,11 @@ public class RhythmGameMapper : MonoBehaviour
 
     void Update()
     {
+        if (musicSource.isPlaying == false)
+        {
+            return;
+        }
+
         lastReportedBeat = songPositionInBeats;
         if (musicSource.isPlaying)
         {
@@ -155,10 +167,22 @@ public class RhythmGameMapper : MonoBehaviour
             songPosition = (float)(musicSource.time - dspSongTime - firstBeatOffset);
             //determine how many beats since the song started
             songPositionInBeatsExact = songPosition / secPerBeat;
-            songPositionInBeats = (int)songPositionInBeatsExact;
-            songPositionInMeasures = (int)(songPosition / secPerMeasure);
+            songPositionInBeats = (float)songPositionInBeatsExact;
+            songPositionInMeasures = (float)(songPosition / secPerMeasure);
             ReportBeat();
             //GameTimeline();
+
+            if (songPositionInBeats >= (completedBeats + 1))
+            {
+                completedBeats++;
+            }
+
+            if (songPositionInBeats >= (completedMeasures + 1) * beatsPerMeasure)
+            {
+                completedMeasures++;
+            }
+
+            loopPositionInBeats = songPositionInBeats - completedMeasures * beatsPerMeasure;
 
             if (Input.GetKeyDown(KeyCode.J))
             {
@@ -181,6 +205,7 @@ public class RhythmGameMapper : MonoBehaviour
                 randomBirdnumber = Random.Range(0, 2);
                 currentEvent = Events[currentEventNumber];
                 timeGo = true;
+
             }
         }
 
@@ -192,7 +217,6 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 canSpawn = true;
                 currentEventNumber++;
-                nextEventRandom += 3;
                 newWaveGenerate = true;
                 randomBirdnumber = Random.Range(0, 2);
                 currentEvent = Events[currentEventNumber];
@@ -214,6 +238,7 @@ public class RhythmGameMapper : MonoBehaviour
                 {
                     successText.SetActive(true);
                     willPress = false;
+                    scoreManager.AddScore();
                     switch (callBackNumber)
                     {
                         case 0:
@@ -236,6 +261,8 @@ public class RhythmGameMapper : MonoBehaviour
             switch (randomBirdnumber)
             {
                 case 0:
+                    if (!metronome_audioSrc.isPlaying)
+                    {
                     Debug.Log("1");
                     callBackNumber = 0;
                     Events[currentEventNumber + 1].beatsBtwWave = 1;
@@ -252,16 +279,21 @@ public class RhythmGameMapper : MonoBehaviour
                     Events[currentEventNumber + 2].timeMode = false;
                     Events[currentEventNumber + 2].beatRest = true;
                     Events[currentEventNumber + 2].timeRest = false;
-                    Events[currentEventNumber + 3].beatsBtwWave = 2;
+                    Events[currentEventNumber + 3].beatsBtwWave = 1;
                     Events[currentEventNumber + 3].eventType = 0;
                     Events[currentEventNumber + 3].noOfEvents = 0;
                     Events[currentEventNumber + 3].beatMode = true;
                     Events[currentEventNumber + 3].timeMode = false;
                     Events[currentEventNumber + 3].beatRest = true;
                     Events[currentEventNumber + 3].timeRest = false;
+                    }
                     break;
+                    
+                    
 
                 case 1:
+                if (!metronome_audioSrc.isPlaying)
+                {
                     Debug.Log("2");
                     callBackNumber = 1;
                     Events[currentEventNumber + 1].beatsBtwWave = 1;
@@ -285,9 +317,12 @@ public class RhythmGameMapper : MonoBehaviour
                     Events[currentEventNumber + 3].timeMode = false;
                     Events[currentEventNumber + 3].beatRest = true;
                     Events[currentEventNumber + 3].timeRest = false;
+                }
                     break;
 
                 case 2:
+                if (!metronome_audioSrc.isPlaying)
+                {
                     Debug.Log("1");
                     callBackNumber = 0;
                     Events[currentEventNumber + 1].beatsBtwWave = 1;
@@ -311,6 +346,7 @@ public class RhythmGameMapper : MonoBehaviour
                     Events[currentEventNumber + 3].timeMode = false;
                     Events[currentEventNumber + 3].beatRest = true;
                     Events[currentEventNumber + 3].timeRest = false;
+                }
                     break;
 
             }
@@ -451,7 +487,7 @@ public class RhythmGameMapper : MonoBehaviour
     {
         for (int i = 0; i < targetBeats.Length; i++)
         {
-            if (beatsInLoop > targetBeats[i] - beatThreshold && beatsInLoop < targetBeats[i] + beatThreshold)
+            if (loopPositionInBeats > targetBeats[i] - beatThreshold && loopPositionInBeats < targetBeats[i] + beatThreshold)
             {
                 willPress = true;
                 if (willPress == true)
