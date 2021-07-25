@@ -138,7 +138,7 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (autoPlay)
             StartCoroutine(StartMusic());
-           // musicSource.Play();
+        // musicSource.Play();
 
         songLength = musicSource.clip.length;
         Application.targetFrameRate = 120;
@@ -261,12 +261,12 @@ public class RhythmGameMapper : MonoBehaviour
                             break;
                     }
                     player.SetBool("isPressed", true);
-                      
+
 
                 }
                 clickedText.SetActive(true);
 
-                
+
             }
 
         }
@@ -280,95 +280,112 @@ public class RhythmGameMapper : MonoBehaviour
                 case 0:
                     if (!metronome_audioSrc.isPlaying)
                     {
-                    Debug.Log("1");
-                    callBackNumber = 0;
-                    Events[currentEventNumber + 1].beatsBtwWave = 1;
-                    Events[currentEventNumber + 1].eventType = 2;
-                    Events[currentEventNumber + 1].noOfEvents = 1;
-                    Events[currentEventNumber + 1].beatMode = true;
-                    Events[currentEventNumber + 1].timeMode = false;
-                    Events[currentEventNumber + 1].beatRest = true;
-                    Events[currentEventNumber + 1].timeRest = false;
-                    Events[currentEventNumber + 2].beatsBtwWave = 1;
-                    Events[currentEventNumber + 2].eventType = 1;
-                    Events[currentEventNumber + 2].noOfEvents = 1;
-                    Events[currentEventNumber + 2].beatMode = true;
-                    Events[currentEventNumber + 2].timeMode = false;
-                    Events[currentEventNumber + 2].beatRest = true;
-                    Events[currentEventNumber + 2].timeRest = false;
-                    Events[currentEventNumber + 3].beatsBtwWave = 1;
-                    Events[currentEventNumber + 3].eventType = 0;
-                    Events[currentEventNumber + 3].noOfEvents = 1;
-                    Events[currentEventNumber + 3].beatMode = true;
-                    Events[currentEventNumber + 3].timeMode = false;
-                    Events[currentEventNumber + 3].beatRest = true;
-                    Events[currentEventNumber + 3].timeRest = false;
+                        Debug.Log("1");
+                        callBackNumber = 0;
+                        Events[currentEventNumber + 1].beatsBtwWave = 1;
+                        Events[currentEventNumber + 1].eventType = 2;
+                        Events[currentEventNumber + 1].noOfEvents = 1;
+                        Events[currentEventNumber + 1].beatMode = true;
+                        Events[currentEventNumber + 1].timeMode = false;
+                        Events[currentEventNumber + 1].beatRest = true;
+                        Events[currentEventNumber + 1].timeRest = false;
+                        Events[currentEventNumber + 2].beatsBtwWave = 1;
+                        Events[currentEventNumber + 2].eventType = 1;
+                        Events[currentEventNumber + 2].noOfEvents = 1;
+                        Events[currentEventNumber + 2].beatMode = true;
+                        Events[currentEventNumber + 2].timeMode = false;
+                        Events[currentEventNumber + 2].beatRest = true;
+                        Events[currentEventNumber + 2].timeRest = false;
+                        Events[currentEventNumber + 3].beatsBtwWave = 1;
+                        Events[currentEventNumber + 3].eventType = 0;
+                        Events[currentEventNumber + 3].noOfEvents = 1;
+                        Events[currentEventNumber + 3].beatMode = true;
+                        Events[currentEventNumber + 3].timeMode = false;
+                        Events[currentEventNumber + 3].beatRest = true;
+                        Events[currentEventNumber + 3].timeRest = false;
                     }
                     break;
-                    
-                    
+
+
 
                 case 1:
-                if (!metronome_audioSrc.isPlaying)
-                {
-                    Debug.Log("2");
-                    callBackNumber = 1;
-                    Events[currentEventNumber + 1].beatsBtwWave = 2;
-                    Events[currentEventNumber + 1].eventType = 3;
-                    Events[currentEventNumber + 1].noOfEvents = 1;
-                    Events[currentEventNumber + 1].beatMode = true;
-                    Events[currentEventNumber + 1].timeMode = false;
-                    Events[currentEventNumber + 1].beatRest = true;
-                    Events[currentEventNumber + 1].timeRest = false;
-                    Events[currentEventNumber + 2].beatsBtwWave = 1;
-                    Events[currentEventNumber + 2].eventType = 4;
-                    Events[currentEventNumber + 2].noOfEvents = 1;
-                    Events[currentEventNumber + 2].beatMode = true;
-                    Events[currentEventNumber + 2].timeMode = false;
-                    Events[currentEventNumber + 2].beatRest = true;
-                    Events[currentEventNumber + 2].timeRest = false;
-                    Events[currentEventNumber + 3].beatsBtwWave = 1;
-                    Events[currentEventNumber + 3].eventType = 0;
-                    Events[currentEventNumber + 3].noOfEvents = 1;
-                    Events[currentEventNumber + 3].beatMode = true;
-                    Events[currentEventNumber + 3].timeMode = false;
-                    Events[currentEventNumber + 3].beatRest = true;
-                    Events[currentEventNumber + 3].timeRest = false;
-                }
+                    if (!metronome_audioSrc.isPlaying)
+                    {
+                        Debug.Log("2");
+                        callBackNumber = 1;
+                        Events[currentEventNumber + 1].beatsBtwWave = 2;
+                        Events[currentEventNumber + 1].eventType = 3;
+                        Events[currentEventNumber + 1].noOfEvents = 1;
+                        Events[currentEventNumber + 1].beatMode = true;
+                        Events[currentEventNumber + 1].timeMode = false;
+                        Events[currentEventNumber + 1].beatRest = true;
+                        Events[currentEventNumber + 1].timeRest = false;
+                        Events[currentEventNumber + 2].beatsBtwWave = 1;
+                        Events[currentEventNumber + 2].eventType = 4;
+                        Events[currentEventNumber + 2].noOfEvents = 1;
+                        Events[currentEventNumber + 2].beatMode = true;
+                        Events[currentEventNumber + 2].timeMode = false;
+                        Events[currentEventNumber + 2].beatRest = true;
+                        Events[currentEventNumber + 2].timeRest = false;
+                        Events[currentEventNumber + 3].beatsBtwWave = 1;
+                        Events[currentEventNumber + 3].eventType = 0;
+                        Events[currentEventNumber + 3].noOfEvents = 1;
+                        Events[currentEventNumber + 3].beatMode = true;
+                        Events[currentEventNumber + 3].timeMode = false;
+                        Events[currentEventNumber + 3].beatRest = true;
+                        Events[currentEventNumber + 3].timeRest = false;
+                    }
                     break;
 
                 case 2:
-                if (!metronome_audioSrc.isPlaying)
-                {
-                    Debug.Log("1");
-                    callBackNumber = 0;
-                    Events[currentEventNumber + 1].beatsBtwWave = 1;
-                    Events[currentEventNumber + 1].eventType = 2;
-                    Events[currentEventNumber + 1].noOfEvents = 1;
-                    Events[currentEventNumber + 1].beatMode = true;
-                    Events[currentEventNumber + 1].timeMode = false;
-                    Events[currentEventNumber + 1].beatRest = true;
-                    Events[currentEventNumber + 1].timeRest = false;
-                    Events[currentEventNumber + 2].beatsBtwWave = 1;
-                    Events[currentEventNumber + 2].eventType = 1;
-                    Events[currentEventNumber + 2].noOfEvents = 1;
-                    Events[currentEventNumber + 2].beatMode = true;
-                    Events[currentEventNumber + 2].timeMode = false;
-                    Events[currentEventNumber + 2].beatRest = true;
-                    Events[currentEventNumber + 2].timeRest = false;
-                    Events[currentEventNumber + 3].beatsBtwWave = 1;
-                    Events[currentEventNumber + 3].eventType = 0;
-                    Events[currentEventNumber + 3].noOfEvents = 1;
-                    Events[currentEventNumber + 3].beatMode = true;
-                    Events[currentEventNumber + 3].timeMode = false;
-                    Events[currentEventNumber + 3].beatRest = true;
-                    Events[currentEventNumber + 3].timeRest = false;
-                }
+                    if (!metronome_audioSrc.isPlaying)
+                    {
+                        Debug.Log("1");
+                        callBackNumber = 0;
+                        Events[currentEventNumber + 1].beatsBtwWave = 1;
+                        Events[currentEventNumber + 1].eventType = 2;
+                        Events[currentEventNumber + 1].noOfEvents = 1;
+                        Events[currentEventNumber + 1].beatMode = true;
+                        Events[currentEventNumber + 1].timeMode = false;
+                        Events[currentEventNumber + 1].beatRest = true;
+                        Events[currentEventNumber + 1].timeRest = false;
+                        Events[currentEventNumber + 2].beatsBtwWave = 1;
+                        Events[currentEventNumber + 2].eventType = 1;
+                        Events[currentEventNumber + 2].noOfEvents = 1;
+                        Events[currentEventNumber + 2].beatMode = true;
+                        Events[currentEventNumber + 2].timeMode = false;
+                        Events[currentEventNumber + 2].beatRest = true;
+                        Events[currentEventNumber + 2].timeRest = false;
+                        Events[currentEventNumber + 3].beatsBtwWave = 1;
+                        Events[currentEventNumber + 3].eventType = 0;
+                        Events[currentEventNumber + 3].noOfEvents = 1;
+                        Events[currentEventNumber + 3].beatMode = true;
+                        Events[currentEventNumber + 3].timeMode = false;
+                        Events[currentEventNumber + 3].beatRest = true;
+                        Events[currentEventNumber + 3].timeRest = false;
+                    }
                     break;
 
             }
             newWaveGenerate = false;
             nextEventRandom += 3;
+        }
+
+        if (currentEventNumber >= Events.Length - 3)
+        {
+            for (int i = 0; i < Events.Length; i++)
+            {
+                Events[i].beatsBtwWave = 1;
+                Events[i].eventType = 0;
+                Events[i].noOfEvents = 1;
+                Events[i].beatMode = true;
+                Events[i].timeMode = false;
+                Events[i].beatRest = true;
+                Events[i].timeRest = false;
+            }
+            currentEventNumber = 0;
+            nextEventRandom = 0;
+            currentEvent = Events[0];
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -378,8 +395,8 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (!metronome_audioSrc.isPlaying)
         {
-             player.SetBool("isPressed", false);
-             StartCoroutine(takePictureAnimator());
+            player.SetBool("isPressed", false);
+            StartCoroutine(takePictureAnimator());
         }
     }
 
@@ -420,24 +437,25 @@ public class RhythmGameMapper : MonoBehaviour
         switch (currentEvent.eventType)
         {
             case 0:
+
+                break;
+            case 1:
                 //4th note as needed input
                 targetBeats[0] = 3f;
                 targetBeats[1] = 5f;
                 targetBeats[2] = 5f;
-                break;
-            case 1:
                 StartCoroutine(slackTimer());
                 break;
 
             case 2:
+                //StartCoroutine(slackTimer());
+                metronome_audioSrc.PlayOneShot(sound3, 1f);
+                break;
+            case 3:
                 //2nd, 3rd and 4th note only as input
                 targetBeats[0] = 1f;
                 targetBeats[1] = 2f;
                 targetBeats[2] = 3f;
-                //    StartCoroutine(slackTimer());
-                metronome_audioSrc.PlayOneShot(sound3, 1f);
-                break;
-            case 3:
                 StartCoroutine(slackTimer());
                 break;
             case 4:
