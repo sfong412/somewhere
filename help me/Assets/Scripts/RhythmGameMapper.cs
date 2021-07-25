@@ -68,7 +68,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public float loopPositionInBeats;
 
-    public float beatThreshold;
+    public float beatThresholdLate;
+    public float beatThresholdEarly;
 
     float[] targetBeats = new float[3];
 
@@ -118,6 +119,8 @@ public class RhythmGameMapper : MonoBehaviour
     public GameObject successText;
     public ScoreManager scoreManager;
 
+    public Animator player;
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -134,7 +137,8 @@ public class RhythmGameMapper : MonoBehaviour
         //musicSource.time = 10f;
 
         if (autoPlay)
-            musicSource.Play();
+            StartCoroutine(StartMusic());
+           // musicSource.Play();
 
         songLength = musicSource.clip.length;
         Application.targetFrameRate = 120;
@@ -146,6 +150,12 @@ public class RhythmGameMapper : MonoBehaviour
         canPress = true;
         newWaveGenerate = true;
         nextEventRandom += 3;
+    }
+
+    IEnumerator StartMusic()
+    {
+        yield return new WaitForSeconds(2f);
+        musicSource.Play();
     }
 
     void Update()
@@ -209,6 +219,8 @@ public class RhythmGameMapper : MonoBehaviour
             }
         }
 
+        player.SetBool("willPress", willPress);
+
 
 
         if (currentEvent.timeRest)
@@ -248,16 +260,21 @@ public class RhythmGameMapper : MonoBehaviour
                             metronome_audioSrc.PlayOneShot(sound1, 1f);
                             break;
                     }
+                    player.SetBool("isPressed", true);
+                      
+
                 }
                 clickedText.SetActive(true);
+
+                
             }
 
         }
 
         if (currentEventNumber == nextEventRandom && newWaveGenerate == true)
         {
+            Debug.Log("sus");
             currentEvent.noOfEvents = 0;
-            Debug.Log("slackTimer");
             switch (randomBirdnumber)
             {
                 case 0:
@@ -281,7 +298,7 @@ public class RhythmGameMapper : MonoBehaviour
                     Events[currentEventNumber + 2].timeRest = false;
                     Events[currentEventNumber + 3].beatsBtwWave = 1;
                     Events[currentEventNumber + 3].eventType = 0;
-                    Events[currentEventNumber + 3].noOfEvents = 0;
+                    Events[currentEventNumber + 3].noOfEvents = 1;
                     Events[currentEventNumber + 3].beatMode = true;
                     Events[currentEventNumber + 3].timeMode = false;
                     Events[currentEventNumber + 3].beatRest = true;
@@ -296,7 +313,7 @@ public class RhythmGameMapper : MonoBehaviour
                 {
                     Debug.Log("2");
                     callBackNumber = 1;
-                    Events[currentEventNumber + 1].beatsBtwWave = 1;
+                    Events[currentEventNumber + 1].beatsBtwWave = 2;
                     Events[currentEventNumber + 1].eventType = 3;
                     Events[currentEventNumber + 1].noOfEvents = 1;
                     Events[currentEventNumber + 1].beatMode = true;
@@ -312,7 +329,7 @@ public class RhythmGameMapper : MonoBehaviour
                     Events[currentEventNumber + 2].timeRest = false;
                     Events[currentEventNumber + 3].beatsBtwWave = 1;
                     Events[currentEventNumber + 3].eventType = 0;
-                    Events[currentEventNumber + 3].noOfEvents = 0;
+                    Events[currentEventNumber + 3].noOfEvents = 1;
                     Events[currentEventNumber + 3].beatMode = true;
                     Events[currentEventNumber + 3].timeMode = false;
                     Events[currentEventNumber + 3].beatRest = true;
@@ -341,7 +358,7 @@ public class RhythmGameMapper : MonoBehaviour
                     Events[currentEventNumber + 2].timeRest = false;
                     Events[currentEventNumber + 3].beatsBtwWave = 1;
                     Events[currentEventNumber + 3].eventType = 0;
-                    Events[currentEventNumber + 3].noOfEvents = 0;
+                    Events[currentEventNumber + 3].noOfEvents = 1;
                     Events[currentEventNumber + 3].beatMode = true;
                     Events[currentEventNumber + 3].timeMode = false;
                     Events[currentEventNumber + 3].beatRest = true;
@@ -359,6 +376,11 @@ public class RhythmGameMapper : MonoBehaviour
             SceneManager.LoadScene("Menu");
         }
 
+        if (!metronome_audioSrc.isPlaying)
+        {
+             player.SetBool("isPressed", false);
+             StartCoroutine(takePictureAnimator());
+        }
     }
 
     void ExecuteEvent()
@@ -398,24 +420,25 @@ public class RhythmGameMapper : MonoBehaviour
         switch (currentEvent.eventType)
         {
             case 0:
+
+                break;
+            case 1:
                 //4th note as needed input
                 targetBeats[0] = 3f;
                 targetBeats[1] = 5f;
                 targetBeats[2] = 5f;
-                break;
-            case 1:
                 StartCoroutine(slackTimer());
                 break;
 
             case 2:
+                //StartCoroutine(slackTimer());
+                metronome_audioSrc.PlayOneShot(sound3, 1f);
+                break;
+            case 3:
                 //2nd, 3rd and 4th note only as input
                 targetBeats[0] = 1f;
                 targetBeats[1] = 2f;
                 targetBeats[2] = 3f;
-                //    StartCoroutine(slackTimer());
-                metronome_audioSrc.PlayOneShot(sound3, 1f);
-                break;
-            case 3:
                 StartCoroutine(slackTimer());
                 break;
             case 4:
@@ -487,11 +510,12 @@ public class RhythmGameMapper : MonoBehaviour
     {
         for (int i = 0; i < targetBeats.Length; i++)
         {
-            if (loopPositionInBeats > targetBeats[i] - beatThreshold && loopPositionInBeats < targetBeats[i] + beatThreshold)
+            if (loopPositionInBeats > targetBeats[i] - beatThresholdEarly && loopPositionInBeats < targetBeats[i] + beatThresholdLate)
             {
                 willPress = true;
                 if (willPress == true)
                 {
+                    //Debug.Log("kill me");
                     break;
                 }
             }
@@ -516,6 +540,13 @@ public class RhythmGameMapper : MonoBehaviour
         clickedText.SetActive(false);
         failedText.SetActive(false);
         successText.SetActive(false);
+    }
+
+    IEnumerator takePictureAnimator()
+    {
+        player.SetBool("takePicture", true);
+        yield return new WaitForSeconds(0.01f);
+        player.SetBool("takePicture", false);
     }
 
 }
