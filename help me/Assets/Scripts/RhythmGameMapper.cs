@@ -134,7 +134,8 @@ public class RhythmGameMapper : MonoBehaviour
         //musicSource.time = 10f;
 
         if (autoPlay)
-            musicSource.Play();
+            StartCoroutine(StartMusic());
+           // musicSource.Play();
 
         songLength = musicSource.clip.length;
         Application.targetFrameRate = 120;
@@ -146,6 +147,12 @@ public class RhythmGameMapper : MonoBehaviour
         canPress = true;
         newWaveGenerate = true;
         nextEventRandom += 3;
+    }
+
+    IEnumerator StartMusic()
+    {
+        yield return new WaitForSeconds(2f);
+        musicSource.Play();
     }
 
     void Update()
