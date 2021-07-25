@@ -116,6 +116,7 @@ public class RhythmGameMapper : MonoBehaviour
     public GameObject clickedText;
     public GameObject failedText;
     public GameObject successText;
+    public ScoreManager scoreManager;
 
     void Start()
     {
@@ -204,6 +205,7 @@ public class RhythmGameMapper : MonoBehaviour
                 randomBirdnumber = Random.Range(0, 2);
                 currentEvent = Events[currentEventNumber];
                 timeGo = true;
+
             }
         }
 
@@ -215,7 +217,6 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 canSpawn = true;
                 currentEventNumber++;
-                nextEventRandom += 3;
                 newWaveGenerate = true;
                 randomBirdnumber = Random.Range(0, 2);
                 currentEvent = Events[currentEventNumber];
@@ -237,6 +238,7 @@ public class RhythmGameMapper : MonoBehaviour
                 {
                     successText.SetActive(true);
                     willPress = false;
+                    scoreManager.AddScore();
                     switch (callBackNumber)
                     {
                         case 0:
@@ -259,6 +261,8 @@ public class RhythmGameMapper : MonoBehaviour
             switch (randomBirdnumber)
             {
                 case 0:
+                    if (!metronome_audioSrc.isPlaying)
+                    {
                     Debug.Log("1");
                     callBackNumber = 0;
                     Events[currentEventNumber + 1].beatsBtwWave = 1;
@@ -275,16 +279,21 @@ public class RhythmGameMapper : MonoBehaviour
                     Events[currentEventNumber + 2].timeMode = false;
                     Events[currentEventNumber + 2].beatRest = true;
                     Events[currentEventNumber + 2].timeRest = false;
-                    Events[currentEventNumber + 3].beatsBtwWave = 2;
+                    Events[currentEventNumber + 3].beatsBtwWave = 1;
                     Events[currentEventNumber + 3].eventType = 0;
                     Events[currentEventNumber + 3].noOfEvents = 0;
                     Events[currentEventNumber + 3].beatMode = true;
                     Events[currentEventNumber + 3].timeMode = false;
                     Events[currentEventNumber + 3].beatRest = true;
                     Events[currentEventNumber + 3].timeRest = false;
+                    }
                     break;
+                    
+                    
 
                 case 1:
+                if (!metronome_audioSrc.isPlaying)
+                {
                     Debug.Log("2");
                     callBackNumber = 1;
                     Events[currentEventNumber + 1].beatsBtwWave = 1;
@@ -308,9 +317,12 @@ public class RhythmGameMapper : MonoBehaviour
                     Events[currentEventNumber + 3].timeMode = false;
                     Events[currentEventNumber + 3].beatRest = true;
                     Events[currentEventNumber + 3].timeRest = false;
+                }
                     break;
 
                 case 2:
+                if (!metronome_audioSrc.isPlaying)
+                {
                     Debug.Log("1");
                     callBackNumber = 0;
                     Events[currentEventNumber + 1].beatsBtwWave = 1;
@@ -334,6 +346,7 @@ public class RhythmGameMapper : MonoBehaviour
                     Events[currentEventNumber + 3].timeMode = false;
                     Events[currentEventNumber + 3].beatRest = true;
                     Events[currentEventNumber + 3].timeRest = false;
+                }
                     break;
 
             }
