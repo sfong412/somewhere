@@ -1379,7 +1379,7 @@ MonoBehaviour:
   completedBeats: 0
   completedMeasures: 0
   loopPositionInBeats: 0
-  beatThreshold: 0.225
+  beatThreshold: 0.1
   dspSongTime: 0
   firstBeatOffset: 0.1
   musicSource: {fileID: 944396418}
@@ -1419,7 +1419,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -8040312823056929966, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6c1a5deaf6256f842ab97c1a258f1646, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.006
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1935,7 +1935,7 @@ GameObject:
   - component: {fileID: 1109996199}
   - component: {fileID: 1109996201}
   m_Layer: 0
-  m_Name: Dancer
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
