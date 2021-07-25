@@ -70,7 +70,7 @@ public class RhythmGameMapper : MonoBehaviour
 
     public float beatThreshold;
 
-    float[] targetBeats = new float[3];
+    public float[] targetBeats = new float[3];
 
     private float lastReportedBeat = 0f;
 
@@ -337,6 +337,7 @@ public class RhythmGameMapper : MonoBehaviour
                     break;
 
             }
+            Debug.Log("random bird number: " + randomBirdnumber);
             newWaveGenerate = false;
             nextEventRandom += 3;
         }
