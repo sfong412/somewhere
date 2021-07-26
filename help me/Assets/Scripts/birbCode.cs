@@ -29,6 +29,11 @@ public class birbCode : MonoBehaviour
            StartCoroutine(birbTurn());
 
         }
+        if (mapper.birbTurn3 == false)
+        {
+            birbMove.SetBool("birbGo", false);
+            StartCoroutine(Death());
+        }
 
         if (mapper.singRightNow == true)
         {
@@ -38,6 +43,8 @@ public class birbCode : MonoBehaviour
         {
             birb.SetBool("mySing", false);
         }
+
+
     }
 
     IEnumerator birbTurn()
@@ -46,5 +53,12 @@ public class birbCode : MonoBehaviour
       yield return new WaitForSeconds(0.5f);
       birb.SetBool("myTurn", true);
 
+    }
+
+    IEnumerator Death()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+       
     }
 }

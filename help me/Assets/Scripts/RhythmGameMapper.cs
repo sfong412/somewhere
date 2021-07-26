@@ -162,6 +162,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public bool singRightNow;
 
+    public bool birbTurn3;
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -209,6 +211,7 @@ public class RhythmGameMapper : MonoBehaviour
         newWaveGenerate = true;
         nextEventRandom += 3;
         canBird = true;
+        birbTurn3 = true;
     }
 
     IEnumerator StartMusic()
@@ -301,13 +304,14 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 if (!willPress)
                 {
-                    failedText.SetActive(true);
+                    //failedText.SetActive(true);
                 }
                 else if (willPress)
                 {
                     PlayerTurnAnimation();
                      singRightNow = false;
-                    successText.SetActive(true);
+                     StartCoroutine(flyAway());
+                    //successText.SetActive(true);
                     willPress = false;
                     scoreManager.AddScore();
                     canPress = false;
@@ -325,7 +329,7 @@ public class RhythmGameMapper : MonoBehaviour
 
 
                 }
-                clickedText.SetActive(true);
+                //clickedText.SetActive(true);
 
 
             }
@@ -345,7 +349,7 @@ public class RhythmGameMapper : MonoBehaviour
                         canBird = false;
                         Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
                         birbTurn = true;
-                        Debug.Log("1");
+                        birbTurn3 = true;
                         callBackNumber = 0;
                         Events[currentEventNumber + 1].beatsBtwWave = 1;
                         Events[currentEventNumber + 1].eventType = 2;
@@ -380,6 +384,7 @@ public class RhythmGameMapper : MonoBehaviour
                         canBird = false;
                         Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
                         birbTurn = true;
+                        birbTurn3 = true;
                         Debug.Log("3");
                         callBackNumber = 0;
                         Events[currentEventNumber + 1].beatsBtwWave = 1;
@@ -522,7 +527,7 @@ public class RhythmGameMapper : MonoBehaviour
             beatTime += 0.25f;
             QuarterBeat();
             lastReportedBeat = songPositionInBeats;
-            StartCoroutine(fadeText());
+            //StartCoroutine(fadeText());
         }
         else
         {
@@ -659,6 +664,13 @@ public class RhythmGameMapper : MonoBehaviour
          Destroy(effect3, 2f);
          Destroy(effect, 2f);
          Destroy(effect2, 2f);
+    }
+
+    IEnumerator flyAway()
+    {
+        yield return new WaitForSeconds(0.5f);
+        birbTurn3 = false;
+        
     }
 
   
