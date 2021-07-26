@@ -33,6 +33,12 @@ public class Logbook : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void RestartGame()
+    {
+        ScoreManager.score = 0;
+        SceneManager.LoadScene("GamePlay");
+    }
+
     public void SwitchToPauseTab()
     {
         pauseTab.SetActive(true);
