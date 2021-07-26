@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blue bird flap
+  m_Name: black bird song
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1674278492195254922, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
+      value: {fileID: -6687632259457714418, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
     - time: 0.23809524
-      value: {fileID: -8525931278545784139, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
+      value: {fileID: 8955036706933545414, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
     - time: 0.47619048
-      value: {fileID: -8525931278545784139, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
+      value: {fileID: -6687632259457714418, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,9 +44,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1674278492195254922, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
-    - {fileID: -8525931278545784139, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
-    - {fileID: -8525931278545784139, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
+    - {fileID: -6687632259457714418, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
+    - {fileID: 8955036706933545414, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
+    - {fileID: -6687632259457714418, guid: df88bf276ab49734bba7f001739cd34e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
