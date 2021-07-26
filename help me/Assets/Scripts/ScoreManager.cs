@@ -7,19 +7,23 @@ public class ScoreManager : MonoBehaviour
 {
     public Animator text;
     public TextMeshProUGUI scoreText;
-    public float score;
+    static public float score;
 
     // Start is called before the first frame update
     void Start()
-    {
-        score = 0;
+    { 
+        if (score == null)
+        {
+            score = 0;
+        }
+        
         scoreText.SetText(score.ToString());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void AddScore()
@@ -31,9 +35,9 @@ public class ScoreManager : MonoBehaviour
 
     IEnumerator addScoreAnimation()
     {
-         text.SetBool("addScore" ,true);
-         yield return new WaitForSeconds(0.2f);
-        text.SetBool("addScore" ,false);
-         
+        text.SetBool("addScore", true);
+        yield return new WaitForSeconds(0.2f);
+        text.SetBool("addScore", false);
+
     }
 }
