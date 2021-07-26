@@ -134,6 +134,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     DayNightCycle dayNightCycle;
 
+    public GameObject logbook;
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -339,12 +341,12 @@ public class RhythmGameMapper : MonoBehaviour
 
 
 
-              
+
                 case 2:
                     if (!metronome_audioSrc.isPlaying)
                     {
                         Instantiate(blueJay, redBirbSpawn.position, Quaternion.identity);
-                         birbTurn = true;
+                        birbTurn = true;
                         Debug.Log("3");
                         callBackNumber = 0;
                         Events[currentEventNumber + 1].beatsBtwWave = 2;
@@ -398,7 +400,8 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu");
+            musicSource.Pause();
+            logbook.SetActive(true);
         }
 
         if (!metronome_audioSrc.isPlaying)
@@ -447,15 +450,17 @@ public class RhythmGameMapper : MonoBehaviour
             case 0:
 
                 break;
+            //Player plays the flute
             case 1:
-               StartCoroutine(slackTimer());
-               metronome_audioSrc.PlayOneShot(sound5, 1f);
-                Debug.Log("sus");
+                StartCoroutine(slackTimer());
+                metronome_audioSrc.PlayOneShot(sound5, 1f);
+                Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);
                 break;
-
+            //Bird enters
             case 2:
                 //StartCoroutine(slackTimer());
                 metronome_audioSrc.PlayOneShot(sound3, 1f);
+                Debug.Log("Song position in beats when bird sound plays: " + songPositionInBeats);
                 break;
             case 3:
                 StartCoroutine(slackTimer());
@@ -521,17 +526,17 @@ public class RhythmGameMapper : MonoBehaviour
     {
         //BeatEvent();
         Debug.Log("Full");
-        
+
 
     }
 
     //sherm's rhythm system test method
-    
+
 
     IEnumerator pressTimer()
     {
         yield return new WaitForSeconds(0.5f);
-              canPress = true;
+        canPress = true;
 
     }
 
