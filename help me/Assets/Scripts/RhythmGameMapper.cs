@@ -132,6 +132,8 @@ public class RhythmGameMapper : MonoBehaviour
     public GameObject blackBird;
     public Transform redBirbSpawn;
 
+    DayNightCycle dayNightCycle;
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -155,6 +157,8 @@ public class RhythmGameMapper : MonoBehaviour
         Application.targetFrameRate = 120;
         currentEvent = Events[currentEventNumber];
 
+        dayNightCycle = GameObject.Find("Background").GetComponent<DayNightCycle>();
+
         Invoke("OnAudioEnd", musicSource.clip.length + 2f);
     }
 
@@ -167,6 +171,7 @@ public class RhythmGameMapper : MonoBehaviour
     {
         Debug.Log("song ended");
         yield return new WaitForSeconds(4f);
+        DayNightCycle.switchBackground();
         SceneManager.LoadScene("GamePlay");
     }
 
