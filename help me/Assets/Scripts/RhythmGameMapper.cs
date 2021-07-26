@@ -148,6 +148,20 @@ public class RhythmGameMapper : MonoBehaviour
         songLength = musicSource.clip.length;
         Application.targetFrameRate = 120;
         currentEvent = Events[currentEventNumber];
+
+        Invoke("OnAudioEnd", musicSource.clip.length + 2f);
+    }
+
+    void OnAudioEnd()
+    {
+        StartCoroutine(OnAudioEndCoroutine());
+    }
+
+    IEnumerator OnAudioEndCoroutine()
+    {
+        Debug.Log("song ended");
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene("GamePlay");
     }
 
     void Awake()
@@ -239,8 +253,6 @@ public class RhythmGameMapper : MonoBehaviour
                 currentEvent = Events[currentEventNumber];
                 beatGo = true;
             }
-
-
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
