@@ -158,6 +158,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public int noteEventNumber;
 
+    public bool canBird;
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -204,6 +206,7 @@ public class RhythmGameMapper : MonoBehaviour
         canPress = true;
         newWaveGenerate = true;
         nextEventRandom += 3;
+        canBird = true;
     }
 
     IEnumerator StartMusic()
@@ -300,7 +303,7 @@ public class RhythmGameMapper : MonoBehaviour
                 }
                 else if (willPress)
                 {
-                    playerTurn = true;
+                    PlayerTurnAnimation();
                     successText.SetActive(true);
                     willPress = false;
                     scoreManager.AddScore();
@@ -326,19 +329,22 @@ public class RhythmGameMapper : MonoBehaviour
 
         }
 
-        if (currentEventNumber == nextEventRandom && newWaveGenerate == true)
+        if (newWaveGenerate == true && currentEventNumber == nextEventRandom)
         {
+            var randomPauseBird = Random.Range(1 , 5);
             currentEvent.noOfEvents = 0;
             switch (randomBirdnumber)
             {
                 case 0:
-                    if (!metronome_audioSrc.isPlaying)
+                
+                    if (!metronome_audioSrc.isPlaying && canBird)
                     {
+                        canBird = false;
                         Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
                         birbTurn = true;
                         Debug.Log("1");
                         callBackNumber = 0;
-                        Events[currentEventNumber + 1].beatsBtwWave = 2;
+                        Events[currentEventNumber + 1].beatsBtwWave = 1;
                         Events[currentEventNumber + 1].eventType = 2;
                         Events[currentEventNumber + 1].noOfEvents = 1;
                         Events[currentEventNumber + 1].beatMode = true;
@@ -352,7 +358,7 @@ public class RhythmGameMapper : MonoBehaviour
                         Events[currentEventNumber + 2].timeMode = false;
                         Events[currentEventNumber + 2].beatRest = true;
                         Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 3].beatsBtwWave = 3;
+                        Events[currentEventNumber + 3].beatsBtwWave = randomPauseBird;
                         Events[currentEventNumber + 3].eventType = 0;
                         Events[currentEventNumber + 3].noOfEvents = 1;
                         Events[currentEventNumber + 3].beatMode = true;
@@ -366,13 +372,14 @@ public class RhythmGameMapper : MonoBehaviour
 
 
                 case 2:
-                    if (!metronome_audioSrc.isPlaying)
+                    if (!metronome_audioSrc.isPlaying && canBird)
                     {
+                        canBird = false;
                         Instantiate(blueJay, redBirbSpawn.position, Quaternion.identity);
                         birbTurn = true;
                         Debug.Log("3");
                         callBackNumber = 0;
-                        Events[currentEventNumber + 1].beatsBtwWave = 2;
+                        Events[currentEventNumber + 1].beatsBtwWave = 1;
                         Events[currentEventNumber + 1].eventType = 2;
                         Events[currentEventNumber + 1].noOfEvents = 1;
                         Events[currentEventNumber + 1].beatMode = true;
@@ -386,7 +393,7 @@ public class RhythmGameMapper : MonoBehaviour
                         Events[currentEventNumber + 2].timeMode = false;
                         Events[currentEventNumber + 2].beatRest = true;
                         Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 3].beatsBtwWave = 3;
+                        Events[currentEventNumber + 3].beatsBtwWave = randomPauseBird;
                         Events[currentEventNumber + 3].eventType = 0;
                         Events[currentEventNumber + 3].noOfEvents = 1;
                         Events[currentEventNumber + 3].beatMode = true;
@@ -433,32 +440,7 @@ public class RhythmGameMapper : MonoBehaviour
             StartCoroutine(takePictureAnimator());
         }
 
-        if (playerTurn)
-        {           
-               Debug.Log(noteEventNumber);
-            switch (noteEventNumber)
-            {       
-                case 1:
-                 var randomNoteNumber = Random.Range(0,2);
-                 Debug.Log("says");
-                 switch(randomNoteNumber)
-                {
-                     case 0:
-                    Instantiate(playerNote1, playerMouth.position, Quaternion.identity);
-                    break;
-
-                    case 1: 
-                    Instantiate(playerNote2, playerMouth.position, Quaternion.identity);
-                    break;
-
-                    case 2:
-                    Instantiate(playerNote3, playerMouth.position, Quaternion.identity);
-                    break;
-                }
-                break;
-            }
-            playerTurn = false;
-        }
+      
 
         
     }
@@ -500,7 +482,7 @@ public class RhythmGameMapper : MonoBehaviour
         switch (currentEvent.eventType)
         {
             case 0:
-
+                canBird = true;
                 break;
             //Player plays the flute
             case 1:
@@ -585,8 +567,30 @@ public class RhythmGameMapper : MonoBehaviour
 
     void PlayerTurnAnimation()
     {
-        
-         
+         switch (noteEventNumber)
+            {       
+                case 1:
+                 var randomNoteNumber = Random.Range(0,3);
+                 Debug.Log(randomNoteNumber);
+                 switch(randomNoteNumber)
+                {
+                     case 0:
+                     GameObject effect = Instantiate(playerNote1, playerMouth.position, Quaternion.identity);
+                     Destroy(effect, 2f);
+                    break;
+
+                    case 1: 
+                   GameObject effect2 = Instantiate(playerNote2, playerMouth.position, Quaternion.identity);
+                     Destroy(effect2, 2f);
+                    break;
+
+                    case 2:
+                   GameObject effect3 = Instantiate(playerNote3, playerMouth.position, Quaternion.identity);
+                     Destroy(effect3, 2f);
+                    break;
+                }
+                break;
+            }         
     }
 
 
