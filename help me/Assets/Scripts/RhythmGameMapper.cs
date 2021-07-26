@@ -134,6 +134,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     DayNightCycle dayNightCycle;
 
+    public GameObject logbook;
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -398,7 +400,8 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu");
+            musicSource.Pause();
+            logbook.SetActive(true);
         }
 
         if (!metronome_audioSrc.isPlaying)
