@@ -121,6 +121,11 @@ public class RhythmGameMapper : MonoBehaviour
 
     public Animator player;
 
+    public bool birbTurn;
+
+    public GameObject redBirb;
+    public Transform redBirbSpawn;
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -280,6 +285,8 @@ public class RhythmGameMapper : MonoBehaviour
                 case 0:
                     if (!metronome_audioSrc.isPlaying)
                     {
+                        Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+                        birbTurn = true;
                         Debug.Log("1");
                         callBackNumber = 0;
                         Events[currentEventNumber + 1].beatsBtwWave = 1;
@@ -311,6 +318,8 @@ public class RhythmGameMapper : MonoBehaviour
                 case 1:
                     if (!metronome_audioSrc.isPlaying)
                     {
+                        Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+                         birbTurn = true;
                         Debug.Log("2");
                         callBackNumber = 1;
                         Events[currentEventNumber + 1].beatsBtwWave = 2;
@@ -340,6 +349,8 @@ public class RhythmGameMapper : MonoBehaviour
                 case 2:
                     if (!metronome_audioSrc.isPlaying)
                     {
+                        Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+                         birbTurn = true;
                         Debug.Log("1");
                         callBackNumber = 0;
                         Events[currentEventNumber + 1].beatsBtwWave = 1;
