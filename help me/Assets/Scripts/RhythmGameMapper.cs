@@ -231,8 +231,6 @@ public class RhythmGameMapper : MonoBehaviour
 
             songPosBeat = (int)songPositionInBeats / beatsPerMeasure;
             ExecuteEvent();
-
-            InThreshold();
         }
 
         if (currentEvent.beatRest)
@@ -264,6 +262,8 @@ public class RhythmGameMapper : MonoBehaviour
                 currentEvent = Events[currentEventNumber];
                 beatGo = true;
             }
+
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -279,6 +279,7 @@ public class RhythmGameMapper : MonoBehaviour
                     successText.SetActive(true);
                     willPress = false;
                     scoreManager.AddScore();
+                    canPress = false;
                     switch (callBackNumber)
                     {
                         case 0:
@@ -289,6 +290,7 @@ public class RhythmGameMapper : MonoBehaviour
                             break;
                     }
                     player.SetBool("isPressed", true);
+                    StartCoroutine(pressTimer());
 
 
                 }
@@ -299,8 +301,83 @@ public class RhythmGameMapper : MonoBehaviour
 
         }
 
-       
-        
+        if (currentEventNumber == nextEventRandom && newWaveGenerate == true)
+        {
+            currentEvent.noOfEvents = 0;
+            switch (randomBirdnumber)
+            {
+                case 0:
+                    if (!metronome_audioSrc.isPlaying)
+                    {
+                        Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+                        birbTurn = true;
+                        Debug.Log("1");
+                        callBackNumber = 0;
+                        Events[currentEventNumber + 1].beatsBtwWave = 2;
+                        Events[currentEventNumber + 1].eventType = 2;
+                        Events[currentEventNumber + 1].noOfEvents = 1;
+                        Events[currentEventNumber + 1].beatMode = true;
+                        Events[currentEventNumber + 1].timeMode = false;
+                        Events[currentEventNumber + 1].beatRest = true;
+                        Events[currentEventNumber + 1].timeRest = false;
+                        Events[currentEventNumber + 2].beatsBtwWave = 0;
+                        Events[currentEventNumber + 2].eventType = 1;
+                        Events[currentEventNumber + 2].noOfEvents = 1;
+                        Events[currentEventNumber + 2].beatMode = true;
+                        Events[currentEventNumber + 2].timeMode = false;
+                        Events[currentEventNumber + 2].beatRest = true;
+                        Events[currentEventNumber + 2].timeRest = false;
+                        Events[currentEventNumber + 3].beatsBtwWave = 3;
+                        Events[currentEventNumber + 3].eventType = 0;
+                        Events[currentEventNumber + 3].noOfEvents = 1;
+                        Events[currentEventNumber + 3].beatMode = true;
+                        Events[currentEventNumber + 3].timeMode = false;
+                        Events[currentEventNumber + 3].beatRest = true;
+                        Events[currentEventNumber + 3].timeRest = false;
+                    }
+                    break;
+
+
+
+              
+                case 2:
+                    if (!metronome_audioSrc.isPlaying)
+                    {
+                        Instantiate(blueJay, redBirbSpawn.position, Quaternion.identity);
+                         birbTurn = true;
+                        Debug.Log("3");
+                        callBackNumber = 0;
+                        Events[currentEventNumber + 1].beatsBtwWave = 2;
+                        Events[currentEventNumber + 1].eventType = 2;
+                        Events[currentEventNumber + 1].noOfEvents = 1;
+                        Events[currentEventNumber + 1].beatMode = true;
+                        Events[currentEventNumber + 1].timeMode = false;
+                        Events[currentEventNumber + 1].beatRest = true;
+                        Events[currentEventNumber + 1].timeRest = false;
+                        Events[currentEventNumber + 2].beatsBtwWave = 0;
+                        Events[currentEventNumber + 2].eventType = 1;
+                        Events[currentEventNumber + 2].noOfEvents = 1;
+                        Events[currentEventNumber + 2].beatMode = true;
+                        Events[currentEventNumber + 2].timeMode = false;
+                        Events[currentEventNumber + 2].beatRest = true;
+                        Events[currentEventNumber + 2].timeRest = false;
+                        Events[currentEventNumber + 3].beatsBtwWave = 3;
+                        Events[currentEventNumber + 3].eventType = 0;
+                        Events[currentEventNumber + 3].noOfEvents = 1;
+                        Events[currentEventNumber + 3].beatMode = true;
+                        Events[currentEventNumber + 3].timeMode = false;
+                        Events[currentEventNumber + 3].beatRest = true;
+                        Events[currentEventNumber + 3].timeRest = false;
+                    }
+                    break;
+
+
+
+
+            }
+            newWaveGenerate = false;
+            nextEventRandom += 3;
+        }
 
         if (currentEventNumber >= Events.Length - 3)
         {
@@ -371,11 +448,9 @@ public class RhythmGameMapper : MonoBehaviour
 
                 break;
             case 1:
-                //4th note as needed input
-                targetBeats[0] = 3f;
-                targetBeats[1] = 5f;
-                targetBeats[2] = 5f;
-                StartCoroutine(slackTimer());
+               StartCoroutine(slackTimer());
+               metronome_audioSrc.PlayOneShot(sound5, 1f);
+                Debug.Log("sus");
                 break;
 
             case 2:
@@ -383,10 +458,6 @@ public class RhythmGameMapper : MonoBehaviour
                 metronome_audioSrc.PlayOneShot(sound3, 1f);
                 break;
             case 3:
-                //2nd, 3rd and 4th note only as input
-                targetBeats[0] = 1f;
-                targetBeats[1] = 2f;
-                targetBeats[2] = 3f;
                 StartCoroutine(slackTimer());
                 break;
             case 4:
@@ -450,41 +521,23 @@ public class RhythmGameMapper : MonoBehaviour
     {
         //BeatEvent();
         Debug.Log("Full");
+        
 
     }
 
     //sherm's rhythm system test method
-    public void InThreshold()
-    {
-        for (int i = 0; i < targetBeats.Length; i++)
-        {
-            if (loopPositionInBeats > targetBeats[i] - beatThresholdEarly && loopPositionInBeats < targetBeats[i] + beatThresholdLate)
-            {
-                willPress = true;
-                if (willPress == true)
-                {
-                    //Debug.Log("kill me");
-                    break;
-                }
-            }
-            else
-            {
-                willPress = false;
-            }
-        }
-    }
+    
 
-    IEnumerator slackTimer()
+    IEnumerator pressTimer()
     {
-        willPress = true;
         yield return new WaitForSeconds(0.5f);
-        willPress = false;
+              canPress = true;
 
     }
 
     IEnumerator fadeText()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.6f);
         clickedText.SetActive(false);
         failedText.SetActive(false);
         successText.SetActive(false);
@@ -495,6 +548,13 @@ public class RhythmGameMapper : MonoBehaviour
         player.SetBool("takePicture", true);
         yield return new WaitForSeconds(0.01f);
         player.SetBool("takePicture", false);
+    }
+
+    IEnumerator slackTimer()
+    {
+        willPress = true;
+        yield return new WaitForSeconds(0.3f);
+        willPress = false;
     }
 
 }

@@ -220,8 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 128
-  m_RefResolutionX: 340
-  m_RefResolutionY: 224
+  m_RefResolutionX: 501
+  m_RefResolutionY: 304
   m_UpscaleRT: 0
   m_PixelSnapping: 1
   m_CropFrameX: 0
@@ -321,7 +321,7 @@ RectTransform:
   - {fileID: 617604093}
   - {fileID: 1891339308}
   - {fileID: 1076982254}
-  - {fileID: 1079889113}
+  - {fileID: 1337741865}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -685,7 +685,7 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 0
+  - beatsBtwWave: 1
     eventType: 2
     noOfEvents: 1
     songPositionWave: 0
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
   callBackNumber: 0
-  beatsPerSecond: 130.25
+  beatsPerSecond: 130.1
   beatsPerMeasure: 4
   secPerBeat: 0
   secPerMeasure: 0
@@ -1486,10 +1486,10 @@ MonoBehaviour:
   completedBeats: 0
   completedMeasures: 0
   loopPositionInBeats: 0
-  beatThresholdLate: 0.5
-  beatThresholdEarly: 0.1
+  beatThresholdLate: 1
+  beatThresholdEarly: 1
   dspSongTime: 0
-  firstBeatOffset: 0.05
+  firstBeatOffset: 0.1
   musicSource: {fileID: 944396418}
   metronome_audioSrc: {fileID: 1329761523}
   secPerRealBeat: 0
@@ -1506,8 +1506,8 @@ MonoBehaviour:
   autoPlay: 1
   randomBirdnumber: 0
   nextEventRandom: 0
-  sound3: {fileID: 8300000, guid: 49a8d6edb60b3f1449a6d9a9fe303d5b, type: 3}
-  sound5: {fileID: 8300000, guid: 37527bbd6c77fc944ba2bc39dec392fb, type: 3}
+  sound3: {fileID: 8300000, guid: 2ef607a5ae31bca4b84bf3b798fc045e, type: 3}
+  sound5: {fileID: 8300000, guid: b866f04c2a3dba94690168fd8681bd1d, type: 3}
   sound1: {fileID: 8300000, guid: d96a10bc592c26845b0677e9680a5698, type: 3}
   sound2: {fileID: 8300000, guid: 112b2ceb8c58dae449da17617b0a3e93, type: 3}
   clickedText: {fileID: 617604092}
@@ -1532,9 +1532,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8040312823056929966, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e0e2ffabb53d8cd4b8b5ced7f3fa1f4b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: de2229890a8b2dc4eb53de442d273486, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.423
+  m_Volume: 0.193
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1909,16 +1909,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079889112}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 364437268}
-  m_RootOrder: 3
+  m_Father: {fileID: 1337741865}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 106.7, y: 55.48}
+  m_AnchoredPosition: {x: 109.3, y: 49.04}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1079889114
@@ -2296,7 +2296,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1804101270163716324, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
   m_audioClip: {fileID: 8300000, guid: 054a28beb76c2cd47acc56a2889d08fa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.298
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2394,6 +2394,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1337741864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337741865}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1337741865
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337741864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1079889113}
+  m_Father: {fileID: 364437268}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.51, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1365685525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2448,6 +2484,10 @@ PrefabInstance:
     - target: {fileID: 3018732957543317549, guid: 87c504f594f927d4c98e691196468068, type: 3}
       propertyPath: m_Name
       value: Parrot 2 Parent
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018732957543317549, guid: 87c504f594f927d4c98e691196468068, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3018732958732758540, guid: 87c504f594f927d4c98e691196468068, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2513,6 +2553,10 @@ PrefabInstance:
     - target: {fileID: 4648623555644212625, guid: 9401229ffba9a6746bcfc0e59adea130, type: 3}
       propertyPath: m_Name
       value: Red Birb (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648623555644212625, guid: 9401229ffba9a6746bcfc0e59adea130, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4648623556378587209, guid: 9401229ffba9a6746bcfc0e59adea130, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2743,6 +2787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black bird 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8096299488237573051, guid: 7affdbb9c06682f448712b56818e9973, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7affdbb9c06682f448712b56818e9973, type: 3}
 --- !u!1001 &5229001142103012248
@@ -2755,6 +2803,10 @@ PrefabInstance:
     - target: {fileID: 5229001141771939286, guid: a1835a9016274aa4a9c1606ce08da36a, type: 3}
       propertyPath: m_Name
       value: Blue Bird 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229001141771939286, guid: a1835a9016274aa4a9c1606ce08da36a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5229001141771939287, guid: a1835a9016274aa4a9c1606ce08da36a, type: 3}
       propertyPath: m_RootOrder
