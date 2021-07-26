@@ -124,6 +124,12 @@ public class RhythmGameMapper : MonoBehaviour
     public bool birbTurn;
 
     public GameObject redBirb;
+
+    public GameObject parrot;
+
+    public GameObject blueJay;
+
+    public GameObject blackBird;
     public Transform redBirbSpawn;
 
     void Start()
@@ -217,7 +223,7 @@ public class RhythmGameMapper : MonoBehaviour
                 canSpawn = true;
                 currentEventNumber++;
                 newWaveGenerate = true;
-                randomBirdnumber = Random.Range(0, 2);
+                randomBirdnumber = Random.Range(0, 4);
                 currentEvent = Events[currentEventNumber];
                 timeGo = true;
 
@@ -235,7 +241,7 @@ public class RhythmGameMapper : MonoBehaviour
                 canSpawn = true;
                 currentEventNumber++;
                 newWaveGenerate = true;
-                randomBirdnumber = Random.Range(0, 2);
+                randomBirdnumber = Random.Range(0, 4);
                 currentEvent = Events[currentEventNumber];
                 beatGo = true;
             }
@@ -318,7 +324,7 @@ public class RhythmGameMapper : MonoBehaviour
                 case 1:
                     if (!metronome_audioSrc.isPlaying)
                     {
-                        Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+                          Instantiate(parrot, redBirbSpawn.position, Quaternion.identity);
                          birbTurn = true;
                         Debug.Log("2");
                         callBackNumber = 1;
@@ -349,9 +355,9 @@ public class RhythmGameMapper : MonoBehaviour
                 case 2:
                     if (!metronome_audioSrc.isPlaying)
                     {
-                        Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+                        Instantiate(blueJay, redBirbSpawn.position, Quaternion.identity);
                          birbTurn = true;
-                        Debug.Log("1");
+                        Debug.Log("3");
                         callBackNumber = 0;
                         Events[currentEventNumber + 1].beatsBtwWave = 1;
                         Events[currentEventNumber + 1].eventType = 2;
@@ -376,6 +382,38 @@ public class RhythmGameMapper : MonoBehaviour
                         Events[currentEventNumber + 3].timeRest = false;
                     }
                     break;
+
+                case 3:
+                if (!metronome_audioSrc.isPlaying)
+                    {
+                          Instantiate(blackBird, redBirbSpawn.position, Quaternion.identity);
+                         birbTurn = true;
+                        Debug.Log("4");
+                        callBackNumber = 1;
+                        Events[currentEventNumber + 1].beatsBtwWave = 2;
+                        Events[currentEventNumber + 1].eventType = 3;
+                        Events[currentEventNumber + 1].noOfEvents = 1;
+                        Events[currentEventNumber + 1].beatMode = true;
+                        Events[currentEventNumber + 1].timeMode = false;
+                        Events[currentEventNumber + 1].beatRest = true;
+                        Events[currentEventNumber + 1].timeRest = false;
+                        Events[currentEventNumber + 2].beatsBtwWave = 1;
+                        Events[currentEventNumber + 2].eventType = 4;
+                        Events[currentEventNumber + 2].noOfEvents = 1;
+                        Events[currentEventNumber + 2].beatMode = true;
+                        Events[currentEventNumber + 2].timeMode = false;
+                        Events[currentEventNumber + 2].beatRest = true;
+                        Events[currentEventNumber + 2].timeRest = false;
+                        Events[currentEventNumber + 3].beatsBtwWave = 1;
+                        Events[currentEventNumber + 3].eventType = 0;
+                        Events[currentEventNumber + 3].noOfEvents = 1;
+                        Events[currentEventNumber + 3].beatMode = true;
+                        Events[currentEventNumber + 3].timeMode = false;
+                        Events[currentEventNumber + 3].beatRest = true;
+                        Events[currentEventNumber + 3].timeRest = false;
+                    }
+                    break;
+
 
             }
             newWaveGenerate = false;
