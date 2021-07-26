@@ -2147,7 +2147,7 @@ MonoBehaviour:
   playerTurn: 0
   playerMouth: {fileID: 1203826521}
   birdMouth: {fileID: 0}
-  logbook: {fileID: 0}
+  logbook: {fileID: 839761179}
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:

@@ -26,6 +26,7 @@ public class beatMap
 
 
 
+
 }
 
 
@@ -152,6 +153,8 @@ public class RhythmGameMapper : MonoBehaviour
     DayNightCycle dayNightCycle;
 
     public GameObject logbook;
+
+    public int noteEventNumber;
 
     void Start()
     {
@@ -285,7 +288,7 @@ public class RhythmGameMapper : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             if (canPress)
             {
@@ -295,6 +298,7 @@ public class RhythmGameMapper : MonoBehaviour
                 }
                 else if (willPress)
                 {
+                    playerTurn = true;
                     successText.SetActive(true);
                     willPress = false;
                     scoreManager.AddScore();
@@ -427,6 +431,33 @@ public class RhythmGameMapper : MonoBehaviour
             StartCoroutine(takePictureAnimator());
         }
 
+        if (playerTurn)
+        {           
+               Debug.Log(noteEventNumber);
+            switch (noteEventNumber)
+            {       
+                case 1:
+                 var randomNoteNumber = Random.Range(0,2);
+                 Debug.Log("says");
+                 switch(randomNoteNumber)
+                {
+                     case 0:
+                    Instantiate(playerNote1, playerMouth.position, Quaternion.identity);
+                    break;
+
+                    case 1: 
+                    Instantiate(playerNote2, playerMouth.position, Quaternion.identity);
+                    break;
+
+                    case 2:
+                    Instantiate(playerNote3, playerMouth.position, Quaternion.identity);
+                    break;
+                }
+                break;
+            }
+            playerTurn = false;
+        }
+
         
     }
 
@@ -472,8 +503,7 @@ public class RhythmGameMapper : MonoBehaviour
             //Player plays the flute
             case 1:
                 StartCoroutine(slackTimer());
-                metronome_audioSrc.PlayOneShot(sound5, 1f);
-                PlayerTurnAnimation();
+                noteEventNumber = currentEvent.eventType;
                 Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);  
                 break;
             //Bird enters
@@ -553,33 +583,9 @@ public class RhythmGameMapper : MonoBehaviour
 
     void PlayerTurnAnimation()
     {
-         var currentEventTypeAnimation = currentEvent.eventType;
-
-            switch (currentEventTypeAnimation)
-            {
-                case 1:
-                 var randomNoteNumber = Random.Range(0,2);
-
-        switch(randomNoteNumber)
-        {
-            case 0:
-            Instantiate(playerNote1, playerMouth.position, Quaternion.identity);
-            break;
-
-            case 1: 
-            Instantiate(playerNote2, playerMouth.position, Quaternion.identity);
-            break;
-
-            case 2:
-            Instantiate(playerNote3, playerMouth.position, Quaternion.identity);
-            break;
-        }
-                Debug.Log("says");
-                break;
-            }
+        
+         
     }
-
-    //sherm's rhythm system test method
 
 
     IEnumerator pressTimer()
@@ -607,7 +613,7 @@ public class RhythmGameMapper : MonoBehaviour
     IEnumerator slackTimer()
     {
         willPress = true;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         willPress = false;
     }
 
