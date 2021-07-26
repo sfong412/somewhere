@@ -2538,9 +2538,9 @@ MonoBehaviour:
   blueJay: {fileID: 5229001141771939286, guid: a1835a9016274aa4a9c1606ce08da36a, type: 3}
   blackBird: {fileID: 8096299488237573051, guid: 7affdbb9c06682f448712b56818e9973, type: 3}
   redBirbSpawn: {fileID: 6800759637744309617}
-  birbNote1: {fileID: 0}
-  birbNote2: {fileID: 0}
-  birbNote3: {fileID: 0}
+  birbNote1: {fileID: 2515628265531834270, guid: f3236a4d8982a834dac915b52898055b, type: 3}
+  birbNote2: {fileID: 7444128302423072189, guid: 94bf4a2d029b0cc448e07afa064bfeba, type: 3}
+  birbNote3: {fileID: 7268945114885355976, guid: 366e0a6136c3b164e8c1ada6d2b92b09, type: 3}
   playerNote1: {fileID: 7686057435948859645, guid: a06a60f1a6786364fb2440088196ffb7, type: 3}
   playerNote2: {fileID: 8893185366529598422, guid: fa3ec58181f813d4cbde3dee304a1379, type: 3}
   playerNote3: {fileID: 364181909190457066, guid: 72a0fcb43bbc58e43a90e6b1d197fa7b, type: 3}
@@ -2552,6 +2552,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 2128660564}
   noteEventNumber: 0
   canBird: 0
+  singRightNow: 0
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:

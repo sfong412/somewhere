@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class birbCode : MonoBehaviour
 {
-
+    public GameObject birbMouth;
     public RhythmGameMapper mapper;
     public Animator birbMove;
     public Animator birb;
@@ -16,7 +16,8 @@ public class birbCode : MonoBehaviour
 
     void Awake()
     {
-        //mapper.birdMouth = gameObject.transform;
+          mapper = GameObject.Find("Rhythm Game Mapper").GetComponent<RhythmGameMapper>();
+        mapper.birdMouth = birbMouth.transform;
     }
 
     // Update is called once per frame
@@ -27,6 +28,15 @@ public class birbCode : MonoBehaviour
         {
            StartCoroutine(birbTurn());
 
+        }
+
+        if (mapper.singRightNow == true)
+        {
+            birb.SetBool("mySing", true);
+        }
+        else
+        {
+            birb.SetBool("mySing", false);
         }
     }
 
