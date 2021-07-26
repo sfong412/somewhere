@@ -7,6 +7,9 @@ public class Logbook : MonoBehaviour
 {
     RhythmGameMapper rhythmGameMapper;
 
+    public GameObject pauseTab;
+    public GameObject birdsTab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +31,17 @@ public class Logbook : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void SwitchToPauseTab()
+    {
+        pauseTab.SetActive(true);
+        birdsTab.SetActive(false);
+    }
+
+    public void SwitchToBirdsTab()
+    {
+        pauseTab.SetActive(false);
+        birdsTab.SetActive(true);
     }
 }
