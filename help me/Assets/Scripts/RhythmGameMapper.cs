@@ -154,6 +154,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public GameObject logbook;
 
+    public GameObject gameOverScreen;
+
     public int noteEventNumber;
 
     public bool canBird;
