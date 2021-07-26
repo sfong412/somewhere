@@ -1834,7 +1834,17 @@ MonoBehaviour:
   blueJay: {fileID: 5229001141771939286, guid: a1835a9016274aa4a9c1606ce08da36a, type: 3}
   blackBird: {fileID: 8096299488237573051, guid: 7affdbb9c06682f448712b56818e9973, type: 3}
   redBirbSpawn: {fileID: 6800759637744309617}
-  logbook: {fileID: 839761179}
+  birbNote1: {fileID: 0}
+  birbNote2: {fileID: 0}
+  birbNote3: {fileID: 0}
+  playerNote1: {fileID: 7686057435948859645, guid: a06a60f1a6786364fb2440088196ffb7, type: 3}
+  playerNote2: {fileID: 8893185366529598422, guid: fa3ec58181f813d4cbde3dee304a1379, type: 3}
+  playerNote3: {fileID: 364181909190457066, guid: 72a0fcb43bbc58e43a90e6b1d197fa7b, type: 3}
+  birbTurn2: 0
+  playerTurn: 0
+  playerMouth: {fileID: 1203826521}
+  birdMouth: {fileID: 0}
+  logbook: {fileID: 0}
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -2463,7 +2473,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.97, y: -0.84, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1203826521}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2620,6 +2631,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140557151}
   m_CullTransparentMesh: 1
+--- !u!1 &1203826520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203826521}
+  m_Layer: 0
+  m_Name: PlayerMouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1203826521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203826520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.018, y: -0.069, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1109996200}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252290418
 GameObject:
   m_ObjectHideFlags: 0

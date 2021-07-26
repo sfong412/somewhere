@@ -132,6 +132,23 @@ public class RhythmGameMapper : MonoBehaviour
     public GameObject blackBird;
     public Transform redBirbSpawn;
 
+    public GameObject birbNote1;
+    public GameObject birbNote2;
+
+    public GameObject birbNote3;
+
+    public GameObject playerNote1;
+    public GameObject playerNote2;
+    public GameObject playerNote3;
+
+    public bool birbTurn2;
+
+    public bool playerTurn;
+
+    public Transform playerMouth;
+
+    public Transform birdMouth;
+
     DayNightCycle dayNightCycle;
 
     public GameObject logbook;
@@ -409,6 +426,8 @@ public class RhythmGameMapper : MonoBehaviour
             player.SetBool("isPressed", false);
             StartCoroutine(takePictureAnimator());
         }
+
+        
     }
 
     void ExecuteEvent()
@@ -454,13 +473,15 @@ public class RhythmGameMapper : MonoBehaviour
             case 1:
                 StartCoroutine(slackTimer());
                 metronome_audioSrc.PlayOneShot(sound5, 1f);
-                Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);
+                PlayerTurnAnimation();
+                Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);  
                 break;
             //Bird enters
             case 2:
                 //StartCoroutine(slackTimer());
                 metronome_audioSrc.PlayOneShot(sound3, 1f);
                 Debug.Log("Song position in beats when bird sound plays: " + songPositionInBeats);
+                birbTurn2 = true;
                 break;
             case 3:
                 StartCoroutine(slackTimer());
@@ -530,6 +551,34 @@ public class RhythmGameMapper : MonoBehaviour
 
     }
 
+    void PlayerTurnAnimation()
+    {
+         var currentEventTypeAnimation = currentEvent.eventType;
+
+            switch (currentEventTypeAnimation)
+            {
+                case 1:
+                 var randomNoteNumber = Random.Range(0,2);
+
+        switch(randomNoteNumber)
+        {
+            case 0:
+            Instantiate(playerNote1, playerMouth.position, Quaternion.identity);
+            break;
+
+            case 1: 
+            Instantiate(playerNote2, playerMouth.position, Quaternion.identity);
+            break;
+
+            case 2:
+            Instantiate(playerNote3, playerMouth.position, Quaternion.identity);
+            break;
+        }
+                Debug.Log("says");
+                break;
+            }
+    }
+
     //sherm's rhythm system test method
 
 
@@ -561,5 +610,7 @@ public class RhythmGameMapper : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         willPress = false;
     }
+
+  
 
 }

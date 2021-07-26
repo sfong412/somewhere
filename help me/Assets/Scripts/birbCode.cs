@@ -14,6 +14,11 @@ public class birbCode : MonoBehaviour
                 mapper = GameObject.Find("Rhythm Game Mapper").GetComponent<RhythmGameMapper>();
     }
 
+    void Awake()
+    {
+        //mapper.birdMouth = gameObject.transform;
+    }
+
     // Update is called once per frame
     void Update()
     {
