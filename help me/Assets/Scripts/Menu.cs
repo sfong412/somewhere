@@ -21,6 +21,7 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
+        ScoreManager.score = 0;
         SceneManager.LoadScene("GamePlay");
     }
 

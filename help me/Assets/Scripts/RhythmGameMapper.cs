@@ -304,7 +304,9 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 if (!willPress)
                 {
-                    //failedText.SetActive(true);
+                    player.SetBool("isGameOver", true);
+                    gameOverScreen.SetActive(true);
+                    canPress = false;
                 }
                 else if (willPress)
                 {
