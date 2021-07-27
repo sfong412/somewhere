@@ -179,15 +179,9 @@ public class RhythmGameMapper : MonoBehaviour
         //Start the music
         //musicSource.time = 10f;
 
-        if (autoPlay)
-            //StartCoroutine(StartMusic());
-musicSource.Play();
-        songLength = musicSource.clip.length;
-        Application.targetFrameRate = 120;
-        currentEventNumber = 0;
-        currentEvent = Events[currentEventNumber];
+      
 
-        dayNightCycle = GameObject.Find("Background").GetComponent<DayNightCycle>();
+        //dayNightCycle = GameObject.Find("Background").GetComponent<DayNightCycle>();
 
         //Invoke("OnAudioEnd", musicSource.clip.length + 2f);
     }
@@ -212,10 +206,15 @@ musicSource.Play();
         nextEventRandom += 3;
         canBird = true;
         birbTurn3 = true;
-        if (autoPlay)
+         if (autoPlay)
         {
-            
-        }
+        musicSource.Play();
+        songLength = musicSource.clip.length;
+        Application.targetFrameRate = 120;
+        currentEventNumber = 0;
+        currentEvent = Events[currentEventNumber];
+        } 
+        
      
     }
 
