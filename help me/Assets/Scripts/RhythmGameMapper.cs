@@ -341,7 +341,7 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (newWaveGenerate == true && currentEventNumber == nextEventRandom)
         {
-            var randomPauseBird = Random.Range(1 , 5);
+            var randomPauseBird = Random.Range(1 , 3);
             currentEvent.noOfEvents = 0;
             switch (randomBirdnumber)
             {
@@ -354,7 +354,7 @@ public class RhythmGameMapper : MonoBehaviour
                         birbTurn = true;
                         birbTurn3 = true;
                         callBackNumber = 0;
-                        Events[currentEventNumber + 1].beatsBtwWave = 1;
+                        Events[currentEventNumber + 1].beatsBtwWave = 2;
                         Events[currentEventNumber + 1].eventType = 2;
                         Events[currentEventNumber + 1].noOfEvents = 1;
                         Events[currentEventNumber + 1].beatMode = true;
@@ -390,7 +390,7 @@ public class RhythmGameMapper : MonoBehaviour
                         birbTurn3 = true;
                         Debug.Log("3");
                         callBackNumber = 0;
-                        Events[currentEventNumber + 1].beatsBtwWave = 1;
+                        Events[currentEventNumber + 1].beatsBtwWave = 2;
                         Events[currentEventNumber + 1].eventType = 2;
                         Events[currentEventNumber + 1].noOfEvents = 1;
                         Events[currentEventNumber + 1].beatMode = true;
@@ -500,6 +500,7 @@ public class RhythmGameMapper : MonoBehaviour
                 StartCoroutine(slackTimer());
                 noteEventNumber = currentEvent.eventType;
                 Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);  
+                //metronome_audioSrc.PlayOneShot(sound5, 1f);
                 break;
             //Bird enters
             case 2:
@@ -671,7 +672,7 @@ public class RhythmGameMapper : MonoBehaviour
 
     IEnumerator flyAway()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         birbTurn3 = false;
         
     }
