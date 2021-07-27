@@ -189,7 +189,7 @@ public class RhythmGameMapper : MonoBehaviour
 
         dayNightCycle = GameObject.Find("Background").GetComponent<DayNightCycle>();
 
-        Invoke("OnAudioEnd", musicSource.clip.length + 2f);
+        //Invoke("OnAudioEnd", musicSource.clip.length + 2f);
     }
 
     void OnAudioEnd()
