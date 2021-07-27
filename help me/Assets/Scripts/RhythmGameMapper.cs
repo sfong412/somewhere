@@ -180,11 +180,11 @@ public class RhythmGameMapper : MonoBehaviour
         //musicSource.time = 10f;
 
         if (autoPlay)
-            StartCoroutine(StartMusic());
-        // musicSource.Play();
-
+            //StartCoroutine(StartMusic());
+musicSource.Play();
         songLength = musicSource.clip.length;
         Application.targetFrameRate = 120;
+        currentEventNumber = 0;
         currentEvent = Events[currentEventNumber];
 
         dayNightCycle = GameObject.Find("Background").GetComponent<DayNightCycle>();
@@ -212,12 +212,17 @@ public class RhythmGameMapper : MonoBehaviour
         nextEventRandom += 3;
         canBird = true;
         birbTurn3 = true;
+        if (autoPlay)
+        {
+            
+        }
+     
     }
 
     IEnumerator StartMusic()
     {
         yield return new WaitForSeconds(2f);
-        musicSource.Play();
+        
     }
 
     void Update()
@@ -267,10 +272,11 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (currentEvent.beatRest)
         {
-            if (currentEvent.beatsBtwWave == 0 && !canSpawn)
+            if (currentEvent.beatsBtwWave <= 0 && !canSpawn)
             {
                 canSpawn = true;
-                currentEventNumber++;
+                currentEventNumber += 1;
+                 Debug.Log("gotcha2");
                 newWaveGenerate = true;
                 randomBirdnumber = Random.Range(0, 4);
                 currentEvent = Events[currentEventNumber];
@@ -298,7 +304,7 @@ public class RhythmGameMapper : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (canPress)
             {
@@ -339,88 +345,7 @@ public class RhythmGameMapper : MonoBehaviour
 
         }
 
-        if (newWaveGenerate == true && currentEventNumber == nextEventRandom)
-        {
-            var randomPauseBird = Random.Range(1 , 3);
-            currentEvent.noOfEvents = 0;
-            switch (randomBirdnumber)
-            {
-                case 0:
-                
-                    if (!metronome_audioSrc.isPlaying && canBird)
-                    {
-                        canBird = false;
-                        Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
-                        birbTurn = true;
-                        birbTurn3 = true;
-                        callBackNumber = 0;
-                        Events[currentEventNumber + 1].beatsBtwWave = 2;
-                        Events[currentEventNumber + 1].eventType = 2;
-                        Events[currentEventNumber + 1].noOfEvents = 1;
-                        Events[currentEventNumber + 1].beatMode = true;
-                        Events[currentEventNumber + 1].timeMode = false;
-                        Events[currentEventNumber + 1].beatRest = true;
-                        Events[currentEventNumber + 1].timeRest = false;
-                        Events[currentEventNumber + 2].beatsBtwWave = 0;
-                        Events[currentEventNumber + 2].eventType = 1;
-                        Events[currentEventNumber + 2].noOfEvents = 1;
-                        Events[currentEventNumber + 2].beatMode = true;
-                        Events[currentEventNumber + 2].timeMode = false;
-                        Events[currentEventNumber + 2].beatRest = true;
-                        Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 3].beatsBtwWave = randomPauseBird;
-                        Events[currentEventNumber + 3].eventType = 0;
-                        Events[currentEventNumber + 3].noOfEvents = 1;
-                        Events[currentEventNumber + 3].beatMode = true;
-                        Events[currentEventNumber + 3].timeMode = false;
-                        Events[currentEventNumber + 3].beatRest = true;
-                        Events[currentEventNumber + 3].timeRest = false;
-                    }
-                    break;
-
-
-
-
-                case 2:
-                    if (!metronome_audioSrc.isPlaying && canBird)
-                    {
-                        canBird = false;
-                        Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
-                        birbTurn = true;
-                        birbTurn3 = true;
-                        Debug.Log("3");
-                        callBackNumber = 0;
-                        Events[currentEventNumber + 1].beatsBtwWave = 2;
-                        Events[currentEventNumber + 1].eventType = 2;
-                        Events[currentEventNumber + 1].noOfEvents = 1;
-                        Events[currentEventNumber + 1].beatMode = true;
-                        Events[currentEventNumber + 1].timeMode = false;
-                        Events[currentEventNumber + 1].beatRest = true;
-                        Events[currentEventNumber + 1].timeRest = false;
-                        Events[currentEventNumber + 2].beatsBtwWave = 0;
-                        Events[currentEventNumber + 2].eventType = 1;
-                        Events[currentEventNumber + 2].noOfEvents = 1;
-                        Events[currentEventNumber + 2].beatMode = true;
-                        Events[currentEventNumber + 2].timeMode = false;
-                        Events[currentEventNumber + 2].beatRest = true;
-                        Events[currentEventNumber + 2].timeRest = false;
-                        Events[currentEventNumber + 3].beatsBtwWave = randomPauseBird;
-                        Events[currentEventNumber + 3].eventType = 0;
-                        Events[currentEventNumber + 3].noOfEvents = 1;
-                        Events[currentEventNumber + 3].beatMode = true;
-                        Events[currentEventNumber + 3].timeMode = false;
-                        Events[currentEventNumber + 3].beatRest = true;
-                        Events[currentEventNumber + 3].timeRest = false;
-                    }
-                    break;
-
-
-
-
-            }
-            newWaveGenerate = false;
-            nextEventRandom += 3;
-        }
+        
 
         if (currentEventNumber >= Events.Length - 3)
         {
@@ -504,6 +429,7 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
             //Bird enters
             case 2:
+               
                 //StartCoroutine(slackTimer());
                 metronome_audioSrc.PlayOneShot(sound3, 1f);
                  noteEventNumber = currentEvent.eventType;
@@ -518,6 +444,14 @@ public class RhythmGameMapper : MonoBehaviour
             case 4:
                 metronome_audioSrc.PlayOneShot(sound2, 1f);
                 break;
+
+            case 5:
+            Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+            canBird = false;
+            birbTurn = true;
+            birbTurn3 = true;
+            callBackNumber = 0;
+            break;
         }
 
     }
@@ -658,13 +592,10 @@ public class RhythmGameMapper : MonoBehaviour
     IEnumerator birbNoteTurn1()
     {
          GameObject effect = Instantiate(birbNote1, birdMouth.position, Quaternion.identity);
-                        Debug.Log("syus");
          yield return new WaitForSeconds(0.2f);
           GameObject effect2 = Instantiate(birbNote2, birdMouth.position, Quaternion.identity);
-                         Debug.Log("syus2");
          yield return new WaitForSeconds(0.2f);
           GameObject effect3 = Instantiate(birbNote3, birdMouth.position, Quaternion.identity);
-                         Debug.Log("syus3");
          Destroy(effect3, 2f);
          Destroy(effect, 2f);
          Destroy(effect2, 2f);

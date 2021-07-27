@@ -9,6 +9,8 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     static public float score;
 
+    public GameObject RhythmGameMapper;
+
     // Start is called before the first frame update
     void Start()
     { 
@@ -18,6 +20,12 @@ public class ScoreManager : MonoBehaviour
         }
         
         scoreText.SetText(score.ToString());
+        //RhythmGameMapper.SetActive(false);
+    }
+
+    void Awake()
+    {
+        //StartCoroutine(pancakes());
     }
 
     // Update is called once per frame
@@ -39,5 +47,11 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         text.SetBool("addScore", false);
 
+    }
+
+    IEnumerator pancakes()
+    {
+        yield return new WaitForSeconds(2f);
+        RhythmGameMapper.SetActive(true);
     }
 }
