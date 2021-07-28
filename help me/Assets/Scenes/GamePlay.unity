@@ -3049,6 +3049,7 @@ MonoBehaviour:
   buttonClick1: {fileID: 8300000, guid: 1bb4b2f3f6504f04f8fbf76d7ead50fd, type: 3}
   buttonClick2: {fileID: 8300000, guid: bea0458efe2d8e845a61f9f46c239667, type: 3}
   buttonClick3: {fileID: 8300000, guid: 58b95f29883e4d44d91291cd16a0165a, type: 3}
+  highScoreText: {fileID: 2080630564}
 --- !u!114 &839761182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5326,6 +5327,7 @@ MonoBehaviour:
   text: {fileID: 1079889116}
   scoreText: {fileID: 1079889114}
   highScoreText: {fileID: 1539525823}
+  logbookHighScoreText: {fileID: 2080630564}
   RhythmGameMapper: {fileID: 944396416}
 --- !u!1 &1093657263
 GameObject:
@@ -9965,6 +9967,7 @@ MonoBehaviour:
   buttonClick1: {fileID: 0}
   buttonClick2: {fileID: 0}
   buttonClick3: {fileID: 0}
+  highScoreText: {fileID: 0}
 --- !u!1 &6800759637744309614
 GameObject:
   m_ObjectHideFlags: 0

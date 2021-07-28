@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Logbook : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Logbook : MonoBehaviour
     public AudioClip buttonClick1;
     public AudioClip buttonClick2;
     public AudioClip buttonClick3;
+
+    public TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
     void Start()
