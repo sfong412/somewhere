@@ -3046,6 +3046,7 @@ MonoBehaviour:
   birdsTab: {fileID: 1038261860}
   bookLog: {fileID: 839761184}
   audioSource: {fileID: 620257553}
+  black: {fileID: 0}
   buttonClick1: {fileID: 8300000, guid: 1bb4b2f3f6504f04f8fbf76d7ead50fd, type: 3}
   buttonClick2: {fileID: 8300000, guid: bea0458efe2d8e845a61f9f46c239667, type: 3}
   buttonClick3: {fileID: 8300000, guid: 58b95f29883e4d44d91291cd16a0165a, type: 3}
@@ -4373,6 +4374,13 @@ MonoBehaviour:
   sceneChange: 0
   changeNumber: 0
   paused: 0
+  notBadAtGame: 0
+  lives: 3
+  tutorial: 0
+  radioMouth: {fileID: 0}
+  loopType: 0
+  mappingCode: {fileID: 0}
+  Enter: {fileID: 0}
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -7923,7 +7931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1539525820
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9964,6 +9972,7 @@ MonoBehaviour:
   birdsTab: {fileID: 0}
   bookLog: {fileID: 0}
   audioSource: {fileID: 0}
+  black: {fileID: 0}
   buttonClick1: {fileID: 0}
   buttonClick2: {fileID: 0}
   buttonClick3: {fileID: 0}

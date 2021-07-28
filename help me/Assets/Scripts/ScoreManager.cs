@@ -31,6 +31,7 @@ public class ScoreManager : MonoBehaviour
 
         highScoreText.SetText("High Score: " + highScore);
         logbookHighScoreText.SetText(highScore.ToString());
+        highScoreText.SetText(highScore.ToString());
         //RhythmGameMapper.SetActive(false);
     }
 

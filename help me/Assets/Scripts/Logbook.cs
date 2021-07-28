@@ -15,6 +15,8 @@ public class Logbook : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public Animator black;
+
     public AudioClip buttonClick1;
     public AudioClip buttonClick2;
     public AudioClip buttonClick3;
@@ -127,6 +129,9 @@ public class Logbook : MonoBehaviour
     {
         Time.timeScale = 1f;
         yield return new WaitForSeconds(1f);
+        black.SetBool("FadeOut", true);
+        rhythmGameMapper.Resume22();
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Menu");
     }
 }
