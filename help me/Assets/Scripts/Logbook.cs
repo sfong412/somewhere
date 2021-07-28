@@ -125,7 +125,8 @@ public class Logbook : MonoBehaviour
 
     IEnumerator ReturnToMenu()
     {
-        yield return new WaitForSeconds(1);
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Menu");
     }
 }
