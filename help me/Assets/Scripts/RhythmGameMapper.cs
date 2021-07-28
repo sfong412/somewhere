@@ -166,6 +166,22 @@ public class RhythmGameMapper : MonoBehaviour
 
     public bool Resume2;
     public Animator bookLog;
+
+    public Animator blackOut;
+
+    public Animator dayTime;
+
+    public Animator lowSun;
+
+    public Animator night;
+
+    public Animator earlyMorning;
+
+    public bool sceneChange;
+
+    public int changeNumber;
+
+    public bool paused;
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -215,7 +231,8 @@ public class RhythmGameMapper : MonoBehaviour
         Application.targetFrameRate = 120;
         currentEventNumber = 0;
         currentEvent = Events[currentEventNumber];
-        } 
+        }
+        changeNumber = 0; 
         
      
     }
@@ -277,7 +294,6 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 canSpawn = true;
                 currentEventNumber += 1;
-                 Debug.Log("gotcha2");
                 newWaveGenerate = true;
                 randomBirdnumber = Random.Range(0, 4);
                 currentEvent = Events[currentEventNumber];
@@ -374,6 +390,46 @@ public class RhythmGameMapper : MonoBehaviour
         {
             player.SetBool("isPressed", false);
             StartCoroutine(takePictureAnimator());
+        }
+
+        if (!musicSource.isPlaying)
+        {
+            if (!paused)
+            {
+                sceneChange = true;
+            }
+            
+        }
+
+        if (sceneChange)
+        {
+             
+            switch(changeNumber)
+            {
+                case 0:
+                dayTime.SetBool("daytimeBool", true);
+                changeNumber += 1;
+                break;
+                case 1: 
+                lowSun.SetBool("lowSunBool", true);
+                changeNumber += 1;
+                break;
+                case 2: 
+                night.SetBool("nightBool", true);
+                changeNumber += 1;
+                break;
+                case 3:
+                lowSun.SetBool("lowSunBool", false);
+                changeNumber += 1;
+                break;
+                case 4: 
+                dayTime.SetBool("daytimeBool", false);
+                changeNumber = 0;
+                break;
+
+            }
+            sceneChange = false;
+            
         }   
 
         
@@ -383,7 +439,9 @@ public class RhythmGameMapper : MonoBehaviour
 
     void Pause()
     {        
+            paused = true;
             bookLog.SetBool("Enter", true);
+            blackOut.SetBool("Focus", true);
             Time.timeScale = 0;
             musicSource.Pause();
             metronome_audioSrc.Pause();
@@ -391,6 +449,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public void Resume()
     {
+        paused = false;
+        blackOut.SetBool("Focus", false);
         StartCoroutine(DelayResume());   
         Resume2 = true; 
     }
