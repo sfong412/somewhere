@@ -196,6 +196,8 @@ public class RhythmGameMapper : MonoBehaviour
     public MappingCode mappingCode;
 
     public Animator Enter;
+
+    public bool watching;
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -342,7 +344,9 @@ public class RhythmGameMapper : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (canPress)
+                if (!watching)
+                {
+                     if (canPress)
                 {
                     if (!willPress)
                     {
@@ -360,7 +364,7 @@ public class RhythmGameMapper : MonoBehaviour
                         }
                         else
                         {
-                            lives--;
+                            Hurt();
                         }
                     }
                     else if (willPress)
@@ -392,6 +396,8 @@ public class RhythmGameMapper : MonoBehaviour
 
                 }
 
+                }
+               
             }
 
 
@@ -785,11 +791,18 @@ public class RhythmGameMapper : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         willPress = false;
         if (notBadAtGame == false)
-        {
-            lives--;
-            birbTurn3 = false;
-            
+        {      
+            Hurt();
         }
+    }
+
+    void Hurt()
+    {
+         lives--;
+         birbTurn3 = false;
+         willPress = false;
+         StartCoroutine(pressTimer());
+         StopCoroutine(slackTimer());
     }
 
     IEnumerator birbNoteTurn1()

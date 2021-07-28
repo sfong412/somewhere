@@ -35,6 +35,9 @@ public class DialogueSystem : MonoBehaviour
 
     public bool back;
 
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -139,10 +142,18 @@ public class DialogueSystem : MonoBehaviour
             instructionText.text = instructions[instructionIndex];
             instructionText2.transform.localScale = new Vector3(1, 1 ,1);
             instructionIndex++;
-            StartCoroutine(jumpOffABridge());
             watch = true;
             showtime = true;
             rhythm.paused = false;
+        }
+        if (textIndex == 5)
+        {
+            StartCoroutine(jumpOffABridge());
+            rhythm.watching = true;
+        }
+        else
+        {
+            rhythm.watching = false;
         }
         }
        
