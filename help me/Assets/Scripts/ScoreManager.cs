@@ -17,6 +17,8 @@ public class ScoreManager : MonoBehaviour
 
     public GameObject RhythmGameMapper;
 
+    public float realerScore;
+
     // Start is called before the first frame update
     void Start()
     { 
@@ -43,7 +45,6 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void AddScore()

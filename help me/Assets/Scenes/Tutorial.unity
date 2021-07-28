@@ -3815,6 +3815,8 @@ MonoBehaviour:
   loopType: 0
   mappingCode: {fileID: 1408502519}
   Enter: {fileID: 282905546}
+  watching: 0
+  realerScore: 0
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -4772,6 +4774,7 @@ MonoBehaviour:
   highScoreText: {fileID: 2080630564}
   logbookHighScoreText: {fileID: 2080630564}
   RhythmGameMapper: {fileID: 944396416}
+  realerScore: 0
 --- !u!1 &1093657263
 GameObject:
   m_ObjectHideFlags: 0
@@ -7238,17 +7241,22 @@ MonoBehaviour:
   - Well I hope you do since you're out birdwatching.
   - If you want to get a nice picture of one you have to make sure it sticks around.
   - I'll teach you a few bird calls to do just that.
-  - Let's start off with the Red Cardinal
-  - Alright now you try
+  - Let's start off with the Red Cardinal.
+  - sussy
+  - You want to press SPACE on the last note.
+  - Try it out yourself.
+  - 0
+  - sussy
   - sussy
   - sussy
   instructions:
-  - Listen to Red Cardinal's call
+  - Listen to the Red Cardinal's call
+  - Respond to the Red Cardinal's call
   - Respond to the Red Cardinal's call
   speed: 0.02
   textIndex: 0
   instructionIndex: 0
-  targetIndex: 0500000007000000
+  targetIndex: 05000000080000000a000000
   targetIndexNumber: 0
   showtime: 0
   instructionText2: {fileID: 1970382327}
@@ -7256,6 +7264,7 @@ MonoBehaviour:
   pressed: 0
   watch: 0
   back: 0
+  socrelol: {fileID: 1079889117}
 --- !u!114 &1486405013
 MonoBehaviour:
   m_ObjectHideFlags: 0

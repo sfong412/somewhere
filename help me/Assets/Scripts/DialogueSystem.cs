@@ -35,6 +35,8 @@ public class DialogueSystem : MonoBehaviour
 
     public bool back;
 
+    public ScoreManager socrelol;
+
     
 
 
@@ -81,16 +83,33 @@ public class DialogueSystem : MonoBehaviour
            if (Input.GetKeyDown(KeyCode.Return))
            {
                showtime = false;
-               back = false;
                NextLine();
                 pressed = true;
                 rhythm.Enter.SetBool("change", false);
                 dialogueText2.transform.localScale = new Vector3(1, 1, 1);
                 instructionText2.transform.localScale = new Vector3(0, 0 ,0);
+                rhythm.mappingCode.Brazil();
+                back = false;
                 GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
+                pressed = false;
+           }
+
+           if (rhythm.realerScore == 3)
+           {
+               showtime = false;
+               NextLine();
+                pressed = true;
+                rhythm.Enter.SetBool("change", false);
+                dialogueText2.transform.localScale = new Vector3(1, 1, 1);
+                instructionText2.transform.localScale = new Vector3(0, 0 ,0);
                 rhythm.mappingCode.Brazil();
+                back = false;
+                GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
+                foreach(GameObject bird in birds)
+                GameObject.Destroy(bird);
+                pressed = false;
            }
        }
 
@@ -101,6 +120,11 @@ public class DialogueSystem : MonoBehaviour
        else
        {
            rhythm.tutorial = false;
+       }
+
+       if (rhythm.realerScore == 3)
+       {
+           back = true;
        }
 
        
@@ -190,6 +214,8 @@ public class DialogueSystem : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.01f);
         StartCoroutine(hey());
     }
+
+  
 
    
 }

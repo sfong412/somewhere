@@ -198,6 +198,8 @@ public class RhythmGameMapper : MonoBehaviour
     public Animator Enter;
 
     public bool watching;
+
+    public int realerScore;
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -252,6 +254,7 @@ public class RhythmGameMapper : MonoBehaviour
         }
         changeNumber = 0;
         notBadAtGame = false;
+        realerScore = 0;
 
 
     }
@@ -369,6 +372,7 @@ public class RhythmGameMapper : MonoBehaviour
                     }
                     else if (willPress)
                     {
+                        realerScore++;
                         PlayerTurnAnimation();
                         singRightNow = false;
                         StartCoroutine(flyAway());
