@@ -9,6 +9,8 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     public TextMeshProUGUI highScoreText;
+
+    public TextMeshProUGUI logbookHighScoreText;
     static public float score;
 
     static public float highScore;
@@ -28,6 +30,7 @@ public class ScoreManager : MonoBehaviour
         scoreText.SetText(score.ToString());
 
         highScoreText.SetText("High Score: " + highScore);
+        logbookHighScoreText.SetText(highScore.ToString());
         //RhythmGameMapper.SetActive(false);
     }
 
