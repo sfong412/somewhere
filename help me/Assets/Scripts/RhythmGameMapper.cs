@@ -177,7 +177,7 @@ public class RhythmGameMapper : MonoBehaviour
         secPerRealBeat = 60f / (beatsPerSecond);
         secPerBeat = 60f / (beatsPerSecond);
         //Record the time when the music starts
-        dspSongTime = (float)musicSource.time;
+        dspSongTime = (float)AudioSettings.dspTime;
         //Start the music
         //musicSource.time = 10f;
 
@@ -242,7 +242,7 @@ public class RhythmGameMapper : MonoBehaviour
 
             //determine how many seconds since the song started
             //songPosition = (float)(AudioSettings.dspTime - dspSongTime);
-            songPosition = (float)(musicSource.time - dspSongTime - firstBeatOffset);
+            songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
             //determine how many beats since the song started
             songPositionInBeatsExact = songPosition / secPerBeat;
             songPositionInBeats = (float)songPositionInBeatsExact;
@@ -508,7 +508,7 @@ public class RhythmGameMapper : MonoBehaviour
 
     public void QuarterBeat()
     {
-        if (metronome == true)
+        if (metronome == true && lastReportedBeat >= 0f)
         {
             //plays metronome click at every quarter note
             metronome_audioSrc.PlayOneShot(metronome_audioSrc.clip, 1f);
