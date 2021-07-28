@@ -164,6 +164,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public bool birbTurn3;
 
+    public bool Resume2;
+    public Animator bookLog;
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -365,21 +367,51 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            musicSource.Pause();
-            logbook.SetActive(true);
+            Pause();
         }
 
         if (!metronome_audioSrc.isPlaying)
         {
             player.SetBool("isPressed", false);
             StartCoroutine(takePictureAnimator());
-        }
-
-      
+        }   
 
         
     }
 
+  
+
+    void Pause()
+    {        
+            bookLog.SetBool("Enter", true);
+            Time.timeScale = 0;
+            musicSource.Pause();
+            metronome_audioSrc.Pause();
+    }
+
+    public void Resume()
+    {
+        StartCoroutine(DelayResume());   
+        Resume2 = true; 
+    }
+
+    IEnumerator DelayResume()
+    {
+        yield return new WaitForSeconds(1);
+        Resume2 = true;   
+    }
+
+    void LateUpdate()
+    {
+        if (Resume2 == true)
+        {
+             Time.timeScale = 1;
+            musicSource.UnPause();
+            metronome_audioSrc.UnPause();
+            Resume2 = false;
+        }
+        
+    }
     void ExecuteEvent()
     {
         if (canSpawn == true)
