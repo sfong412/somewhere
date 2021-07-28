@@ -4300,7 +4300,7 @@ MonoBehaviour:
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
   callBackNumber: 0
-  beatsPerSecond: 125
+  beatsPerSecond: 120
   beatsPerMeasure: 4
   secPerBeat: 0
   secPerMeasure: 0

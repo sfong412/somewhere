@@ -226,11 +226,12 @@ public class RhythmGameMapper : MonoBehaviour
         birbTurn3 = true;
         if (autoPlay)
         {
-            musicSource.Play();
+          //  musicSource.Play();
             songLength = musicSource.clip.length;
             Application.targetFrameRate = 120;
             currentEventNumber = 0;
             currentEvent = Events[currentEventNumber];
+            StartCoroutine(StartMusic());
         }
         changeNumber = 0;
 
@@ -240,7 +241,7 @@ public class RhythmGameMapper : MonoBehaviour
     IEnumerator StartMusic()
     {
         yield return new WaitForSeconds(2f);
-
+        musicSource.Play();   
     }
 
     void Update()
@@ -329,6 +330,7 @@ public class RhythmGameMapper : MonoBehaviour
                 {
                     if (!willPress)
                     {
+                        StopCoroutine(StartMusic());
                         player.SetBool("isGameOver", true);
                         musicSource.Pause();
                         gameOverScreen.SetActive(true);
