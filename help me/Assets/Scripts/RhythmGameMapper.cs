@@ -197,7 +197,7 @@ public class RhythmGameMapper : MonoBehaviour
         //Start the music
         //musicSource.time = 10f;
 
-      
+
 
         //dayNightCycle = GameObject.Find("Background").GetComponent<DayNightCycle>();
 
@@ -224,23 +224,23 @@ public class RhythmGameMapper : MonoBehaviour
         nextEventRandom += 3;
         canBird = true;
         birbTurn3 = true;
-         if (autoPlay)
+        if (autoPlay)
         {
-        musicSource.Play();
-        songLength = musicSource.clip.length;
-        Application.targetFrameRate = 120;
-        currentEventNumber = 0;
-        currentEvent = Events[currentEventNumber];
+            musicSource.Play();
+            songLength = musicSource.clip.length;
+            Application.targetFrameRate = 120;
+            currentEventNumber = 0;
+            currentEvent = Events[currentEventNumber];
         }
-        changeNumber = 0; 
-        
-     
+        changeNumber = 0;
+
+
     }
 
     IEnumerator StartMusic()
     {
         yield return new WaitForSeconds(2f);
-        
+
     }
 
     void Update()
@@ -250,9 +250,10 @@ public class RhythmGameMapper : MonoBehaviour
             return;
         }
 
-        lastReportedBeat = songPositionInBeats;
         if (musicSource.isPlaying)
         {
+            lastReportedBeat = songPositionInBeats;
+
             secPerRealBeat = (60f / (beatsPerSecond));
             secPerBeat = (60f / (beatsPerSecond));
             secPerMeasure = secPerRealBeat * beatsPerMeasure;
@@ -286,110 +287,114 @@ public class RhythmGameMapper : MonoBehaviour
 
             songPosBeat = (int)songPositionInBeats / beatsPerMeasure;
             ExecuteEvent();
-        }
 
-        if (currentEvent.beatRest)
-        {
-            if (currentEvent.beatsBtwWave <= 0 && !canSpawn)
+
+            if (currentEvent.beatRest)
             {
-                canSpawn = true;
-                currentEventNumber += 1;
-                newWaveGenerate = true;
-                randomBirdnumber = Random.Range(0, 4);
-                currentEvent = Events[currentEventNumber];
-                timeGo = true;
-
-            }
-        }
-
-        player.SetBool("willPress", willPress);
-
-
-
-        if (currentEvent.timeRest)
-        {
-            if (currentEvent.songPositionWave < songPosition)
-            {
-                canSpawn = true;
-                currentEventNumber++;
-                newWaveGenerate = true;
-                randomBirdnumber = Random.Range(0, 4);
-                currentEvent = Events[currentEventNumber];
-                beatGo = true;
-            }
-
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (canPress)
-            {
-                if (!willPress)
+                if (currentEvent.beatsBtwWave <= 0 && !canSpawn)
                 {
-                    player.SetBool("isGameOver", true);
-                    musicSource.Pause();
-                    gameOverScreen.SetActive(true);
-                    canPress = false;
+                    canSpawn = true;
+                    currentEventNumber += 1;
+                    newWaveGenerate = true;
+                    randomBirdnumber = Random.Range(0, 4);
+                    currentEvent = Events[currentEventNumber];
+                    timeGo = true;
+
                 }
-                else if (willPress)
+            }
+
+
+            player.SetBool("willPress", willPress);
+
+
+
+            if (currentEvent.timeRest)
+            {
+                if (currentEvent.songPositionWave < songPosition)
                 {
-                    PlayerTurnAnimation();
-                     singRightNow = false;
-                     StartCoroutine(flyAway());
-                    //successText.SetActive(true);
-                    willPress = false;
-                    scoreManager.AddScore();
-                    canPress = false;
-                    switch (callBackNumber)
+                    canSpawn = true;
+                    currentEventNumber++;
+                    newWaveGenerate = true;
+                    randomBirdnumber = Random.Range(0, 4);
+                    currentEvent = Events[currentEventNumber];
+                    beatGo = true;
+                }
+
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (canPress)
+                {
+                    if (!willPress)
                     {
-                        case 0:
-                            metronome_audioSrc.PlayOneShot(sound5, 1f);
-                            break;
-                        case 1:
-                            metronome_audioSrc.PlayOneShot(sound1, 1f);
-                            break;
+                        player.SetBool("isGameOver", true);
+                        musicSource.Pause();
+                        gameOverScreen.SetActive(true);
+                        canPress = false;
+                        scoreManager.SaveScore();
+                        scoreManager.highScoreText.text = "High Score: " + ScoreManager.highScore;
                     }
-                    player.SetBool("isPressed", true);
-                    StartCoroutine(pressTimer());
+                    else if (willPress)
+                    {
+                        PlayerTurnAnimation();
+                        singRightNow = false;
+                        StartCoroutine(flyAway());
+                        //successText.SetActive(true);
+                        willPress = false;
+                        scoreManager.AddScore();
+                        canPress = false;
+                        switch (callBackNumber)
+                        {
+                            case 0:
+                                metronome_audioSrc.PlayOneShot(sound5, 1f);
+                                break;
+                            case 1:
+                                metronome_audioSrc.PlayOneShot(sound1, 1f);
+                                break;
+                        }
+                        player.SetBool("isPressed", true);
+                        StartCoroutine(pressTimer());
+
+
+                    }
+                    //clickedText.SetActive(true);
 
 
                 }
-                //clickedText.SetActive(true);
-
 
             }
 
-        }
 
-        
 
-        if (currentEventNumber >= Events.Length - 3)
-        {
-            for (int i = 0; i < Events.Length; i++)
+            if (currentEventNumber >= Events.Length - 3)
             {
-                Events[i].beatsBtwWave = 1;
-                Events[i].eventType = 0;
-                Events[i].noOfEvents = 1;
-                Events[i].beatMode = true;
-                Events[i].timeMode = false;
-                Events[i].beatRest = true;
-                Events[i].timeRest = false;
+                for (int i = 0; i < Events.Length; i++)
+                {
+                    Events[i].beatsBtwWave = 1;
+                    Events[i].eventType = 0;
+                    Events[i].noOfEvents = 1;
+                    Events[i].beatMode = true;
+                    Events[i].timeMode = false;
+                    Events[i].beatRest = true;
+                    Events[i].timeRest = false;
+                }
+                currentEventNumber = 0;
+                nextEventRandom = 0;
+                currentEvent = Events[0];
             }
-            currentEventNumber = 0;
-            nextEventRandom = 0;
-            currentEvent = Events[0];
-        }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Pause();
-        }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Pause();
+            }
 
-        if (!metronome_audioSrc.isPlaying)
-        {
-            player.SetBool("isPressed", false);
-            StartCoroutine(takePictureAnimator());
+            if (!metronome_audioSrc.isPlaying)
+            {
+                player.SetBool("isPressed", false);
+                StartCoroutine(takePictureAnimator());
+            }
         }
 
         if (!musicSource.isPlaying)
@@ -398,79 +403,79 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 sceneChange = true;
             }
-            
+
         }
 
         if (sceneChange)
         {
-             
-            switch(changeNumber)
+
+            switch (changeNumber)
             {
                 case 0:
-                dayTime.SetBool("daytimeBool", true);
-                changeNumber += 1;
-                break;
-                case 1: 
-                lowSun.SetBool("lowSunBool", true);
-                changeNumber += 1;
-                break;
-                case 2: 
-                night.SetBool("nightBool", true);
-                changeNumber += 1;
-                break;
+                    dayTime.SetBool("daytimeBool", true);
+                    changeNumber += 1;
+                    break;
+                case 1:
+                    lowSun.SetBool("lowSunBool", true);
+                    changeNumber += 1;
+                    break;
+                case 2:
+                    night.SetBool("nightBool", true);
+                    changeNumber += 1;
+                    break;
                 case 3:
-                lowSun.SetBool("lowSunBool", false);
-                changeNumber += 1;
-                break;
-                case 4: 
-                dayTime.SetBool("daytimeBool", false);
-                changeNumber = 0;
-                break;
+                    lowSun.SetBool("lowSunBool", false);
+                    changeNumber += 1;
+                    break;
+                case 4:
+                    dayTime.SetBool("daytimeBool", false);
+                    changeNumber = 0;
+                    break;
 
             }
             sceneChange = false;
-            
-        }   
 
-        
+        }
+
+
     }
 
-  
+
 
     void Pause()
-    {        
-            paused = true;
-            bookLog.SetBool("Enter", true);
-            blackOut.SetBool("Focus", true);
-            Time.timeScale = 0;
-            musicSource.Pause();
-            metronome_audioSrc.Pause();
+    {
+        paused = true;
+        bookLog.SetBool("Enter", true);
+        blackOut.SetBool("Focus", true);
+        Time.timeScale = 0;
+        musicSource.Pause();
+        metronome_audioSrc.Pause();
     }
 
     public void Resume()
     {
         paused = false;
         blackOut.SetBool("Focus", false);
-        StartCoroutine(DelayResume());   
-        Resume2 = true; 
+        StartCoroutine(DelayResume());
+        Resume2 = true;
     }
 
     IEnumerator DelayResume()
     {
         yield return new WaitForSeconds(1);
-        Resume2 = true;   
+        Resume2 = true;
     }
 
     void LateUpdate()
     {
         if (Resume2 == true)
         {
-             Time.timeScale = 1;
+            Time.timeScale = 1;
             musicSource.UnPause();
             metronome_audioSrc.UnPause();
             Resume2 = false;
         }
-        
+
     }
     void ExecuteEvent()
     {
@@ -515,15 +520,15 @@ public class RhythmGameMapper : MonoBehaviour
             case 1:
                 StartCoroutine(slackTimer());
                 noteEventNumber = currentEvent.eventType;
-                Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);  
+                Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);
                 //metronome_audioSrc.PlayOneShot(sound5, 1f);
                 break;
             //Bird enters
             case 2:
-               
+
                 //StartCoroutine(slackTimer());
                 metronome_audioSrc.PlayOneShot(sound3, 1f);
-                 noteEventNumber = currentEvent.eventType;
+                noteEventNumber = currentEvent.eventType;
                 Debug.Log("Song position in beats when bird sound plays: " + songPositionInBeats);
                 birbTurn2 = true;
                 singRightNow = true;
@@ -537,12 +542,12 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
 
             case 5:
-            Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
-            canBird = false;
-            birbTurn = true;
-            birbTurn3 = true;
-            callBackNumber = 0;
-            break;
+                Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+                canBird = false;
+                birbTurn = true;
+                birbTurn3 = true;
+                callBackNumber = 0;
+                break;
         }
 
     }
@@ -607,45 +612,45 @@ public class RhythmGameMapper : MonoBehaviour
 
     void PlayerTurnAnimation()
     {
-         switch (noteEventNumber)
-            {       
-                case 1:
-                 var randomNoteNumber = Random.Range(0,3);
-                 Debug.Log(randomNoteNumber);
-                 switch(randomNoteNumber)
+        switch (noteEventNumber)
+        {
+            case 1:
+                var randomNoteNumber = Random.Range(0, 3);
+                Debug.Log(randomNoteNumber);
+                switch (randomNoteNumber)
                 {
-                     case 0:
-                     GameObject effect = Instantiate(playerNote1, playerMouth.position, Quaternion.identity);
-                     Destroy(effect, 2f);
-                    break;
+                    case 0:
+                        GameObject effect = Instantiate(playerNote1, playerMouth.position, Quaternion.identity);
+                        Destroy(effect, 2f);
+                        break;
 
-                    case 1: 
-                   GameObject effect2 = Instantiate(playerNote2, playerMouth.position, Quaternion.identity);
-                     Destroy(effect2, 2f);
-                    break;
+                    case 1:
+                        GameObject effect2 = Instantiate(playerNote2, playerMouth.position, Quaternion.identity);
+                        Destroy(effect2, 2f);
+                        break;
 
                     case 2:
-                   GameObject effect3 = Instantiate(playerNote3, playerMouth.position, Quaternion.identity);
-                     Destroy(effect3, 2f);
-                    break;
+                        GameObject effect3 = Instantiate(playerNote3, playerMouth.position, Quaternion.identity);
+                        Destroy(effect3, 2f);
+                        break;
                 }
                 break;
-            }         
+        }
     }
 
     void BirbTurnAnimation()
     {
-        switch(noteEventNumber)
+        switch (noteEventNumber)
         {
             case 2:
-            var randomNoteNumber = 0;
-            switch(randomNoteNumber)
-            {
-                case 0:
-                StartCoroutine(birbNoteTurn1());
+                var randomNoteNumber = 0;
+                switch (randomNoteNumber)
+                {
+                    case 0:
+                        StartCoroutine(birbNoteTurn1());
+                        break;
+                }
                 break;
-            }
-            break;
 
         }
     }
@@ -682,23 +687,23 @@ public class RhythmGameMapper : MonoBehaviour
 
     IEnumerator birbNoteTurn1()
     {
-         GameObject effect = Instantiate(birbNote1, birdMouth.position, Quaternion.identity);
-         yield return new WaitForSeconds(0.2f);
-          GameObject effect2 = Instantiate(birbNote2, birdMouth.position, Quaternion.identity);
-         yield return new WaitForSeconds(0.2f);
-          GameObject effect3 = Instantiate(birbNote3, birdMouth.position, Quaternion.identity);
-         Destroy(effect3, 2f);
-         Destroy(effect, 2f);
-         Destroy(effect2, 2f);
+        GameObject effect = Instantiate(birbNote1, birdMouth.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.2f);
+        GameObject effect2 = Instantiate(birbNote2, birdMouth.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.2f);
+        GameObject effect3 = Instantiate(birbNote3, birdMouth.position, Quaternion.identity);
+        Destroy(effect3, 2f);
+        Destroy(effect, 2f);
+        Destroy(effect2, 2f);
     }
 
     IEnumerator flyAway()
     {
         yield return new WaitForSeconds(0.7f);
         birbTurn3 = false;
-        
+
     }
 
-  
+
 
 }
