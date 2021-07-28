@@ -832,6 +832,7 @@ public class RhythmGameMapper : MonoBehaviour
     IEnumerator ow()
     {
         player.SetBool("isPressed", true);
+        yield return new WaitForSecondsRealtime(0.3f);
         player.SetBool("isGameOver", true);
         yield return new WaitForSecondsRealtime(0.3f);
         player.SetBool("isPressed", false);
