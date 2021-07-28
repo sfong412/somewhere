@@ -807,6 +807,7 @@ public class RhythmGameMapper : MonoBehaviour
          willPress = false;
          StartCoroutine(pressTimer());
          StopCoroutine(slackTimer());
+         StartCoroutine(ow());
     }
 
     IEnumerator birbNoteTurn1()
@@ -826,6 +827,15 @@ public class RhythmGameMapper : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.7f);
         birbTurn3 = false;
 
+    }
+
+    IEnumerator ow()
+    {
+        player.SetBool("isPressed", true);
+        player.SetBool("isGameOver", true);
+        yield return new WaitForSecondsRealtime(0.3f);
+        player.SetBool("isPressed", false);
+         player.SetBool("isGameOver", false);
     }
 
     

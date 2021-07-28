@@ -110,6 +110,7 @@ public class DialogueSystem : MonoBehaviour
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
                 pressed = false;
+                rhythm.realerScore = 0;
            }
        }
 
