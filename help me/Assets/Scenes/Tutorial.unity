@@ -3722,6 +3722,14 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 0
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
   currentEvent:
     beatsBtwWave: 0
     eventType: 0
@@ -7357,7 +7365,7 @@ MonoBehaviour:
   - sussy
   - You want to press SPACE on the last note.
   - Try it out yourself.
-  - 0
+  - sussy
   - sussy
   - sussy
   - sussy
