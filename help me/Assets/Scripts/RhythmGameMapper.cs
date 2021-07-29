@@ -200,6 +200,13 @@ public class RhythmGameMapper : MonoBehaviour
     public bool watching;
 
     public int realerScore;
+
+    public Animator light;
+
+    public Animator leftLamp;
+
+    public Animator rightLamp;
+    
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -454,29 +461,54 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 case 0:
                     dayTime.SetBool("daytimeBool", true);
+                    light.SetFloat("lightNumber",1);
                     changeNumber += 1;
                     break;
                 case 1:
                     lowSun.SetBool("lowSunBool", true);
+                    light.SetFloat("lightNumber",2);
                     changeNumber += 1;
                     break;
                 case 2:
                     night.SetBool("nightBool", true);
+                    light.SetFloat("lightNumber",3);
                     changeNumber += 1;
                     break;
                 case 3:
                     lowSun.SetBool("lowSunBool", false);
+                    light.SetFloat("lightNumber",4);
                     changeNumber += 1;
                     break;
                 case 4:
                     dayTime.SetBool("daytimeBool", false);
-                    changeNumber = 0;
+                    light.SetFloat("lightNumber",5);
+                    changeNumber += 1;
                     break;
+                case 5:
+                    dayTime.SetBool("daytimeBool", true);
+                    light.SetFloat("lightNumber",-1);
+                    changeNumber = 1; 
+                    break;
+               
 
             }
             sceneChange = false;
 
         }
+
+        if (changeNumber == 2)
+        {
+                    leftLamp.SetBool("lightUp", true);
+                    rightLamp.SetBool("lightUp", true);
+        }
+
+        if (changeNumber == 3)
+        {
+                    leftLamp.SetBool("lightUp", false);
+                    rightLamp.SetBool("lightUp", false);
+        }
+
+       
 
 
     }
