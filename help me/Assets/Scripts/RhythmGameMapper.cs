@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 [System.Serializable]
 //Created by color!please studios
 
@@ -35,7 +36,7 @@ public class RhythmGameMapper : MonoBehaviour
 {
     public beatMap[] Events;
 
-     public beatMap currentEvent;
+    public beatMap currentEvent;
     public int currentEventNumber;
 
     public bool canSpawn;
@@ -160,6 +161,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public GameObject gameOverScreen;
 
+    public TextMeshProUGUI birdSeedPacketsCounter;
+
     public int noteEventNumber;
 
     public bool canBird;
@@ -218,7 +221,7 @@ public class RhythmGameMapper : MonoBehaviour
     public int doubleTapRootBeer;
 
     bool doubleTapD = false;
-    
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -264,9 +267,9 @@ public class RhythmGameMapper : MonoBehaviour
         birbTurn3 = true;
         if (autoPlay)
         {
-          //  musicSource.Play();
+            //  musicSource.Play();
             songLength = musicSource.clip.length;
-            
+
             currentEventNumber = 0;
             currentEvent = Events[currentEventNumber];
             StartCoroutine(StartMusic());
@@ -282,11 +285,13 @@ public class RhythmGameMapper : MonoBehaviour
     IEnumerator StartMusic()
     {
         yield return new WaitForSeconds(2f);
-        musicSource.Play();   
+        musicSource.Play();
     }
 
     void Update()
     {
+        birdSeedPacketsCounter.text = "x " + lives.ToString();
+
         if (musicSource.isPlaying == false)
         {
             return;
@@ -369,144 +374,146 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 if (singleTap)
                 {
-                      if (!watching)
-                {
-                     if (canPress)
-                {
-                    notBadAtGame = true;
-                    if (!willPress)
+                    if (!watching)
                     {
-                        if (lives == 1)
+                        if (canPress)
                         {
-                        StopCoroutine(StartMusic());
-                        player.SetBool("isGameOver", true);
-                        musicSource.Pause();
-                        gameOverScreen.SetActive(true);
-                        paused = true;
-                        canPress = false;
-                        scoreManager.SaveScore();
-                        scoreManager.highScoreText.text = "High Score: " + ScoreManager.highScore;
-                        birbTurn3 = false;
+                            notBadAtGame = true;
+                            if (!willPress)
+                            {
+                                if (lives == 1)
+                                {
+                                    lives--;
+                                    StopCoroutine(StartMusic());
+                                    player.SetBool("isGameOver", true);
+                                    musicSource.Pause();
+                                    gameOverScreen.SetActive(true);
+                                    paused = true;
+                                    canPress = false;
+                                    scoreManager.SaveScore();
+                                    scoreManager.highScoreText.text = "High Score: " + ScoreManager.highScore;
+                                    birbTurn3 = false;
+                                }
+                                else
+                                {
+                                    Hurt();
+                                }
+                            }
+                            else if (willPress)
+                            {
+                                realerScore++;
+                                PlayerTurnAnimation();
+                                singRightNow = false;
+                                StartCoroutine(flyAway());
+                                //successText.SetActive(true);
+                                willPress = false;
+                                scoreManager.AddScore();
+                                canPress = false;
+                                switch (callBackNumber)
+                                {
+                                    case 0:
+                                        metronome_audioSrc.PlayOneShot(sound5, 1f);
+                                        break;
+                                    case 1:
+                                        metronome_audioSrc.PlayOneShot(sound1, 1f);
+                                        break;
+                                }
+                                player.SetBool("isPressed", true);
+                                StartCoroutine(pressTimer());
+                                StartCoroutine(takePictureAnimator());
+
+
+                            }
+                            //clickedText.SetActive(true);
+
+
                         }
-                        else
-                        {
-                            Hurt();
-                        }
+
                     }
-                    else if (willPress)
-                    {
-                        realerScore++;
-                        PlayerTurnAnimation();
-                        singRightNow = false;
-                        StartCoroutine(flyAway());
-                        //successText.SetActive(true);
-                        willPress = false;
-                        scoreManager.AddScore();
-                        canPress = false;
-                        switch (callBackNumber)
-                        {
-                            case 0:
-                                metronome_audioSrc.PlayOneShot(sound5, 1f);
-                                break;
-                            case 1:
-                                metronome_audioSrc.PlayOneShot(sound1, 1f);
-                                break;
-                        }
-                        player.SetBool("isPressed", true);
-                        StartCoroutine(pressTimer());
-                         StartCoroutine(takePictureAnimator());
-
-
-                    }
-                    //clickedText.SetActive(true);
-
-
-                }
-
-                }
                 }
                 else
                 {
-                    
- 
-        #region doubleTapD
- 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            doubleTapRootBeer += 1;
-            if (doubleTapRootBeer == 1)
-            {
-                metronome_audioSrc.PlayOneShot(sound01, 1f);
-                PlayerTurnAnimation();
-            }
-            if (Time.time < _doubleTapTimeD + .5f)
-            {
-                doubleTapD = true;
-            }
-            _doubleTapTimeD = Time.time;
-        }
- 
-        #endregion
- 
-        if (doubleTapD)
-        {
-              if (canPress)
-                    {
-                        notBadAtGame = true;
-                        if (willPress)
-                        {
-                            realerScore++;
-                        PlayerTurnAnimation();
-                        singRightNow = false;
-                        StartCoroutine(flyAway());
-                        //successText.SetActive(true);
-                        willPress = false;
-                        scoreManager.AddScore();
-                        canPress = false;
-                        switch (callBackNumber)
-                        {
-                            case 0:
-                                metronome_audioSrc.PlayOneShot(sound5, 1f);
-                                break;
-                            case 1:
-                                metronome_audioSrc.PlayOneShot(sound02, 1f);
-                                break;
-                        }
-                        player.SetBool("isPressed", true);
-                        StartCoroutine(pressTimer());
-                         StartCoroutine(takePictureAnimator());
-                        notBadAtGame = true;
 
-                        }
-                        if (!willPress)
+
+                    #region doubleTapD
+
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        doubleTapRootBeer += 1;
+                        if (doubleTapRootBeer == 1)
                         {
-                             if (lives == 1)
+                            metronome_audioSrc.PlayOneShot(sound01, 1f);
+                            PlayerTurnAnimation();
+                        }
+                        if (Time.time < _doubleTapTimeD + .5f)
                         {
-                        StopCoroutine(StartMusic());
-                        player.SetBool("isGameOver", true);
-                        musicSource.Pause();
-                        gameOverScreen.SetActive(true);
-                        paused = true;
-                        canPress = false;
-                        scoreManager.SaveScore();
-                        scoreManager.highScoreText.text = "High Score: " + ScoreManager.highScore;
-                        birbTurn3 = false;
+                            doubleTapD = true;
                         }
-                        else
-                        {
-                            if (!doubleTapD)
-                            {   
-                                 Hurt();
-                            }
-                           
-                        }
-                        }
+                        _doubleTapTimeD = Time.time;
                     }
-            Debug.Log("DoubleTapD");
-        }
+
+                    #endregion
+
+                    if (doubleTapD)
+                    {
+                        if (canPress)
+                        {
+                            notBadAtGame = true;
+                            if (willPress)
+                            {
+                                realerScore++;
+                                PlayerTurnAnimation();
+                                singRightNow = false;
+                                StartCoroutine(flyAway());
+                                //successText.SetActive(true);
+                                willPress = false;
+                                scoreManager.AddScore();
+                                canPress = false;
+                                switch (callBackNumber)
+                                {
+                                    case 0:
+                                        metronome_audioSrc.PlayOneShot(sound5, 1f);
+                                        break;
+                                    case 1:
+                                        metronome_audioSrc.PlayOneShot(sound02, 1f);
+                                        break;
+                                }
+                                player.SetBool("isPressed", true);
+                                StartCoroutine(pressTimer());
+                                StartCoroutine(takePictureAnimator());
+                                notBadAtGame = true;
+
+                            }
+                            if (!willPress)
+                            {
+                                if (lives == 1)
+                                {
+                                    lives--;
+                                    StopCoroutine(StartMusic());
+                                    player.SetBool("isGameOver", true);
+                                    musicSource.Pause();
+                                    gameOverScreen.SetActive(true);
+                                    paused = true;
+                                    canPress = false;
+                                    scoreManager.SaveScore();
+                                    scoreManager.highScoreText.text = "High Score: " + ScoreManager.highScore;
+                                    birbTurn3 = false;
+                                }
+                                else
+                                {
+                                    if (!doubleTapD)
+                                    {
+                                        Hurt();
+                                    }
+
+                                }
+                            }
+                        }
+                        Debug.Log("DoubleTapD");
+                    }
                 }
-              
-               
+
+
             }
 
 
@@ -515,20 +522,20 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 if (tutorial)
                 {
-                currentEventNumber = 0;
-                nextEventRandom = 0;
-                currentEvent = Events[0];
-                switch(loopType)
-                {
-                    case 0:
-                    mappingCode.TutorialRedCardinalPatternDemo();
-                    break;
-                    case 1: 
-                    mappingCode.RedCardinalTutorialGameplay();
-                    break;
+                    currentEventNumber = 0;
+                    nextEventRandom = 0;
+                    currentEvent = Events[0];
+                    switch (loopType)
+                    {
+                        case 0:
+                            mappingCode.TutorialRedCardinalPatternDemo();
+                            break;
+                        case 1:
+                            mappingCode.RedCardinalTutorialGameplay();
+                            break;
+                    }
                 }
-                }
-               
+
             }
 
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -558,35 +565,35 @@ public class RhythmGameMapper : MonoBehaviour
             {
                 case 0:
                     dayTime.SetBool("daytimeBool", true);
-                    light.SetFloat("lightNumber",1);
+                    light.SetFloat("lightNumber", 1);
                     changeNumber += 1;
                     break;
                 case 1:
                     lowSun.SetBool("lowSunBool", true);
-                    light.SetFloat("lightNumber",2);
+                    light.SetFloat("lightNumber", 2);
                     changeNumber += 1;
                     break;
                 case 2:
                     night.SetBool("nightBool", true);
-                    light.SetFloat("lightNumber",3);
+                    light.SetFloat("lightNumber", 3);
                     changeNumber += 1;
                     break;
                 case 3:
                     lowSun.SetBool("lowSunBool", false);
-                    light.SetFloat("lightNumber",4);
+                    light.SetFloat("lightNumber", 4);
                     changeNumber += 1;
                     break;
                 case 4:
                     dayTime.SetBool("daytimeBool", false);
-                    light.SetFloat("lightNumber",5);
+                    light.SetFloat("lightNumber", 5);
                     changeNumber += 1;
                     break;
                 case 5:
                     dayTime.SetBool("daytimeBool", true);
-                    light.SetFloat("lightNumber",-1);
-                    changeNumber = 1; 
+                    light.SetFloat("lightNumber", -1);
+                    changeNumber = 1;
                     break;
-               
+
 
             }
             sceneChange = false;
@@ -595,24 +602,24 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (changeNumber == 2)
         {
-                    leftLamp.SetBool("lightUp", true);
-                    rightLamp.SetBool("lightUp", true);
+            leftLamp.SetBool("lightUp", true);
+            rightLamp.SetBool("lightUp", true);
         }
 
         if (changeNumber == 3)
         {
-                    leftLamp.SetBool("lightUp", false);
-                    rightLamp.SetBool("lightUp", false);
+            leftLamp.SetBool("lightUp", false);
+            rightLamp.SetBool("lightUp", false);
         }
 
-       
+
 
 
     }
 
 
 
-   
+
     public void Pause()
     {
         paused = true;
@@ -626,7 +633,7 @@ public class RhythmGameMapper : MonoBehaviour
     public void Pause2()
     {
         paused = true;
-         Time.timeScale = 0;
+        Time.timeScale = 0;
         musicSource.Pause();
         metronome_audioSrc.Pause();
     }
@@ -723,34 +730,34 @@ public class RhythmGameMapper : MonoBehaviour
                 BirbTurnAnimation();
                 break;
             case 3:
-                 
+
                 noteEventNumber = currentEvent.eventType;
                 Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);
                 //metronome_audioSrc.PlayOneShot(sound5, 1f);
                 RadioTurnAnimation();
-                        singRightNow = false;
-                        StartCoroutine(flyAway());
-                        //successText.SetActive(true);
-                        willPress = false;
-                        canPress = false;
-                        switch (callBackNumber)
-                        {
-                            case 0:
-                                metronome_audioSrc.PlayOneShot(sound5, 1f);
-                                break;
-                            case 1:
-                                metronome_audioSrc.PlayOneShot(sound1, 1f);
-                                break;
-                        }
-                        player.SetBool("isPressed", true);
-                        StartCoroutine(pressTimer());
-                        notBadAtGame = true;
+                singRightNow = false;
+                StartCoroutine(flyAway());
+                //successText.SetActive(true);
+                willPress = false;
+                canPress = false;
+                switch (callBackNumber)
+                {
+                    case 0:
+                        metronome_audioSrc.PlayOneShot(sound5, 1f);
+                        break;
+                    case 1:
+                        metronome_audioSrc.PlayOneShot(sound1, 1f);
+                        break;
+                }
+                player.SetBool("isPressed", true);
+                StartCoroutine(pressTimer());
+                notBadAtGame = true;
                 break;
             case 4:
-            doubleTapRootBeer = 0;
-            singleTap = false;
+                doubleTapRootBeer = 0;
+                singleTap = false;
                 metronome_audioSrc.PlayOneShot(sound2, 1f);
-                 noteEventNumber = currentEvent.eventType;
+                noteEventNumber = currentEvent.eventType;
                 Debug.Log("Song position in beats when bird sound plays: " + songPositionInBeats);
                 birbTurn2 = true;
                 singRightNow = true;
@@ -765,22 +772,22 @@ public class RhythmGameMapper : MonoBehaviour
                 callBackNumber = 0;
                 break;
             case 6:
-             Instantiate(blueJay, redBirbSpawn.position, Quaternion.identity);
+                Instantiate(blueJay, redBirbSpawn.position, Quaternion.identity);
                 canBird = false;
                 birbTurn = true;
                 birbTurn3 = true;
                 callBackNumber = 1;
                 break;
 
-            case 7: 
-              StartCoroutine(slackTimer(1f));
+            case 7:
+                StartCoroutine(slackTimer(1f));
                 noteEventNumber = currentEvent.eventType;
                 Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);
                 //metronome_audioSrc.PlayOneShot(sound5, 1f);
                 break;
 
 
-            
+
         }
 
     }
@@ -845,7 +852,7 @@ public class RhythmGameMapper : MonoBehaviour
 
     void PlayerTurnAnimation()
     {
-         player.SetBool("isPressed", true);
+        player.SetBool("isPressed", true);
         switch (noteEventNumber)
         {
             case 1:
@@ -870,7 +877,7 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
 
             case 7:
-             var randomNoteNumber2 = Random.Range(0, 3);
+                var randomNoteNumber2 = Random.Range(0, 3);
                 switch (randomNoteNumber2)
                 {
                     case 0:
@@ -892,13 +899,13 @@ public class RhythmGameMapper : MonoBehaviour
         }
     }
 
-   
+
     void BirbTurnAnimation()
     {
         switch (noteEventNumber)
         {
             case 2:
-               StartCoroutine(birbNoteTurn1());
+                StartCoroutine(birbNoteTurn1());
                 break;
 
             case 4:
@@ -910,9 +917,9 @@ public class RhythmGameMapper : MonoBehaviour
 
     void RadioTurnAnimation()
     {
-         switch (noteEventNumber)
+        switch (noteEventNumber)
         {
-            
+
             case 3:
                 var randomNoteNumber = Random.Range(0, 3);
                 switch (randomNoteNumber)
@@ -934,7 +941,7 @@ public class RhythmGameMapper : MonoBehaviour
                 }
                 break;
 
-             case 7:
+            case 7:
                 var randomNoteNumber2 = Random.Range(0, 3);
                 switch (randomNoteNumber2)
                 {
@@ -986,7 +993,7 @@ public class RhythmGameMapper : MonoBehaviour
         yield return new WaitForSeconds(wait);
         willPress = false;
         if (notBadAtGame == false)
-        {      
+        {
             Hurt();
             Debug.Log("sus");
         }
@@ -994,12 +1001,12 @@ public class RhythmGameMapper : MonoBehaviour
 
     void Hurt()
     {
-         lives--;
-         birbTurn3 = false;
-         willPress = false;
-         StartCoroutine(pressTimer());
-         StopCoroutine(slackTimer(0.5f));
-         StartCoroutine(ow());
+        lives--;
+        birbTurn3 = false;
+        willPress = false;
+        StartCoroutine(pressTimer());
+        StopCoroutine(slackTimer(0.5f));
+        StartCoroutine(ow());
     }
 
     IEnumerator birbNoteTurn1()
@@ -1043,10 +1050,10 @@ public class RhythmGameMapper : MonoBehaviour
         player.SetBool("isGameOver", true);
         yield return new WaitForSecondsRealtime(0.3f);
         player.SetBool("isPressed", false);
-         player.SetBool("isGameOver", false);
+        player.SetBool("isGameOver", false);
     }
 
-    
+
 
 
 
