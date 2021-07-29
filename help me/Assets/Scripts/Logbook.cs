@@ -23,6 +23,8 @@ public class Logbook : MonoBehaviour
 
     public AudioClip BlueJay;
 
+    public AudioClip cardinal;
+
     public TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
@@ -132,6 +134,14 @@ public class Logbook : MonoBehaviour
         if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(BlueJay, 1f);
+        }
+    }
+
+    public void RedBirb2()
+    {
+         if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(cardinal, 1f);
         }
     }
 

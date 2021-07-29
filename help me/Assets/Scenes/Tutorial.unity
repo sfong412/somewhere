@@ -3238,6 +3238,7 @@ MonoBehaviour:
   buttonClick2: {fileID: 8300000, guid: bea0458efe2d8e845a61f9f46c239667, type: 3}
   buttonClick3: {fileID: 8300000, guid: 58b95f29883e4d44d91291cd16a0165a, type: 3}
   BlueJay: {fileID: 0}
+  cardinal: {fileID: 0}
   highScoreText: {fileID: 0}
 --- !u!114 &839761182
 MonoBehaviour:
@@ -3881,7 +3882,7 @@ MonoBehaviour:
   nextTimeBtwWave: 0
   callBackNumber: 0
   beatsPerSecond: 119.7
-  beatsPerMeasure: 5
+  beatsPerMeasure: 4
   secPerBeat: 0
   secPerMeasure: 0
   songPosition: 0
@@ -3975,6 +3976,7 @@ MonoBehaviour:
   timerIsRunning: 1
   minDouble: 0.3
   maxDouble: 0.5
+  imTired: 0
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -9972,6 +9974,7 @@ MonoBehaviour:
   buttonClick2: {fileID: 0}
   buttonClick3: {fileID: 0}
   BlueJay: {fileID: 0}
+  cardinal: {fileID: 0}
   highScoreText: {fileID: 0}
 --- !u!1 &6800759637744309614
 GameObject:

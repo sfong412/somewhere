@@ -4101,6 +4101,7 @@ MonoBehaviour:
   buttonClick2: {fileID: 8300000, guid: bea0458efe2d8e845a61f9f46c239667, type: 3}
   buttonClick3: {fileID: 8300000, guid: 58b95f29883e4d44d91291cd16a0165a, type: 3}
   BlueJay: {fileID: 8300000, guid: e4a0ca06a2e3a934394b555ae13cb482, type: 3}
+  cardinal: {fileID: 8300000, guid: 2cf3a1a1301721146b8a30b88f0a8132, type: 3}
   highScoreText: {fileID: 2080630564}
 --- !u!114 &839761182
 MonoBehaviour:
@@ -4404,7 +4405,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1374371496}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 839761181}
+        m_TargetAssemblyTypeName: Logbook, Assembly-CSharp
+        m_MethodName: RedBirb2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &861154238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4586,15 +4599,15 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 6
+    eventType: 9
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 3
-    eventType: 4
+  - beatsBtwWave: 4
+    eventType: 10
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4602,7 +4615,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 2
-    eventType: 7
+    eventType: 11
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -5418,8 +5431,11 @@ MonoBehaviour:
   sound5: {fileID: 8300000, guid: b866f04c2a3dba94690168fd8681bd1d, type: 3}
   sound1: {fileID: 8300000, guid: 1cb1fd369671f7341b18278b4a4bd0dc, type: 3}
   sound2: {fileID: 8300000, guid: f75909b451af45e46ac766ba37253f9c, type: 3}
+  sound4: {fileID: 8300000, guid: 6654f556686a74140877c41e483f9c3c, type: 3}
   sound01: {fileID: 8300000, guid: 74aca4ac458996b4bb1cb36ca2c2b231, type: 3}
   sound02: {fileID: 8300000, guid: 1655a8cc7be2af04bbc0cab252ab53a3, type: 3}
+  sound03: {fileID: 8300000, guid: ae9fb551af873ca40951d9ced04e9ebe, type: 3}
+  sound04: {fileID: 8300000, guid: 05f232c0f246f914680bb84c3dc18426, type: 3}
   clickedText: {fileID: 617604092}
   failedText: {fileID: 1891339307}
   successText: {fileID: 1076982253}
@@ -5478,6 +5494,7 @@ MonoBehaviour:
   timerIsRunning: 1
   minDouble: 0.3
   maxDouble: 0.5
+  imTired: 1
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -5491,7 +5508,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -8040312823056929966, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
   m_audioClip: {fileID: 8300000, guid: f0140cd6d126d2042a139bd0b172a632, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.509
+  m_Volume: 0.219
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11754,6 +11771,7 @@ MonoBehaviour:
   buttonClick2: {fileID: 0}
   buttonClick3: {fileID: 0}
   BlueJay: {fileID: 0}
+  cardinal: {fileID: 0}
   highScoreText: {fileID: 0}
 --- !u!1 &6800759637744309614
 GameObject:
