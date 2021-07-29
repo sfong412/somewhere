@@ -4381,36 +4381,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848987234}
   m_CullTransparentMesh: 1
---- !u!1 &859086047
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 859086048}
-  m_Layer: 0
-  m_Name: RadioSpeaker (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &859086048
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859086047}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.009899974, y: -0.15199995, z: 0}
-  m_LocalScale: {x: 1.1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1028524448}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &861154235
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,16 +4643,16 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 6
+  - beatsBtwWave: 0
+    eventType: 5
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 3
-    eventType: 4
+  - beatsBtwWave: 2
+    eventType: 2
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4690,7 +4660,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 7
+    eventType: 1
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -5504,10 +5474,8 @@ MonoBehaviour:
   nextEventRandom: 0
   sound3: {fileID: 8300000, guid: 2ef607a5ae31bca4b84bf3b798fc045e, type: 3}
   sound5: {fileID: 8300000, guid: b866f04c2a3dba94690168fd8681bd1d, type: 3}
-  sound1: {fileID: 8300000, guid: 1cb1fd369671f7341b18278b4a4bd0dc, type: 3}
-  sound2: {fileID: 8300000, guid: f75909b451af45e46ac766ba37253f9c, type: 3}
-  sound01: {fileID: 8300000, guid: 74aca4ac458996b4bb1cb36ca2c2b231, type: 3}
-  sound02: {fileID: 8300000, guid: 1655a8cc7be2af04bbc0cab252ab53a3, type: 3}
+  sound1: {fileID: 8300000, guid: d96a10bc592c26845b0677e9680a5698, type: 3}
+  sound2: {fileID: 8300000, guid: 112b2ceb8c58dae449da17617b0a3e93, type: 3}
   clickedText: {fileID: 617604092}
   failedText: {fileID: 1891339307}
   successText: {fileID: 1076982253}
@@ -5548,7 +5516,7 @@ MonoBehaviour:
   notBadAtGame: 0
   lives: 3
   tutorial: 0
-  radioMouth: {fileID: 859086048}
+  radioMouth: {fileID: 0}
   loopType: 0
   mappingCode: {fileID: 1008101267}
   Enter: {fileID: 0}
@@ -5557,9 +5525,6 @@ MonoBehaviour:
   light: {fileID: 624281532}
   leftLamp: {fileID: 2044488342}
   rightLamp: {fileID: 1124829513}
-  singleTap: 0
-  _doubleTapTimeD: 0
-  doubleTapRootBeer: 0
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -5815,7 +5780,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1008101268}
   - component: {fileID: 1008101267}
-  - component: {fileID: 1008101269}
   m_Layer: 0
   m_Name: MappingCode (1)
   m_TagString: Untagged
@@ -5835,7 +5799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a4dc716f043254d9ef561317c71e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rhythms: {fileID: 944396417}
+  rhythms: {fileID: 0}
 --- !u!4 &1008101268
 Transform:
   m_ObjectHideFlags: 0
@@ -5850,19 +5814,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1008101269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1008101266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 006b0931a7d75d0478936c74eda852f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _doubleTapTimeD: 1
 --- !u!1 &1025926414
 GameObject:
   m_ObjectHideFlags: 0
@@ -6075,8 +6026,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.975, y: -1.046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 859086048}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8042,7 +7992,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1804101270163716324, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
   m_audioClip: {fileID: 8300000, guid: 054a28beb76c2cd47acc56a2889d08fa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.377
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
