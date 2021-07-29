@@ -373,6 +373,7 @@ public class RhythmGameMapper : MonoBehaviour
                 {
                      if (canPress)
                 {
+                    notBadAtGame = true;
                     if (!willPress)
                     {
                         if (lives == 1)
@@ -414,7 +415,6 @@ public class RhythmGameMapper : MonoBehaviour
                         player.SetBool("isPressed", true);
                         StartCoroutine(pressTimer());
                          StartCoroutine(takePictureAnimator());
-                        notBadAtGame = true;
 
 
                     }
@@ -452,6 +452,7 @@ public class RhythmGameMapper : MonoBehaviour
         {
               if (canPress)
                     {
+                        notBadAtGame = true;
                         if (willPress)
                         {
                             realerScore++;
@@ -495,7 +496,7 @@ public class RhythmGameMapper : MonoBehaviour
                         {
                             if (!doubleTapD)
                             {   
-                                 StartCoroutine(flexTape());
+                                 Hurt();
                             }
                            
                         }
@@ -610,15 +611,6 @@ public class RhythmGameMapper : MonoBehaviour
     }
 
 
-    IEnumerator flexTape()
-    {
-        yield return new WaitForSeconds(0.1f);
-        if (!doubleTapD)
-        {
-            Hurt();
-        }
-
-    }
 
    
     public void Pause()
@@ -710,7 +702,7 @@ public class RhythmGameMapper : MonoBehaviour
         {
             case 0:
                 canBird = true;
-                doubleTapRootBeer = 0;
+                singleTap = true;
                 break;
             //Player plays the flute
             case 1:
@@ -755,6 +747,7 @@ public class RhythmGameMapper : MonoBehaviour
                         notBadAtGame = true;
                 break;
             case 4:
+            doubleTapRootBeer = 0;
             singleTap = false;
                 metronome_audioSrc.PlayOneShot(sound2, 1f);
                  noteEventNumber = currentEvent.eventType;
@@ -852,6 +845,7 @@ public class RhythmGameMapper : MonoBehaviour
 
     void PlayerTurnAnimation()
     {
+         player.SetBool("isPressed", true);
         switch (noteEventNumber)
         {
             case 1:
@@ -875,8 +869,7 @@ public class RhythmGameMapper : MonoBehaviour
                 }
                 break;
 
-            case 7: 
-                player.SetBool("isPressed", true);
+            case 7:
              var randomNoteNumber2 = Random.Range(0, 3);
                 switch (randomNoteNumber2)
                 {
@@ -969,7 +962,6 @@ public class RhythmGameMapper : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         canPress = true;
-        notBadAtGame = false;
 
     }
 
@@ -984,7 +976,7 @@ public class RhythmGameMapper : MonoBehaviour
     IEnumerator takePictureAnimator()
     {
         player.SetBool("takePicture", true);
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.3f);
         player.SetBool("takePicture", false);
     }
 
@@ -996,6 +988,7 @@ public class RhythmGameMapper : MonoBehaviour
         if (notBadAtGame == false)
         {      
             Hurt();
+            Debug.Log("sus");
         }
     }
 

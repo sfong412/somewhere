@@ -3236,6 +3236,7 @@ MonoBehaviour:
   buttonClick1: {fileID: 8300000, guid: 1bb4b2f3f6504f04f8fbf76d7ead50fd, type: 3}
   buttonClick2: {fileID: 8300000, guid: bea0458efe2d8e845a61f9f46c239667, type: 3}
   buttonClick3: {fileID: 8300000, guid: 58b95f29883e4d44d91291cd16a0165a, type: 3}
+  BlueJay: {fileID: 0}
   highScoreText: {fileID: 0}
 --- !u!114 &839761182
 MonoBehaviour:
@@ -3775,10 +3776,12 @@ MonoBehaviour:
   autoPlay: 1
   randomBirdnumber: 0
   nextEventRandom: 0
-  sound3: {fileID: 8300000, guid: 2ef607a5ae31bca4b84bf3b798fc045e, type: 3}
-  sound5: {fileID: 8300000, guid: b866f04c2a3dba94690168fd8681bd1d, type: 3}
-  sound1: {fileID: 8300000, guid: d96a10bc592c26845b0677e9680a5698, type: 3}
-  sound2: {fileID: 8300000, guid: 112b2ceb8c58dae449da17617b0a3e93, type: 3}
+  sound3: {fileID: 8300000, guid: 24d5cad3e983d6b4e8d20523696124b6, type: 3}
+  sound5: {fileID: 8300000, guid: ebaf6796d2c74e043b47d5e4f4dfcb2b, type: 3}
+  sound1: {fileID: 8300000, guid: 1cb1fd369671f7341b18278b4a4bd0dc, type: 3}
+  sound2: {fileID: 8300000, guid: f75909b451af45e46ac766ba37253f9c, type: 3}
+  sound01: {fileID: 8300000, guid: 74aca4ac458996b4bb1cb36ca2c2b231, type: 3}
+  sound02: {fileID: 8300000, guid: 1655a8cc7be2af04bbc0cab252ab53a3, type: 3}
   clickedText: {fileID: 617604092}
   failedText: {fileID: 1891339307}
   successText: {fileID: 1076982253}
@@ -3828,6 +3831,9 @@ MonoBehaviour:
   light: {fileID: 0}
   leftLamp: {fileID: 0}
   rightLamp: {fileID: 0}
+  singleTap: 0
+  _doubleTapTimeD: 0
+  doubleTapRootBeer: 0
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -3839,9 +3845,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8040312823056929966, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f0140cd6d126d2042a139bd0b172a632, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8f7250a25d6c5314aaddd85b4743ad1c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 0.196
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7363,20 +7369,20 @@ MonoBehaviour:
   - I'll teach you a few bird calls to do just that.
   - Let's start off with the Red Cardinal.
   - sussy
-  - You want to press SPACE on the last note.
+  - You want to press SPACE on the last note to respond.
   - Try it out yourself.
   - sussy
-  - sussy
+  - Good.
   - sussy
   - sussy
   instructions:
   - Listen to the Red Cardinal's call
   - Respond to the Red Cardinal's call
-  - Respond to the Red Cardinal's call
+  - 
   speed: 0.02
   textIndex: 0
   instructionIndex: 0
-  targetIndex: 05000000080000000a000000
+  targetIndex: 05000000080000000f000000
   targetIndexNumber: 0
   showtime: 0
   instructionText2: {fileID: 1970382327}
@@ -9814,6 +9820,7 @@ MonoBehaviour:
   buttonClick1: {fileID: 0}
   buttonClick2: {fileID: 0}
   buttonClick3: {fileID: 0}
+  BlueJay: {fileID: 0}
   highScoreText: {fileID: 0}
 --- !u!1 &6800759637744309614
 GameObject:

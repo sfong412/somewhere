@@ -21,6 +21,8 @@ public class Logbook : MonoBehaviour
     public AudioClip buttonClick2;
     public AudioClip buttonClick3;
 
+    public AudioClip BlueJay;
+
     public TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
@@ -123,6 +125,14 @@ public class Logbook : MonoBehaviour
         }
         pauseTab.SetActive(false);
         birdsTab.SetActive(true);
+    }
+
+    public void BlueJay2()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(BlueJay, 1f);
+        }
     }
 
     IEnumerator ReturnToMenu()
