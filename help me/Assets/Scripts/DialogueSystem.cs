@@ -88,12 +88,15 @@ public class DialogueSystem : MonoBehaviour
                 rhythm.Enter.SetBool("change", false);
                 dialogueText2.transform.localScale = new Vector3(1, 1, 1);
                 instructionText2.transform.localScale = new Vector3(0, 0 ,0);
+                rhythm.currentEventNumber = 0;
+                rhythm.nextEventRandom = 0;
+                rhythm.currentEvent = rhythm.Events[0];
                 rhythm.mappingCode.Brazil();
                 back = false;
+                pressed = false;
                 GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
-                pressed = false;
            }
 
            if (rhythm.realerScore == 3)
@@ -104,13 +107,14 @@ public class DialogueSystem : MonoBehaviour
                 rhythm.Enter.SetBool("change", false);
                 dialogueText2.transform.localScale = new Vector3(1, 1, 1);
                 instructionText2.transform.localScale = new Vector3(0, 0 ,0);
+                rhythm.currentEventNumber = 0;
+                rhythm.nextEventRandom = 0;
+                rhythm.currentEvent = rhythm.Events[0];
                 rhythm.mappingCode.Brazil();
                 back = false;
                 GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
-                pressed = false;
-                rhythm.realerScore = 0;
            }
        }
 
