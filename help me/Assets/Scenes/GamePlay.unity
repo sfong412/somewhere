@@ -5443,7 +5443,7 @@ MonoBehaviour:
   birdMouth: {fileID: 0}
   logbook: {fileID: 839761179}
   gameOverScreen: {fileID: 2128660564}
-  birdSeedPacketsCounter: {fileID: 0}
+  birdSeedPacketsCounter: {fileID: 1524929337}
   noteEventNumber: 0
   canBird: 0
   singRightNow: 0
