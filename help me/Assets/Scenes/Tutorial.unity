@@ -3745,7 +3745,7 @@ MonoBehaviour:
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
   callBackNumber: 0
-  beatsPerSecond: 120
+  beatsPerSecond: 119.7
   beatsPerMeasure: 5
   secPerBeat: 0
   secPerMeasure: 0
@@ -3759,7 +3759,7 @@ MonoBehaviour:
   beatThresholdLate: 1
   beatThresholdEarly: 1
   dspSongTime: 0
-  firstBeatOffset: 0
+  firstBeatOffset: 0.8
   musicSource: {fileID: 944396418}
   metronome_audioSrc: {fileID: 1329761523}
   secPerRealBeat: 0
@@ -3821,7 +3821,7 @@ MonoBehaviour:
   paused: 0
   notBadAtGame: 0
   lives: 9999
-  tutorial: 0
+  tutorial: 1
   radioMouth: {fileID: 34907649}
   loopType: 0
   mappingCode: {fileID: 1408502519}
@@ -3847,7 +3847,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -8040312823056929966, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8f7250a25d6c5314aaddd85b4743ad1c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.196
+  m_Volume: 0.503
   m_Pitch: 1
   Loop: 1
   Mute: 0

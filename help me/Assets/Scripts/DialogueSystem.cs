@@ -120,11 +120,11 @@ public class DialogueSystem : MonoBehaviour
 
        if (showtime)
        {
-           rhythm.tutorial = true;
+           //rhythm.tutorial = true;
        }
        else
        {
-           rhythm.tutorial = false;
+           //rhythm.tutorial = false;
        }
 
        if (rhythm.realerScore == 3)
