@@ -35,6 +35,7 @@ public class DialogueSystem : MonoBehaviour
 
     public bool back;
 
+
     public ScoreManager socrelol;
 
     
@@ -59,6 +60,7 @@ public class DialogueSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SaveMe();
         if (!showtime)
         {
              if (Input.GetKeyDown(KeyCode.Return))
@@ -68,11 +70,6 @@ public class DialogueSystem : MonoBehaviour
                 NextLine();
                 pressed = true;
                 rhythm.Enter.SetBool("change", false);
-            }
-            else
-            {
-                StopAllCoroutines();
-                dialogueText.text = dialogue[textIndex];
             }
         }
         rhythm.Pause2();
@@ -97,6 +94,7 @@ public class DialogueSystem : MonoBehaviour
                 GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
+
            }
 
            if (rhythm.realerScore == 3)
@@ -115,12 +113,13 @@ public class DialogueSystem : MonoBehaviour
                 GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
+                rhythm.realerScore = 0;
            }
        }
 
        if (showtime)
        {
-           //rhythm.tutorial = true;
+            
        }
        else
        {
@@ -163,6 +162,9 @@ public class DialogueSystem : MonoBehaviour
             StartCoroutine(TypeLine());
             rhythm.Enter.SetBool("change", false);
         }
+        else
+        {
+        }
         if (textIndex >= targetIndex[targetIndexNumber])
         {
             targetIndexNumber++;
@@ -175,7 +177,7 @@ public class DialogueSystem : MonoBehaviour
             showtime = true;
             rhythm.paused = false;
         }
-        if (textIndex == 5)
+        if (textIndex == 5 || textIndex == 13)
         {
             StartCoroutine(jumpOffABridge());
             rhythm.watching = true;
@@ -188,6 +190,11 @@ public class DialogueSystem : MonoBehaviour
        
 
         
+    }
+
+    void SaveMe()
+    {
+        rhythm.loopType = targetIndexNumber;
     }
 
     IEnumerator jumpOffABridge()
