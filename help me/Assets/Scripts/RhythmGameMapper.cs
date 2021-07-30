@@ -511,7 +511,7 @@ public class RhythmGameMapper : MonoBehaviour
                         }
                         if (Time.time < _doubleTapTimeD + maxDouble && Time.time > _doubleTapTimeD + minDouble)
                         {
-                            doubleTapD = true;
+                           doubleTapD = true;
                         }
                         _doubleTapTimeD = Time.time;
                     }
@@ -886,6 +886,7 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
             case 6:
                 singleTap = false;
+                doubleTapD = false;
                 Instantiate(blueJay, redBirbSpawn.position, Quaternion.identity);
                 canBird = false;
                 birbTurn = true;
@@ -895,6 +896,7 @@ public class RhythmGameMapper : MonoBehaviour
 
             case 7:
                 singleTap = false;
+                doubleTapD = false;
                 StartCoroutine(slackTimer(0.4f));
                 noteEventNumber = currentEvent.eventType;
                 maxDouble = 0.5f;
