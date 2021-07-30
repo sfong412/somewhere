@@ -118,6 +118,8 @@ public class RhythmGameMapper : MonoBehaviour
     public AudioClip sound2;
 
     public AudioClip sound4;
+
+    public AudioClip sound6;
     public AudioClip sound01;
 
     public AudioClip sound02;
@@ -125,6 +127,10 @@ public class RhythmGameMapper : MonoBehaviour
     public AudioClip sound03;
 
     public AudioClip sound04;
+
+    public AudioClip sound05;
+
+    public AudioClip sound06;
 
     public GameObject clickedText;
     public GameObject failedText;
@@ -451,6 +457,9 @@ public class RhythmGameMapper : MonoBehaviour
                                     case 1:
                                         metronome_audioSrc.PlayOneShot(sound1, 1f);
                                         break;
+                                    case 2: 
+                                        metronome_audioSrc.PlayOneShot(sound05, 1f);
+                                        break;
                                 }
                                 player.SetBool("isPressed", true);
                                 StartCoroutine(pressTimer());
@@ -592,6 +601,10 @@ public class RhythmGameMapper : MonoBehaviour
                             break;
 
                          case 6: 
+                            mappingCode.BullFinchTutorialGamePlay();
+                            break;
+
+                        case 7:
                             mappingCode.BullFinchTutorialGamePlay();
                             break;
 
@@ -899,6 +912,42 @@ public class RhythmGameMapper : MonoBehaviour
             StartCoroutine(flyAway());
             break;
 
+            case 13:
+             Instantiate(parrot, redBirbSpawn.position, Quaternion.identity);
+            canBird = false;
+            birbTurn = true;
+            birbTurn3 = true;
+            callBackNumber = 3;
+            break;
+
+            case 14:
+             StopCoroutine(slackTimer(0.6f));
+            noteEventNumber = currentEvent.eventType;
+            RadioTurnAnimation();
+            singRightNow = false;
+            canPress = false;
+            StartCoroutine(flyAway());
+            break;
+
+            case 15:
+            StartCoroutine(slackTimer(0.6f));
+            noteEventNumber = currentEvent.eventType;
+            maxDouble = 0.5f;
+            minDouble = 0.3f;
+            break;
+
+            case 16: 
+                singleTap = true;
+                metronome_audioSrc.PlayOneShot(sound6, 1f);
+                noteEventNumber = currentEvent.eventType;
+               //Debug.Log("Song position in beats when bird sound plays: " + songPositionInBeats);
+                birbTurn2 = true;
+                singRightNow = true;
+                BirbTurnAnimation();
+                break;
+            
+
+
 
 
 
@@ -1140,6 +1189,28 @@ public class RhythmGameMapper : MonoBehaviour
                         break;
                 }
                 break;
+
+            case 14: 
+            var randomNoteNumber4 = Random.Range(0, 3);
+                switch (randomNoteNumber4)
+                {
+                    case 0:
+                        GameObject effect = Instantiate(playerNote1, radioMouth.position, Quaternion.identity);
+                        Destroy(effect, 2f);
+                        break;
+
+                    case 1:
+                        GameObject effect2 = Instantiate(playerNote2, radioMouth.position, Quaternion.identity);
+                        Destroy(effect2, 2f);
+                        break;
+
+                    case 2:
+                        GameObject effect3 = Instantiate(playerNote3, radioMouth.position, Quaternion.identity);
+                        Destroy(effect3, 2f);
+                        break;
+                }
+                break;
+
         }
     }
 

@@ -4076,7 +4076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.65, y: -214.09}
+  m_AnchoredPosition: {x: 1.65, y: -211.5}
   m_SizeDelta: {x: 76.6, y: 55.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839761181
@@ -4102,6 +4102,7 @@ MonoBehaviour:
   buttonClick3: {fileID: 8300000, guid: 58b95f29883e4d44d91291cd16a0165a, type: 3}
   BlueJay: {fileID: 8300000, guid: e4a0ca06a2e3a934394b555ae13cb482, type: 3}
   cardinal: {fileID: 8300000, guid: 2cf3a1a1301721146b8a30b88f0a8132, type: 3}
+  bullFinch: {fileID: 8300000, guid: f0d93ff6777957346b52984a3ee36985, type: 3}
   highScoreText: {fileID: 2080630564}
 --- !u!114 &839761182
 MonoBehaviour:
@@ -4599,15 +4600,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 9
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 4
-    eventType: 10
+    eventType: 13
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4615,7 +4608,15 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 2
-    eventType: 12
+    eventType: 16
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 1
+    eventType: 15
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -5432,10 +5433,13 @@ MonoBehaviour:
   sound1: {fileID: 8300000, guid: 1cb1fd369671f7341b18278b4a4bd0dc, type: 3}
   sound2: {fileID: 8300000, guid: f75909b451af45e46ac766ba37253f9c, type: 3}
   sound4: {fileID: 8300000, guid: 6654f556686a74140877c41e483f9c3c, type: 3}
+  sound6: {fileID: 8300000, guid: b69ce57f35d856c4fb7d9bb201dff22d, type: 3}
   sound01: {fileID: 8300000, guid: 74aca4ac458996b4bb1cb36ca2c2b231, type: 3}
   sound02: {fileID: 8300000, guid: 1655a8cc7be2af04bbc0cab252ab53a3, type: 3}
   sound03: {fileID: 8300000, guid: ae9fb551af873ca40951d9ced04e9ebe, type: 3}
   sound04: {fileID: 8300000, guid: 05f232c0f246f914680bb84c3dc18426, type: 3}
+  sound05: {fileID: 8300000, guid: f13d4885380405344b63244d1b39602f, type: 3}
+  sound06: {fileID: 0}
   clickedText: {fileID: 617604092}
   failedText: {fileID: 1891339307}
   successText: {fileID: 1076982253}
@@ -7985,7 +7989,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 643390109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 839761181}
+        m_TargetAssemblyTypeName: Logbook, Assembly-CSharp
+        m_MethodName: BullFinch2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1318035753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11772,6 +11788,7 @@ MonoBehaviour:
   buttonClick3: {fileID: 0}
   BlueJay: {fileID: 0}
   cardinal: {fileID: 0}
+  bullFinch: {fileID: 0}
   highScoreText: {fileID: 0}
 --- !u!1 &6800759637744309614
 GameObject:

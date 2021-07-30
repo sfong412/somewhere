@@ -25,6 +25,8 @@ public class Logbook : MonoBehaviour
 
     public AudioClip cardinal;
 
+    public AudioClip bullFinch;
+
     public TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
@@ -142,6 +144,14 @@ public class Logbook : MonoBehaviour
          if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(cardinal, 1f);
+        }
+    }
+
+    public void BullFinch2()
+    {
+         if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(bullFinch, 1f);
         }
     }
 
