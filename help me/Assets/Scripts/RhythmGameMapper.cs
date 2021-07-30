@@ -357,8 +357,7 @@ public class RhythmGameMapper : MonoBehaviour
     {
 
          StartMusic();
-        Debug.Log(Time.timeScale);
-        birdSeedPacketsCounter.text = "x " + lives.ToString();
+        birdSeedPacketsCounter.text =lives.ToString();
 
         if (musicSource.isPlaying == false)
         {
@@ -454,7 +453,7 @@ public class RhythmGameMapper : MonoBehaviour
                                     lives--;
                                     player.SetBool("isGameOver", true);
                                     musicSource.Pause();
-                                    gameOverScreen.SetActive(true);
+                                    StartCoroutine(gameOver());
                                     paused = true;
                                     canPress = false;
                                     scoreManager.SaveScore();
@@ -581,12 +580,12 @@ public class RhythmGameMapper : MonoBehaviour
                                     lives--;
                                     player.SetBool("isGameOver", true);
                                     musicSource.Pause();
-                                    gameOverScreen.SetActive(true);
                                     paused = true;
                                     canPress = false;
                                     scoreManager.SaveScore();
                                     scoreManager.highScoreText.text = "High Score: " + ScoreManager.highScore;
                                     birbTurn3 = false;
+                                    StartCoroutine(gameOver());
                                     StopCoroutine(slackTimer(1f));
                                 }
                                 else
@@ -752,6 +751,13 @@ public class RhythmGameMapper : MonoBehaviour
         SceneManager.LoadScene("GamePlay");
     }
 
+    IEnumerator gameOver()
+    {
+        Pause2222();
+        yield return new WaitForSecondsRealtime(0.5f);
+        gameOverScreen.SetActive(true);
+    }
+
 
 
 
@@ -759,6 +765,15 @@ public class RhythmGameMapper : MonoBehaviour
     {
         paused = true;
         bookLog.SetBool("Enter", true);
+        blackOut.SetBool("Focus", true);
+        Time.timeScale = 0;
+        musicSource.Pause();
+        metronome_audioSrc.Pause();
+    }
+
+     public void Pause2222()
+    {
+        paused = true;
         blackOut.SetBool("Focus", true);
         Time.timeScale = 0;
         musicSource.Pause();
