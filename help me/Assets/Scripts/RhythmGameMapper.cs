@@ -260,6 +260,10 @@ public class RhythmGameMapper : MonoBehaviour
 
     public GameObject parent4;
 
+    public Animator lampPost;
+
+    public Animator lampPost2;
+
 
     void Start()
     {
@@ -700,11 +704,15 @@ public class RhythmGameMapper : MonoBehaviour
                     changeNumber += 1;
                     break;
                 case 2:
+                    lampPost.SetBool("groovy", true);
+                    lampPost2.SetBool("groovy2", true);
                     night.SetBool("nightBool", true);
-                    light.SetFloat("lightNumber", 3);
+                    light.SetFloat("lightNumber", 3);                 
                     changeNumber += 1;
                     break;
                 case 3:
+                    lampPost.SetBool("groovy", false);
+                    lampPost2.SetBool("groovy2", false);
                     lowSun.SetBool("lowSunBool", false);
                     light.SetFloat("lightNumber", 4);
                     changeNumber += 1;
@@ -730,13 +738,23 @@ public class RhythmGameMapper : MonoBehaviour
         {
             leftLamp.SetBool("lightUp", true);
             rightLamp.SetBool("lightUp", true);
+            lampPost.SetBool("groovy", true);
+            lampPost2.SetBool("groovy2", true);
         }
 
         if (changeNumber == 3)
         {
             leftLamp.SetBool("lightUp", false);
             rightLamp.SetBool("lightUp", false);
+            lampPost.SetBool("groovy", false);
+            lampPost2.SetBool("groovy2", false);
+            
         }
+
+        
+        
+
+        
 
 
 
