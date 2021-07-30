@@ -94,6 +94,18 @@ public class DialogueSystem : MonoBehaviour
                 GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
+                switch(rhythm.loopType)
+                {
+                    case 1:
+                    rhythm.parent.SetActive(false);
+                    break;
+                    case 2: 
+                    rhythm.parent.SetActive(false);
+                    break;
+                    case 3:
+                     rhythm.parent.SetActive(false);
+                     break;
+                }
 
            }
 
@@ -114,6 +126,18 @@ public class DialogueSystem : MonoBehaviour
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
                 rhythm.realerScore = 0;
+                 switch(rhythm.loopType)
+                {
+                    case 1:
+                    rhythm.parent.SetActive(false);
+                    break;
+                    case 2: 
+                    rhythm.parent.SetActive(false);
+                    break;
+                    case 3:
+                     rhythm.parent.SetActive(false);
+                     break;
+                }
            }
        }
 
@@ -177,7 +201,7 @@ public class DialogueSystem : MonoBehaviour
             showtime = true;
             rhythm.paused = false;
         }
-        if (textIndex == 5 || textIndex == 13 || textIndex == 20)
+        if (textIndex == 5 || textIndex == 13 || textIndex == 20 || textIndex == 24)
         {
             StartCoroutine(jumpOffABridge());
             rhythm.watching = true;

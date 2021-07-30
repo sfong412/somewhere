@@ -246,6 +246,15 @@ public class RhythmGameMapper : MonoBehaviour
 
     public bool imTired;
 
+    public bool cryAboutIt;
+
+    public Transform bopSpawn;
+
+    public GameObject[] bop;
+
+    public GameObject parent;
+
+
     void Start()
     {
         RhythmGameMapper.Instance = this;
@@ -303,6 +312,7 @@ public class RhythmGameMapper : MonoBehaviour
         realerScore = 0;
         doubleTapRootBeer = 0;
         loopType = -1;
+        parent.SetActive(false);
 
 
     }
@@ -605,8 +615,15 @@ public class RhythmGameMapper : MonoBehaviour
                             break;
 
                         case 7:
-                            mappingCode.BullFinchTutorialGamePlay();
+                            mappingCode.TutorialParrotPatterns();
                             break;
+                        case 8:
+                        mappingCode.ParrotTutorialGamePlay();
+                        break;
+
+                        case 9:
+                        StartCoroutine(fading());
+                        break;
 
  
                     }
@@ -694,7 +711,15 @@ public class RhythmGameMapper : MonoBehaviour
 
 
 
+    //GameObject sus = Instantiate(bop, bopSpawn.position, Quaternion.identity);
+    }
 
+    IEnumerator fading()
+    {
+        yield return new WaitForSeconds(1);
+        blackOut.SetBool("Fade", true);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("GamePlay");
     }
 
 
@@ -789,7 +814,6 @@ public class RhythmGameMapper : MonoBehaviour
         {
             case 0:
                 canBird = true;
-                singleTap = true;
                 break;
             //Player plays the flute
             case 1:
@@ -800,6 +824,12 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
             //Bird enters
             case 2:
+             if (cryAboutIt)
+                {
+                    Debug.Log("stress");
+                    StartCoroutine(redBop());
+
+                }
                 singleTap = true;
                 //StartCoroutine(slackTimer());
                 metronome_audioSrc.PlayOneShot(sound3, 1f);
@@ -808,6 +838,8 @@ public class RhythmGameMapper : MonoBehaviour
                 birbTurn2 = true;
                 singRightNow = true;
                 BirbTurnAnimation();
+               
+                
                 break;
             case 3:
 
@@ -845,13 +877,15 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
 
             case 5:
-                Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+                GameObject red = Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
+                Destroy(red, 10f);
                 canBird = false;
                 birbTurn = true;
                 birbTurn3 = true;
                 callBackNumber = 0;
                 break;
             case 6:
+                singleTap = false;
                 Instantiate(blueJay, redBirbSpawn.position, Quaternion.identity);
                 canBird = false;
                 birbTurn = true;
@@ -860,6 +894,7 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
 
             case 7:
+                singleTap = false;
                 StartCoroutine(slackTimer(0.4f));
                 noteEventNumber = currentEvent.eventType;
                 maxDouble = 0.5f;
@@ -927,6 +962,7 @@ public class RhythmGameMapper : MonoBehaviour
             singRightNow = false;
             canPress = false;
             StartCoroutine(flyAway());
+            metronome_audioSrc.PlayOneShot(sound05, 1f);
             break;
 
             case 15:
@@ -956,11 +992,31 @@ public class RhythmGameMapper : MonoBehaviour
 
     }
 
+    IEnumerator redBop()
+    {
+        parent.SetActive(true);
+        bop[0].SetActive(true);
+        yield return new WaitForSeconds(0.21f);
+        bop[0].SetActive(false);
+        bop[1].SetActive(true);
+        yield return new WaitForSeconds(0.21f);
+         bop[1].SetActive(false);
+        bop[2].SetActive(true);
+        yield return new WaitForSeconds(0.21f);
+         bop[2].SetActive(false);
+        bop[3].SetActive(true);
+        yield return new WaitForSeconds(0.84f);
+         bop[3].SetActive(false);
+        bop[4].SetActive(true);
+        yield return new WaitForSeconds(0.4f);
+        bop[4].SetActive(false);
+    }
+
     IEnumerator blueJay3()
     {
         RadioTurnAnimation();
         metronome_audioSrc.PlayOneShot(sound01, 1f);
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.4f);
         RadioTurnAnimation();
         metronome_audioSrc.PlayOneShot(sound02, 1f);
     }
@@ -1099,6 +1155,27 @@ public class RhythmGameMapper : MonoBehaviour
                         break;
                 }
                 break;
+
+            case 15:
+             var randomNoteNumber4 = Random.Range(0, 3);
+                switch (randomNoteNumber4)
+                {
+                    case 0:
+                        GameObject effect = Instantiate(playerNote1, playerMouth.position, Quaternion.identity);
+                        Destroy(effect, 2f);
+                        break;
+
+                    case 1:
+                        GameObject effect2 = Instantiate(playerNote2, playerMouth.position, Quaternion.identity);
+                        Destroy(effect2, 2f);
+                        break;
+
+                    case 2:
+                        GameObject effect3 = Instantiate(playerNote3, playerMouth.position, Quaternion.identity);
+                        Destroy(effect3, 2f);
+                        break;
+                }
+                break;
         }
     }
 
@@ -1117,6 +1194,10 @@ public class RhythmGameMapper : MonoBehaviour
 
             case 10:
             StartCoroutine(birbNoteTurn3());
+            break;
+
+            case 16:
+            StartCoroutine(birbNoteTurn4());
             break;
 
         }
@@ -1301,6 +1382,24 @@ public class RhythmGameMapper : MonoBehaviour
         Destroy(effect3, 2f);
         Destroy(effect, 2f);
         Destroy(effect2, 2f);
+    }
+
+    IEnumerator birbNoteTurn4()
+    {
+        GameObject effect = Instantiate(birbNote1, birdMouth.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        GameObject effect2 = Instantiate(birbNote2, birdMouth.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.2f);
+        GameObject effect3 = Instantiate(birbNote3, birdMouth.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.3f);
+        GameObject effect4 = Instantiate(birbNote3, birdMouth.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        GameObject effect5 = Instantiate(birbNote3, birdMouth.position, Quaternion.identity);
+        Destroy(effect3, 2f);
+        Destroy(effect, 2f);
+        Destroy(effect2, 2f);
+        Destroy(effect4, 2f);
+        Destroy(effect5, 2f);
     }
 
     IEnumerator flyAway()
