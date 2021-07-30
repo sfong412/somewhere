@@ -177,7 +177,7 @@ public class DialogueSystem : MonoBehaviour
             showtime = true;
             rhythm.paused = false;
         }
-        if (textIndex == 5 || textIndex == 13)
+        if (textIndex == 5 || textIndex == 13 || textIndex == 20)
         {
             StartCoroutine(jumpOffABridge());
             rhythm.watching = true;

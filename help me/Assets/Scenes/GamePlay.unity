@@ -4615,7 +4615,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 2
-    eventType: 11
+    eventType: 12
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1

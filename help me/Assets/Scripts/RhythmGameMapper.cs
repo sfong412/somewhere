@@ -573,27 +573,29 @@ public class RhythmGameMapper : MonoBehaviour
                     currentEvent = Events[0];
                     switch (loopType)
                     {
-                        case 0:
+                        case 1:
                             mappingCode.TutorialRedCardinalPatternDemo();
                             break;
-                         case 1:
-                            mappingCode.TutorialRedCardinalPatternDemo();
-                            break;
-                        case 2:
+                         case 2:
                             mappingCode.RedCardinalTutorialGameplay();
                             break;
-
-                           case 3:
+                        case 3:
                             mappingCode.TutorialBlueJayPatterns();
                             break;
 
-                        case 4: 
+                           case 4:
                             mappingCode.BlueJayTutorialGameplay();
                             break;
 
-                         case 5: 
-                            mappingCode.TutorialBlueJayPatterns();
+                        case 5: 
+                            mappingCode.TutorialBullFinchPatterns();
                             break;
+
+                         case 6: 
+                            mappingCode.BullFinchTutorialGamePlay();
+                            break;
+
+ 
                     }
                 }
 
@@ -700,7 +702,7 @@ public class RhythmGameMapper : MonoBehaviour
         paused = true;
         Time.timeScale = 0;
         musicSource.Pause();
-        metronome_audioSrc.Pause();
+        
     }
 
     public void Resume()
@@ -888,6 +890,15 @@ public class RhythmGameMapper : MonoBehaviour
             minDouble = 0.3f;
             break;
 
+            case 12:
+             StopCoroutine(slackTimer(0.6f));
+            noteEventNumber = currentEvent.eventType;
+            StartCoroutine(Bullfinch());
+            singRightNow = false;
+            canPress = false;
+            StartCoroutine(flyAway());
+            break;
+
 
 
 
@@ -903,6 +914,15 @@ public class RhythmGameMapper : MonoBehaviour
         yield return new WaitForSeconds(0.35f);
         RadioTurnAnimation();
         metronome_audioSrc.PlayOneShot(sound02, 1f);
+    }
+
+    IEnumerator Bullfinch()
+    {
+         RadioTurnAnimation();
+        metronome_audioSrc.PlayOneShot(sound03, 1f);
+        yield return new WaitForSeconds(0.35f);
+        RadioTurnAnimation();
+        metronome_audioSrc.PlayOneShot(sound04, 1f);
     }
 
     void ReportBeat()
@@ -1080,9 +1100,29 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
 
             case 8:
-            Debug.Log("kill me");
                 var randomNoteNumber2 = Random.Range(0, 3);
                 switch (randomNoteNumber2)
+                {
+                    case 0:
+                        GameObject effect = Instantiate(playerNote1, radioMouth.position, Quaternion.identity);
+                        Destroy(effect, 2f);
+                        break;
+
+                    case 1:
+                        GameObject effect2 = Instantiate(playerNote2, radioMouth.position, Quaternion.identity);
+                        Destroy(effect2, 2f);
+                        break;
+
+                    case 2:
+                        GameObject effect3 = Instantiate(playerNote3, radioMouth.position, Quaternion.identity);
+                        Destroy(effect3, 2f);
+                        break;
+                }
+                break;
+
+            case 12:
+            var randomNoteNumber3 = Random.Range(0, 3);
+                switch (randomNoteNumber3)
                 {
                     case 0:
                         GameObject effect = Instantiate(playerNote1, radioMouth.position, Quaternion.identity);

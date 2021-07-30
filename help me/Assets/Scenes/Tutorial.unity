@@ -3916,8 +3916,11 @@ MonoBehaviour:
   sound5: {fileID: 8300000, guid: ebaf6796d2c74e043b47d5e4f4dfcb2b, type: 3}
   sound1: {fileID: 8300000, guid: 1cb1fd369671f7341b18278b4a4bd0dc, type: 3}
   sound2: {fileID: 8300000, guid: f75909b451af45e46ac766ba37253f9c, type: 3}
+  sound4: {fileID: 8300000, guid: 6654f556686a74140877c41e483f9c3c, type: 3}
   sound01: {fileID: 8300000, guid: 74aca4ac458996b4bb1cb36ca2c2b231, type: 3}
   sound02: {fileID: 8300000, guid: 1655a8cc7be2af04bbc0cab252ab53a3, type: 3}
+  sound03: {fileID: 8300000, guid: ae9fb551af873ca40951d9ced04e9ebe, type: 3}
+  sound04: {fileID: 8300000, guid: 05f232c0f246f914680bb84c3dc18426, type: 3}
   clickedText: {fileID: 617604092}
   failedText: {fileID: 1891339307}
   successText: {fileID: 1076982253}
@@ -7524,18 +7527,26 @@ MonoBehaviour:
   - Alright now your turn.
   - You'll have to tap TWICE.
   - Got it?
-  - Got it?
-  - Got it?
+  - sussy
+  - Next up is the Eurasian Bullfinch.
+  - Same as last time, watch and repeat.
+  - sussy
+  - Your turn.
+  - sussy
+  - And finally, the Scarlet Macaw.
+  - You know what to do.
   instructions:
   - Listen to the Red Cardinal's call.
   - Respond to the Red Cardinal's call.
   - Listen to the Blue Jay's call.
   - Respond to the Blue Jay's call.
-  - Respond to the Blue Jay's call.
+  - Listen to the Eurasian Bullfinch's call.
+  - Respond to the Eurasian Bullfinch's call.
+  - Listen to the Scarlet Macaw's call.
   speed: 0.02
   textIndex: 0
   instructionIndex: 0
-  targetIndex: 05000000080000000e00000012000000
+  targetIndex: 05000000080000000e000000120000001500000017000000190000001a000000
   targetIndexNumber: 0
   showtime: 0
   instructionText2: {fileID: 1970382327}
