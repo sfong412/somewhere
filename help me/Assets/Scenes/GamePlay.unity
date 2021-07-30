@@ -1599,7 +1599,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128660566}
+      - m_Target: {fileID: 839761181}
         m_TargetAssemblyTypeName: Logbook, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -3674,7 +3674,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128660566}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Logbook, Assembly-CSharp
         m_MethodName: ReturnToMainMenu
         m_Mode: 1
@@ -4629,30 +4629,30 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 13
+    eventType: 5
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 16
+  - beatsBtwWave: 2
+    eventType: 2
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 15
+  - beatsBtwWave: 0
+    eventType: 1
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
+  - beatsBtwWave: 0
     eventType: 0
     noOfEvents: 1
     songPositionWave: 0
@@ -4661,32 +4661,32 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 0
+    eventType: 6
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
+  - beatsBtwWave: 3
+    eventType: 4
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
+  - beatsBtwWave: 2
+    eventType: 7
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
+  - beatsBtwWave: 0
     eventType: 0
-    noOfEvents: 1
+    noOfEvents: 0
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
@@ -5426,7 +5426,7 @@ MonoBehaviour:
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
   callBackNumber: 0
-  beatsPerSecond: 120
+  beatsPerSecond: 121
   beatsPerMeasure: 4
   secPerBeat: 0
   secPerMeasure: 0
@@ -5440,7 +5440,7 @@ MonoBehaviour:
   beatThresholdLate: 1
   beatThresholdEarly: 1
   dspSongTime: 0
-  firstBeatOffset: 0.1
+  firstBeatOffset: 0.45
   musicSource: {fileID: 944396418}
   metronome_audioSrc: {fileID: 1329761523}
   secPerRealBeat: 0
@@ -5457,8 +5457,8 @@ MonoBehaviour:
   autoPlay: 1
   randomBirdnumber: 0
   nextEventRandom: 0
-  sound3: {fileID: 8300000, guid: 2ef607a5ae31bca4b84bf3b798fc045e, type: 3}
-  sound5: {fileID: 8300000, guid: b866f04c2a3dba94690168fd8681bd1d, type: 3}
+  sound3: {fileID: 8300000, guid: 24d5cad3e983d6b4e8d20523696124b6, type: 3}
+  sound5: {fileID: 8300000, guid: ebaf6796d2c74e043b47d5e4f4dfcb2b, type: 3}
   sound1: {fileID: 8300000, guid: 1cb1fd369671f7341b18278b4a4bd0dc, type: 3}
   sound2: {fileID: 8300000, guid: f75909b451af45e46ac766ba37253f9c, type: 3}
   sound4: {fileID: 8300000, guid: 6654f556686a74140877c41e483f9c3c, type: 3}
@@ -5546,7 +5546,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8040312823056929966, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f0140cd6d126d2042a139bd0b172a632, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7e21de8b5a31c2244a4cdf3facca0e11, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.219
   m_Pitch: 1
@@ -8105,7 +8105,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1804101270163716324, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
   m_audioClip: {fileID: 8300000, guid: 054a28beb76c2cd47acc56a2889d08fa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.377
+  m_Volume: 0.317
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11777,7 +11777,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2128660565}
-  - component: {fileID: 2128660566}
   m_Layer: 0
   m_Name: Game Over Screen
   m_TagString: Untagged
@@ -11802,31 +11801,6 @@ Transform:
   m_Father: {fileID: 364437268}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2128660566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128660564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24f50d44166743c489c97697735595ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rhythmGameMapper: {fileID: 0}
-  pauseTab: {fileID: 0}
-  birdsTab: {fileID: 0}
-  bookLog: {fileID: 0}
-  audioSource: {fileID: 0}
-  black: {fileID: 0}
-  buttonClick1: {fileID: 0}
-  buttonClick2: {fileID: 0}
-  buttonClick3: {fileID: 0}
-  BlueJay: {fileID: 0}
-  cardinal: {fileID: 0}
-  bullFinch: {fileID: 0}
-  highScoreText: {fileID: 0}
 --- !u!1 &6800759637744309614
 GameObject:
   m_ObjectHideFlags: 0

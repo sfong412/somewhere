@@ -904,7 +904,6 @@ public class RhythmGameMapper : MonoBehaviour
                         metronome_audioSrc.PlayOneShot(sound1, 1f);
                         break;
                 }
-                player.SetBool("isPressed", true);
                 StartCoroutine(pressTimer());
                 notBadAtGame = true;
                 break;
