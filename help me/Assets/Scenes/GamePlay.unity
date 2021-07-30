@@ -1216,6 +1216,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400934328}
   m_CullTransparentMesh: 1
+--- !u!1 &477429156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 477429157}
+  m_Layer: 0
+  m_Name: filler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &477429157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477429156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2483032, y: -1.1200483, z: -242.10414}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527294346
 GameObject:
   m_ObjectHideFlags: 0
@@ -5499,6 +5529,13 @@ MonoBehaviour:
   minDouble: 0.3
   maxDouble: 0.5
   imTired: 1
+  cryAboutIt: 0
+  bopSpawn: {fileID: 0}
+  bop: []
+  parent: {fileID: 477429156}
+  parent2: {fileID: 477429156}
+  parent3: {fileID: 477429156}
+  parent4: {fileID: 477429156}
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:

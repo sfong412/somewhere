@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class DialogueSystem : MonoBehaviour
 
     public ScoreManager socrelol;
 
+    public bool bridge;
+
+    public Animator escape;
+
     
 
 
@@ -55,11 +60,25 @@ public class DialogueSystem : MonoBehaviour
         pressed = false;
         watch = false;
         back = false;
+        bridge = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (bridge)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                //rhythm.Resume22();
+                StartCoroutine(rhythm.fading());
+            }
+        }
+        else
+        {
+            escape.SetBool("god", true);
+        }
         SaveMe();
         if (!showtime)
         {
@@ -79,25 +98,6 @@ public class DialogueSystem : MonoBehaviour
        {
            if (Input.GetKeyDown(KeyCode.Return))
            {
-               showtime = false;
-               NextLine();
-                pressed = true;
-                rhythm.Enter.SetBool("change", false);
-                dialogueText2.transform.localScale = new Vector3(1, 1, 1);
-                instructionText2.transform.localScale = new Vector3(0, 0 ,0);
-                rhythm.currentEventNumber = 0;
-                rhythm.nextEventRandom = 0;
-                rhythm.currentEvent = rhythm.Events[0];
-                rhythm.mappingCode.Brazil();
-                back = false;
-                pressed = false;
-                GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
-                foreach(GameObject bird in birds)
-                GameObject.Destroy(bird);
-
-                GameObject[] notes = GameObject.FindGameObjectsWithTag("bop");
-                foreach(GameObject note in notes)
-                note.SetActive(false);
                 switch(rhythm.loopType)
                 {
                     case 1:
@@ -106,15 +106,22 @@ public class DialogueSystem : MonoBehaviour
                     case 2: 
                     rhythm.parent.SetActive(false);
                     break;
+                    case 3:
+                    rhythm.parent2.SetActive(false);
+                    Debug.Log("why");
+                    break;
                     case 4:
                      rhythm.parent2.SetActive(false);
                      break;
+
+                    case 5:
+                    rhythm.parent3.SetActive(false);
+                    break;
+
+                    case 6:
+                    rhythm.parent3.SetActive(false);
+                    break;
                 }
-
-           }
-
-           if (rhythm.realerScore == 3)
-           {
                showtime = false;
                NextLine();
                 pressed = true;
@@ -125,15 +132,20 @@ public class DialogueSystem : MonoBehaviour
                 rhythm.nextEventRandom = 0;
                 rhythm.currentEvent = rhythm.Events[0];
                 rhythm.mappingCode.Brazil();
-                back = false;
+                pressed = false;
                 GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
-                rhythm.realerScore = 0;
 
-                 GameObject[] notes = GameObject.FindGameObjectsWithTag("bop");
+                GameObject[] notes = GameObject.FindGameObjectsWithTag("bop");
                 foreach(GameObject note in notes)
                 note.SetActive(false);
+                 back = false;
+
+           }
+
+           if (rhythm.realerScore == 3)
+           {
                  switch(rhythm.loopType)
                 {
                     case 1:
@@ -142,10 +154,41 @@ public class DialogueSystem : MonoBehaviour
                     case 2: 
                     rhythm.parent.SetActive(false);
                     break;
+                    case 3: 
+                    rhythm.parent2.SetActive(false);
+                    break;
                     case 4:
                      rhythm.parent2.SetActive(false);
                      break;
+
+                    case 5:
+                    rhythm.parent3.SetActive(false);
+                    break;
+
+                    case 6: 
+                    rhythm.parent3.SetActive(false);
+                    break;
                 }
+               showtime = false;
+               NextLine();
+                pressed = true;
+                rhythm.Enter.SetBool("change", false);
+                dialogueText2.transform.localScale = new Vector3(1, 1, 1);
+                instructionText2.transform.localScale = new Vector3(0, 0 ,0);
+                rhythm.currentEventNumber = 0;
+                rhythm.nextEventRandom = 0;
+                rhythm.currentEvent = rhythm.Events[0];
+                rhythm.mappingCode.Brazil();
+                GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
+                foreach(GameObject bird in birds)
+                GameObject.Destroy(bird);
+                rhythm.realerScore = 0;
+
+                 GameObject[] notes = GameObject.FindGameObjectsWithTag("bop");
+                foreach(GameObject note in notes)
+                note.SetActive(false);
+                 back = false;
+               
            }
        }
 
@@ -184,6 +227,7 @@ public class DialogueSystem : MonoBehaviour
 
     void NextLine()
     {
+        bridge = false;
         if (!showtime)
         {
              StartCoroutine(sus());
