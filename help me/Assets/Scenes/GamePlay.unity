@@ -4637,7 +4637,7 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 2
+  - beatsBtwWave: 1
     eventType: 16
     noOfEvents: 1
     songPositionWave: 0
@@ -4646,7 +4646,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 14
+    eventType: 15
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -5622,7 +5622,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.0016536713
       value: 1
       inSlope: 0
       outSlope: 0

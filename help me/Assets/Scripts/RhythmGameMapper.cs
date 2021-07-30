@@ -355,6 +355,7 @@ public class RhythmGameMapper : MonoBehaviour
 
     void Update()
     {
+
          StartMusic();
         Debug.Log(Time.timeScale);
         birdSeedPacketsCounter.text = "x " + lives.ToString();
@@ -483,7 +484,7 @@ public class RhythmGameMapper : MonoBehaviour
                                     case 1:
                                         metronome_audioSrc.PlayOneShot(sound1, 1f);
                                         break;
-                                    case 2: 
+                                    case 3: 
                                         metronome_audioSrc.PlayOneShot(sound05, 1f);
                                         break;
                                 }

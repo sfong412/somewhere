@@ -35,13 +35,11 @@ public class DialogueSystem : MonoBehaviour
     public bool watch;
 
     public bool back;
-
-
-    public ScoreManager socrelol;
-
     public bool bridge;
 
     public Animator escape;
+
+    public AudioSource ambience;
 
     
 
@@ -96,6 +94,8 @@ public class DialogueSystem : MonoBehaviour
        
        if (back)
        {
+           ambience.Play();
+           ScoreManager.score = 0;
            if (Input.GetKeyDown(KeyCode.Return))
            {
                 switch(rhythm.loopType)
@@ -120,6 +120,14 @@ public class DialogueSystem : MonoBehaviour
 
                     case 6:
                     rhythm.parent3.SetActive(false);
+                    break;
+
+                    case 7: 
+                    rhythm.parent4.SetActive(false);
+                    break;
+
+                    case 8:
+                    rhythm.parent4.SetActive(false);
                     break;
                 }
                showtime = false;
@@ -146,6 +154,8 @@ public class DialogueSystem : MonoBehaviour
 
            if (rhythm.realerScore == 3)
            {
+               ambience.Play();
+               ScoreManager.score = 0;
                  switch(rhythm.loopType)
                 {
                     case 1:
@@ -167,6 +177,14 @@ public class DialogueSystem : MonoBehaviour
 
                     case 6: 
                     rhythm.parent3.SetActive(false);
+                    break;
+
+                     case 7: 
+                     rhythm.parent4.SetActive(false);
+                    break;
+
+                    case 8:
+                    rhythm.parent4.SetActive(false);
                     break;
                 }
                showtime = false;
@@ -252,6 +270,7 @@ public class DialogueSystem : MonoBehaviour
             watch = true;
             showtime = true;
             rhythm.paused = false;
+            ambience.Pause();
         }
         if (textIndex == 5 || textIndex == 13 || textIndex == 20 || textIndex == 24)
         {
