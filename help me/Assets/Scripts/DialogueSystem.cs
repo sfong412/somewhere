@@ -94,6 +94,10 @@ public class DialogueSystem : MonoBehaviour
                 GameObject[] birds = GameObject.FindGameObjectsWithTag("Cardinals");
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
+
+                GameObject[] notes = GameObject.FindGameObjectsWithTag("bop");
+                foreach(GameObject note in notes)
+                note.SetActive(false);
                 switch(rhythm.loopType)
                 {
                     case 1:
@@ -102,8 +106,8 @@ public class DialogueSystem : MonoBehaviour
                     case 2: 
                     rhythm.parent.SetActive(false);
                     break;
-                    case 3:
-                     rhythm.parent.SetActive(false);
+                    case 4:
+                     rhythm.parent2.SetActive(false);
                      break;
                 }
 
@@ -126,6 +130,10 @@ public class DialogueSystem : MonoBehaviour
                 foreach(GameObject bird in birds)
                 GameObject.Destroy(bird);
                 rhythm.realerScore = 0;
+
+                 GameObject[] notes = GameObject.FindGameObjectsWithTag("bop");
+                foreach(GameObject note in notes)
+                note.SetActive(false);
                  switch(rhythm.loopType)
                 {
                     case 1:
@@ -134,8 +142,8 @@ public class DialogueSystem : MonoBehaviour
                     case 2: 
                     rhythm.parent.SetActive(false);
                     break;
-                    case 3:
-                     rhythm.parent.SetActive(false);
+                    case 4:
+                     rhythm.parent2.SetActive(false);
                      break;
                 }
            }
