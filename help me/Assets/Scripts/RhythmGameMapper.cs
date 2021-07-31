@@ -364,6 +364,7 @@ public class RhythmGameMapper : MonoBehaviour
             scoreManager.SaveScore();
             scoreManager.highScoreText.text = "High Score: " + ScoreManager.highScore;
             birbTurn3 = false;
+            
 
             if (redBirbSpawn.transform.childCount > 0)
             {
@@ -484,6 +485,7 @@ public class RhythmGameMapper : MonoBehaviour
                                 else
                                 {
                                     Hurt();
+                                    StartCoroutine(flyAway());
                                 }
                             }
                             else if (willPress)
@@ -633,6 +635,7 @@ public class RhythmGameMapper : MonoBehaviour
                                     if (!doubleTapD)
                                     {
                                         Hurt();
+                                        StartCoroutine(flyAway());
                                     }
 
                                 }
@@ -1567,6 +1570,7 @@ public class RhythmGameMapper : MonoBehaviour
         StartCoroutine(pressTimer());
         StopCoroutine(slackTimer(0.5f));
         StartCoroutine(ow());
+        StartCoroutine(flyAway());
     }
 
     IEnumerator birbNoteTurn1()

@@ -4716,7 +4716,7 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 3
+  - beatsBtwWave: 0
     eventType: 0
     noOfEvents: 1
     songPositionWave: 0
@@ -4756,7 +4756,7 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 3
+  - beatsBtwWave: 2
     eventType: 16
     noOfEvents: 1
     songPositionWave: 0
@@ -4772,8 +4772,88 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
+  - beatsBtwWave: 3
     eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 1
+    eventType: 5
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 2
+    eventType: 2
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 1
+    eventType: 1
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 3
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 1
+    eventType: 13
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 1
+    eventType: 16
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 0
+    eventType: 15
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 1
+    eventType: 6
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 3
+    eventType: 4
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 2
+    eventType: 7
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4876,87 +4956,7 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
+  - beatsBtwWave: 0
     eventType: 0
     noOfEvents: 1
     songPositionWave: 0
@@ -5418,7 +5418,7 @@ MonoBehaviour:
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
   callBackNumber: 0
-  beatsPerSecond: 130.2
+  beatsPerSecond: 130
   beatsPerMeasure: 4
   secPerBeat: 0
   secPerMeasure: 0
@@ -5432,7 +5432,7 @@ MonoBehaviour:
   beatThresholdLate: 1
   beatThresholdEarly: 1
   dspSongTime: 0
-  firstBeatOffset: 0.31
+  firstBeatOffset: 0.325
   musicSource: {fileID: 944396418}
   metronome_audioSrc: {fileID: 1329761523}
   secPerRealBeat: 0
