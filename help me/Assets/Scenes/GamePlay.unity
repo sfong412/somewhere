@@ -4852,7 +4852,7 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 2
+  - beatsBtwWave: 1
     eventType: 7
     noOfEvents: 1
     songPositionWave: 0
@@ -4869,23 +4869,23 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 0
+    eventType: 9
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
+  - beatsBtwWave: 4
+    eventType: 10
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
+  - beatsBtwWave: 2
+    eventType: 11
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -5418,7 +5418,7 @@ MonoBehaviour:
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
   callBackNumber: 0
-  beatsPerSecond: 130
+  beatsPerSecond: 130.7
   beatsPerMeasure: 4
   secPerBeat: 0
   secPerMeasure: 0
@@ -5529,6 +5529,9 @@ MonoBehaviour:
   parent4: {fileID: 477429156}
   lampPost: {fileID: 1397832823}
   lampPost2: {fileID: 1937301243}
+  song1: {fileID: 8300000, guid: 7e21de8b5a31c2244a4cdf3facca0e11, type: 3}
+  song2: {fileID: 8300000, guid: 60fef7ccc50f3f444921744439602778, type: 3}
+  song3: {fileID: 8300000, guid: 593593aa72b812046aa1e3861542b794, type: 3}
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -5544,7 +5547,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.219
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

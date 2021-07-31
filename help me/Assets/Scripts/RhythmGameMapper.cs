@@ -264,6 +264,11 @@ public class RhythmGameMapper : MonoBehaviour
 
     public Animator lampPost2;
 
+    public AudioClip song1;
+    public AudioClip song2;
+
+    public AudioClip song3;
+
 
     void Start()
     {
@@ -289,18 +294,7 @@ public class RhythmGameMapper : MonoBehaviour
         //Invoke("OnAudioEnd", musicSource.clip.length + 2f);
     }
 
-    void OnAudioEnd()
-    {
-        StartCoroutine(OnAudioEndCoroutine());
-    }
-
-    IEnumerator OnAudioEndCoroutine()
-    {
-        Debug.Log("song ended");
-        yield return new WaitForSeconds(4f);
-        DayNightCycle.switchBackground();
-        SceneManager.LoadScene("GamePlay");
-    }
+    
 
     void Awake()
     {
@@ -353,7 +347,7 @@ public class RhythmGameMapper : MonoBehaviour
 
     void Update()
     {
-
+        musicSource.pitch = 2f;
         if (lives == 0)
         {
             player.SetBool("isGameOver", true);
@@ -729,7 +723,7 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (sceneChange)
         {
-
+            Debug.Log("change");
             switch (changeNumber)
             {
                 case 0:
@@ -767,6 +761,36 @@ public class RhythmGameMapper : MonoBehaviour
                     changeNumber = 1;
                     break;
 
+
+            }
+            
+            var randomMapNumber = Random.Range(0, 5);
+
+            switch (randomMapNumber)
+            {
+                case 0:
+                musicSource.PlayOneShot(song1, 1f);
+                break;
+
+                case 1:
+                musicSource.PlayOneShot(song2, 1f);
+                break;
+
+                case 2:
+                musicSource.PlayOneShot(song3, 1f);
+                break;
+
+                 case 3:
+                musicSource.PlayOneShot(song1, 1f);
+                break;
+
+                case 4:
+                musicSource.PlayOneShot(song2, 1f);
+                break;
+
+                case 5:
+                musicSource.PlayOneShot(song3, 1f);
+                break;
 
             }
             sceneChange = false;
@@ -1077,7 +1101,7 @@ public class RhythmGameMapper : MonoBehaviour
                 break;
 
             case 14:
-                StopCoroutine(slackTimer(0.6f));
+                StopCoroutine(slackTimer(0.8f));
                 noteEventNumber = currentEvent.eventType;
                 RadioTurnAnimation();
                 singRightNow = false;
