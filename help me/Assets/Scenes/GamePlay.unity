@@ -4652,32 +4652,8 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 4
-    eventType: 13
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
   - beatsBtwWave: 1
-    eventType: 16
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 11
-    noOfEvents: 1
-    songPositionWave: 4.6
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 1
+    eventType: 0
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4692,15 +4668,15 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
+  - beatsBtwWave: 2
     eventType: 2
     noOfEvents: 1
-    songPositionWave: 0
+    songPositionWave: 4.6
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
+  - beatsBtwWave: 0
     eventType: 1
     noOfEvents: 1
     songPositionWave: 0
@@ -4709,6 +4685,14 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 3
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 1
     eventType: 6
     noOfEvents: 1
     songPositionWave: 0
@@ -4726,6 +4710,22 @@ MonoBehaviour:
     timeRest: 0
   - beatsBtwWave: 1
     eventType: 7
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 0
+    eventType: 0
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 1
+    eventType: 6
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -5543,7 +5543,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8040312823056929966, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 60fef7ccc50f3f444921744439602778, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7e21de8b5a31c2244a4cdf3facca0e11, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.219
   m_Pitch: 1

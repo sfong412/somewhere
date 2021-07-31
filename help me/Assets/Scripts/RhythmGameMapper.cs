@@ -1105,7 +1105,7 @@ public class RhythmGameMapper : MonoBehaviour
                 singRightNow = true;
                 BirbTurnAnimation();
                 break;
-//PLAYER RESPOND TO PARROT
+
             case 11:
                 StartCoroutine(slackTimer(0.6f));
                 doubleTapD = false;
