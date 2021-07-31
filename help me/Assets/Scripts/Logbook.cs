@@ -29,6 +29,8 @@ public class Logbook : MonoBehaviour
 
     public TextMeshProUGUI highScoreText;
 
+    public GameObject GameOverScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -156,18 +158,20 @@ public class Logbook : MonoBehaviour
 
     IEnumerator ReturnToMenu()
     {
+        GameOverScreen.transform.localScale = new Vector3(0, 0,0);
         black.SetBool("FadeOut", true);
         rhythmGameMapper.Resume22();
         yield return new WaitForSecondsRealtime(1);
         SceneManager.LoadScene("Menu");
+        Debug.Log("mattress");
     }
 
     IEnumerator restart()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        GameOverScreen.transform.localScale = new Vector3(0, 0,0);
         black.SetBool("FadeOut", true);
         rhythmGameMapper.Resume22();
-        yield return new WaitForSecondsRealtime(1);
-        SceneManager.LoadScene("Menu");
+        yield return new WaitForSecondsRealtime(1f);
+        SceneManager.LoadScene("GamePlay");
     }
 }

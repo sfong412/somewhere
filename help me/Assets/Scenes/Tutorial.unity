@@ -5715,6 +5715,7 @@ MonoBehaviour:
   cardinal: {fileID: 0}
   bullFinch: {fileID: 0}
   highScoreText: {fileID: 0}
+  GameOverScreen: {fileID: 0}
 --- !u!114 &839761182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6866,6 +6867,8 @@ MonoBehaviour:
   parent2: {fileID: 1444403184}
   parent3: {fileID: 929960585}
   parent4: {fileID: 338136074}
+  lampPost: {fileID: 0}
+  lampPost2: {fileID: 0}
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -12097,6 +12100,8 @@ MonoBehaviour:
   - sussy
   - Alright! I think you're ready.
   - Just keep in mind that you won't have the lyric thing at the bottom anymore.
+  - Also, you'll be able to check the bird's patterns by hitting ESCAPE during gameplay
+    and clicking on the bird tab.
   - Try to get a highscore!
   instructions:
   - Listen to the Red Cardinal's call.
@@ -12111,7 +12116,7 @@ MonoBehaviour:
   speed: 0.02
   textIndex: 0
   instructionIndex: 0
-  targetIndex: 05000000080000000e000000120000001500000017000000190000001b0000001f000000
+  targetIndex: 05000000080000000e000000120000001500000017000000190000001b00000020000000
   targetIndexNumber: 0
   showtime: 0
   instructionText2: {fileID: 1970382327}
@@ -15875,8 +15880,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: the fitness gram pacer test is multi stage arobic capacity test, that progressively
-    gets more difficult as it continues.
+  m_text: Also, you'll be able to check the bird's patterns by hitting ESCAPE during
+    gameplay and clicking on the bird tab
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d97cd52f6f6ec4b4ea0245a1128ea0e9, type: 2}
   m_sharedMaterial: {fileID: -2934488809292201275, guid: d97cd52f6f6ec4b4ea0245a1128ea0e9, type: 2}
@@ -16434,6 +16439,7 @@ MonoBehaviour:
   cardinal: {fileID: 0}
   bullFinch: {fileID: 0}
   highScoreText: {fileID: 0}
+  GameOverScreen: {fileID: 0}
 --- !u!1 &2136708051
 GameObject:
   m_ObjectHideFlags: 0

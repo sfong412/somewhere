@@ -313,10 +313,11 @@ public class RhythmGameMapper : MonoBehaviour
         {
             songLength = musicSource.clip.length;
 
-            currentEventNumber = 0;
-            currentEvent = Events[currentEventNumber];
+           
             
         }
+         currentEventNumber = 0;
+            currentEvent = Events[currentEventNumber];
         changeNumber = 0;
         notBadAtGame = false;
         realerScore = 0;
@@ -326,10 +327,12 @@ public class RhythmGameMapper : MonoBehaviour
         parent2.SetActive(false);
         parent3.SetActive(false);
         parent4.SetActive(false);
+        ScoreManager.score = 0;
         if (imTired)
         {
              Resume();
         }
+        StartMusic();
        
        
 
@@ -338,29 +341,32 @@ public class RhythmGameMapper : MonoBehaviour
 
     void StartMusic()
     {
-        if (timerIsRunning)
-        {   
-              if (musicTimeRemaining > 0)
-        {
+        StartCoroutine(pleaseWork());
+    }
 
-            musicTimeRemaining -= Time.deltaTime;
-        }
-        else
-        {
-            musicSource.Play();
-            timerIsRunning = false;
-            musicTimeRemaining = 0;
-        }
-        }
-      
-        
+    IEnumerator pleaseWork()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        musicSource.Play();
     }
     
 
     void Update()
     {
 
-         StartMusic();
+        if (lives == 0)
+        {
+            player.SetBool("isGameOver", true);
+                                    musicSource.Pause();
+                                    StartCoroutine(gameOver());
+                                    paused = true;
+                                    canPress = false;
+                                    scoreManager.SaveScore();
+                                    scoreManager.highScoreText.text = "High Score: " + ScoreManager.highScore;
+                                    birbTurn3 = false;
+        }
+
+         
         birdSeedPacketsCounter.text =lives.ToString();
 
         if (musicSource.isPlaying == false)
@@ -417,6 +423,7 @@ public class RhythmGameMapper : MonoBehaviour
                     randomBirdnumber = Random.Range(0, 4);
                     currentEvent = Events[currentEventNumber];
                     timeGo = true;
+                    Debug.Log("i");
 
                 }
             }
@@ -431,7 +438,7 @@ public class RhythmGameMapper : MonoBehaviour
                 if (currentEvent.songPositionWave < songPosition)
                 {
                     canSpawn = true;
-                    currentEventNumber++;
+                    currentEventNumber += 1;
                     newWaveGenerate = true;
                     randomBirdnumber = Random.Range(0, 4);
                     currentEvent = Events[currentEventNumber];
@@ -452,7 +459,7 @@ public class RhythmGameMapper : MonoBehaviour
                             notBadAtGame = true;
                             if (!willPress)
                             {
-                                if (lives == 1)
+                                if (lives < 2)
                                 {
                                     lives--;
                                     player.SetBool("isGameOver", true);
@@ -579,7 +586,7 @@ public class RhythmGameMapper : MonoBehaviour
                             }
                             if (!willPress)
                             {
-                                if (lives == 1)
+                                if (lives < 2)
                                 {
                                     lives--;
                                     player.SetBool("isGameOver", true);
