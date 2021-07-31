@@ -879,19 +879,21 @@ public class RhythmGameMapper : MonoBehaviour
 
     void EventType()
     {
+
         switch (currentEvent.eventType)
         {
+            //NOTHING HAPPENS
             case 0:
                 canBird = true;
                 break;
-            //Player plays the flute
+            //PLAYER PLAYS THE FLUTE FOR RED BIRD
             case 1:
                 StartCoroutine(slackTimer(0.25f));
                 noteEventNumber = currentEvent.eventType;
                 //Debug.Log("Song position in beats when player sound plays: " + songPositionInBeats);
                 //metronome_audioSrc.PlayOneShot(sound5, 1f);
                 break;
-            //Bird enters
+            //RED BIRD SINGS
             case 2:
              if (cryAboutIt)
                 {
@@ -948,7 +950,7 @@ public class RhythmGameMapper : MonoBehaviour
                 BirbTurnAnimation();
                 break;
 
-            //RED BIRD FLY AWAY
+            //RED BIRD SPAWN
             case 5:
                 GameObject red = Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
                 Destroy(red, 10f);
@@ -986,6 +988,7 @@ public class RhythmGameMapper : MonoBehaviour
             StartCoroutine(flyAway());
             break;
 
+            //BLACKBIRD SPAWN
             case 9:
             Instantiate(blackBird, redBirbSpawn.position, Quaternion.identity);
             doubleTapD = false;
@@ -995,6 +998,7 @@ public class RhythmGameMapper : MonoBehaviour
             callBackNumber = 2;
             break;
 
+            //BLACKBIRD SING
             case 10:
              if (cryAboutIt)
                 {
@@ -1025,6 +1029,7 @@ public class RhythmGameMapper : MonoBehaviour
             StartCoroutine(flyAway());
             break;
 
+            //PARROT SPAWN
             case 13:
              Instantiate(parrot, redBirbSpawn.position, Quaternion.identity);
             canBird = false;
@@ -1048,6 +1053,7 @@ public class RhythmGameMapper : MonoBehaviour
             noteEventNumber = currentEvent.eventType;
             break;
 
+            //PARROT SINGS
             case 16: 
              if (cryAboutIt)
                 {

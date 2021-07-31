@@ -8,6 +8,8 @@ public class birbCode : MonoBehaviour
     public RhythmGameMapper mapper;
     public Animator birbMove;
     public Animator birb;
+
+    bool justSang;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +29,9 @@ public class birbCode : MonoBehaviour
         if (mapper.birbTurn == true)
         {
            StartCoroutine(birbTurn());
-
+            justSang = true;
         }
-        if (mapper.birbTurn3 == false)
+        if (mapper.birbTurn3 == false && justSang == true)
         {
             birbMove.SetBool("birbGo", false);
             birb.SetBool("mySing", false);
@@ -54,6 +56,13 @@ public class birbCode : MonoBehaviour
       yield return new WaitForSeconds(0.5f);
       birb.SetBool("myTurn", true);
 
+    }
+
+    public void birbTurn3()
+    {
+        birbMove.SetBool("birbGo", false);
+        birb.SetBool("mySing", false);
+        StartCoroutine(Death());
     }
 
     IEnumerator Death()

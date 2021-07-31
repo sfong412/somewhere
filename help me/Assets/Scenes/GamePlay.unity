@@ -4716,22 +4716,6 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 0
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
   - beatsBtwWave: 3
     eventType: 0
     noOfEvents: 1
@@ -4740,8 +4724,16 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 2
-    eventType: 0
+  - beatsBtwWave: 1
+    eventType: 6
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 3
+    eventType: 4
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4749,7 +4741,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 0
+    eventType: 7
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4757,7 +4749,15 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 0
+    eventType: 13
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 3
+    eventType: 16
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4765,7 +4765,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 0
+    eventType: 11
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
