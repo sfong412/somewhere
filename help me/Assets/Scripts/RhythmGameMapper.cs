@@ -347,7 +347,7 @@ public class RhythmGameMapper : MonoBehaviour
 
     void Update()
     {
-        musicSource.pitch = 2f;
+        musicSource.pitch = 1f;
         if (lives == 0)
         {
             player.SetBool("isGameOver", true);

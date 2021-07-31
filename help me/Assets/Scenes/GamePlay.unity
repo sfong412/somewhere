@@ -4828,9 +4828,9 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 0
+  - beatsBtwWave: 1
     eventType: 15
-    noOfEvents: 1
+    noOfEvents: 0
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
@@ -4847,12 +4847,12 @@ MonoBehaviour:
   - beatsBtwWave: 3
     eventType: 4
     noOfEvents: 1
-    songPositionWave: 0
+    songPositionWave: 0.5
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
+  - beatsBtwWave: 2
     eventType: 7
     noOfEvents: 1
     songPositionWave: 0
@@ -4861,30 +4861,6 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 0
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 9
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 4
-    eventType: 10
-    noOfEvents: 1
-    songPositionWave: 0
-    beatMode: 1
-    timeMode: 0
-    beatRest: 1
-    timeRest: 0
-  - beatsBtwWave: 2
     eventType: 11
     noOfEvents: 1
     songPositionWave: 0
@@ -4892,8 +4868,32 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
+  - beatsBtwWave: 2
+    eventType: 9
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
   - beatsBtwWave: 1
-    eventType: 0
+    eventType: 10
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 3
+    eventType: 11
+    noOfEvents: 1
+    songPositionWave: 0
+    beatMode: 1
+    timeMode: 0
+    beatRest: 1
+    timeRest: 0
+  - beatsBtwWave: 3
+    eventType: 5
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4908,16 +4908,16 @@ MonoBehaviour:
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
+  - beatsBtwWave: 2
+    eventType: 2
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
     timeMode: 0
     beatRest: 1
     timeRest: 0
-  - beatsBtwWave: 1
-    eventType: 0
+  - beatsBtwWave: 0
+    eventType: 1
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -5500,7 +5500,7 @@ MonoBehaviour:
   changeNumber: 0
   paused: 0
   notBadAtGame: 0
-  lives: 3
+  lives: 999
   tutorial: 0
   radioMouth: {fileID: 859086048}
   loopType: 0
