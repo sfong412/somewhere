@@ -31,6 +31,8 @@ public class Logbook : MonoBehaviour
 
     public GameObject GameOverScreen;
 
+    public AudioClip parrot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -153,6 +155,14 @@ public class Logbook : MonoBehaviour
          if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(bullFinch, 1f);
+        }
+    }
+
+    public void Macaw2()
+    {
+          if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(parrot, 1f);
         }
     }
 

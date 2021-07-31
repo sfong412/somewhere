@@ -4132,6 +4132,7 @@ MonoBehaviour:
   bullFinch: {fileID: 8300000, guid: db555399e453cd9438154a8f97771dd2, type: 3}
   highScoreText: {fileID: 2080630564}
   GameOverScreen: {fileID: 2128660564}
+  parrot: {fileID: 8300000, guid: 1685331f358eb8e4cb10831407e5fc42, type: 3}
 --- !u!114 &839761182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4724,7 +4725,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 1
-    eventType: 6
+    eventType: 0
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4732,7 +4733,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 3
-    eventType: 4
+    eventType: 0
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -4740,7 +4741,7 @@ MonoBehaviour:
     beatRest: 1
     timeRest: 0
   - beatsBtwWave: 2
-    eventType: 7
+    eventType: 0
     noOfEvents: 1
     songPositionWave: 0
     beatMode: 1
@@ -5417,7 +5418,7 @@ MonoBehaviour:
   nextBeatsBtwWave: 0
   nextTimeBtwWave: 0
   callBackNumber: 0
-  beatsPerSecond: 130
+  beatsPerSecond: 130.2
   beatsPerMeasure: 4
   secPerBeat: 0
   secPerMeasure: 0
@@ -7630,7 +7631,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1528085744}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 839761181}
+        m_TargetAssemblyTypeName: Logbook, Assembly-CSharp
+        m_MethodName: Macaw2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1269622153
 MonoBehaviour:
   m_ObjectHideFlags: 0
