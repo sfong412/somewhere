@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3018732957543317548}
+  - component: {fileID: 8037666576569823855}
   m_Layer: 0
   m_Name: Parrot 2 Parent
   m_TagString: Cardinals
@@ -31,6 +32,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8037666576569823855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018732957543317549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9afdb9074d1566479504a76d05e6741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birbMouth: {fileID: 3690456085094975407}
+  mapper: {fileID: 0}
+  birbMove: {fileID: 3018732958871749806}
+  birb: {fileID: 3018732958732758643}
 --- !u!1 &3018732958732758541
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +160,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3018732958732758541}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9afdb9074d1566479504a76d05e6741, type: 3}
   m_Name: 
