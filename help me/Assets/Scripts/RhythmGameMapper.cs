@@ -269,6 +269,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public AudioClip song3;
 
+    public float killmeplease;
+
 
     void Start()
     {
@@ -290,12 +292,18 @@ public class RhythmGameMapper : MonoBehaviour
 
 
         //dayNightCycle = GameObject.Find("Background").GetComponent<DayNightCycle>();
-
-        //Invoke("OnAudioEnd", musicSource.clip.length + 2f);
     }
 
     
-
+     void OnAudioEnd()
+    {
+        if (!paused)
+        {
+            sceneChange = true;
+            musicSource.Pause();
+            
+        }
+    }
     void Awake()
     {
         canPress = true;
@@ -305,6 +313,7 @@ public class RhythmGameMapper : MonoBehaviour
         birbTurn3 = true;
         if (autoPlay)
         {
+            musicSource.clip = song3;
             songLength = musicSource.clip.length;
 
 
@@ -327,11 +336,16 @@ public class RhythmGameMapper : MonoBehaviour
             Resume();
         }
         StartMusic();
+        paused = true;
+        killmeplease = 2;
 
 
-
+   
 
     }
+
+   
+
 
     void StartMusic()
     {
@@ -342,6 +356,7 @@ public class RhythmGameMapper : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         musicSource.Play();
+        paused = false;
     }
 
 
@@ -372,7 +387,15 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (musicSource.isPlaying == false)
         {
-            return;
+            
+             if (!paused)
+            {
+                songPosition = 0;
+                sceneChange = true;
+                killmeplease += 1;
+                Debug.Log("change");
+            }
+            
         }
 
         if (musicSource.isPlaying)
@@ -712,19 +735,56 @@ public class RhythmGameMapper : MonoBehaviour
             }
         }
 
-        if (!musicSource.isPlaying)
-        {
-            if (!paused)
-            {
-                sceneChange = true;
-            }
 
+        if (musicSource.isPlaying)
+        {
+            //bababoey
+
+
+        }
+        else
+        {
+           
         }
 
         if (sceneChange)
         {
-            Debug.Log("change");
-            switch (changeNumber)
+            
+           shootme();
+           sceneChange = false;
+
+        }
+
+        if (changeNumber == 2)
+        {
+            leftLamp.SetBool("lightUp", true);
+            rightLamp.SetBool("lightUp", true);
+            lampPost.SetBool("groovy", true);
+            lampPost2.SetBool("groovy2", true);
+        }
+
+        if (changeNumber == 3)
+        {
+            leftLamp.SetBool("lightUp", false);
+            rightLamp.SetBool("lightUp", false);
+            lampPost.SetBool("groovy", false);
+            lampPost2.SetBool("groovy2", false);
+
+        }
+
+
+
+
+
+
+
+
+        //GameObject sus = Instantiate(bop, bopSpawn.position, Quaternion.identity);
+    }
+
+    void shootme()
+    {
+         switch (changeNumber)
             {
                 case 0:
                     dayTime.SetBool("daytimeBool", true);
@@ -763,65 +823,35 @@ public class RhythmGameMapper : MonoBehaviour
 
 
             }
-            
-            var randomMapNumber = Random.Range(0, 5);
-
-            switch (randomMapNumber)
+       
+            Debug.Log(killmeplease);
+            if (killmeplease == 0)
             {
-                case 0:
                 musicSource.PlayOneShot(song1, 1f);
-                break;
-
-                case 1:
-                musicSource.PlayOneShot(song2, 1f);
-                break;
-
-                case 2:
-                musicSource.PlayOneShot(song3, 1f);
-                break;
-
-                 case 3:
-                musicSource.PlayOneShot(song1, 1f);
-                break;
-
-                case 4:
-                musicSource.PlayOneShot(song2, 1f);
-                break;
-
-                case 5:
-                musicSource.PlayOneShot(song3, 1f);
-                break;
-
+                sceneChange = false;
             }
-            sceneChange = false;
 
-        }
+             if (killmeplease == 1)
+            {
+                musicSource.PlayOneShot(song2, 1f);
+                sceneChange = false;
+            }
 
-        if (changeNumber == 2)
-        {
-            leftLamp.SetBool("lightUp", true);
-            rightLamp.SetBool("lightUp", true);
-            lampPost.SetBool("groovy", true);
-            lampPost2.SetBool("groovy2", true);
-        }
+             if (killmeplease == 2)
+            {
+                musicSource.PlayOneShot(song3, 1f);
+                sceneChange = false;
+            }
 
-        if (changeNumber == 3)
-        {
-            leftLamp.SetBool("lightUp", false);
-            rightLamp.SetBool("lightUp", false);
-            lampPost.SetBool("groovy", false);
-            lampPost2.SetBool("groovy2", false);
+      
+           
 
-        }
+                 
 
+            
+            
 
-
-
-
-
-
-
-        //GameObject sus = Instantiate(bop, bopSpawn.position, Quaternion.identity);
+            
     }
 
     public IEnumerator fading()
