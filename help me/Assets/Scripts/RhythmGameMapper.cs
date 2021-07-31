@@ -352,7 +352,7 @@ public class RhythmGameMapper : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         musicSource.Play();
         paused = false;
-        mappingCode.backingTrack2();
+        mappingCode.backingTrack1();
         no = true;
     }
 
