@@ -288,7 +288,7 @@ Transform:
   - {fileID: 2044488340}
   - {fileID: 1124829511}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &169116332
 GameObject:
@@ -1243,7 +1243,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527294346
 GameObject:
@@ -5532,6 +5532,8 @@ MonoBehaviour:
   song1: {fileID: 8300000, guid: 7e21de8b5a31c2244a4cdf3facca0e11, type: 3}
   song2: {fileID: 8300000, guid: 60fef7ccc50f3f444921744439602778, type: 3}
   song3: {fileID: 8300000, guid: 593593aa72b812046aa1e3861542b794, type: 3}
+  killmeplease: 0
+  no: 0
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -5543,7 +5545,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8040312823056929966, guid: 4bff8c5f2e9a60f47b9ec3c8f19e39ef, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7e21de8b5a31c2244a4cdf3facca0e11, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 593593aa72b812046aa1e3861542b794, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.219
   m_Pitch: 1
@@ -5820,7 +5822,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1008101269
 MonoBehaviour:
