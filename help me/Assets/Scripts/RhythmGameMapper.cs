@@ -1561,7 +1561,7 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (redBirbSpawn.transform.childCount > 0)
         {
-            redBirbSpawn.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<birbCode>().birbTurn3();
+            redBirbSpawn.transform.GetChild(0).GetComponent<birbCode>().birbTurn3();
             //Destroy(redBirbSpawn.transform.GetChild(0).gameObject);
         }
 
