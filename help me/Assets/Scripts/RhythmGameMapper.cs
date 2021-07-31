@@ -908,6 +908,7 @@ public class RhythmGameMapper : MonoBehaviour
                
                 
                 break;
+            //PLAYER RESPONDS TO BLUE JAY
             case 3:
 
                 noteEventNumber = currentEvent.eventType;
@@ -931,6 +932,7 @@ public class RhythmGameMapper : MonoBehaviour
                 StartCoroutine(pressTimer());
                 notBadAtGame = true;
                 break;
+            //BLUE JAY SING
             case 4:
               if (cryAboutIt)
                 {
@@ -946,6 +948,7 @@ public class RhythmGameMapper : MonoBehaviour
                 BirbTurnAnimation();
                 break;
 
+            //RED BIRD FLY AWAY
             case 5:
                 GameObject red = Instantiate(redBirb, redBirbSpawn.position, Quaternion.identity);
                 Destroy(red, 10f);
@@ -954,6 +957,7 @@ public class RhythmGameMapper : MonoBehaviour
                 birbTurn3 = true;
                 callBackNumber = 0;
                 break;
+            //BLUE JAY SPAWN
             case 6:
                 singleTap = false;
                 doubleTapD = false;
@@ -963,7 +967,7 @@ public class RhythmGameMapper : MonoBehaviour
                 birbTurn3 = true;
                 callBackNumber = 1;
                 break;
-
+            //PLAYER RESPOND TO BLUE JAY
             case 7:
                 singleTap = false;
                 doubleTapD = false;
