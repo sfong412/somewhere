@@ -271,6 +271,8 @@ public class RhythmGameMapper : MonoBehaviour
 
     public float killmeplease;
 
+    public bool no;
+
 
     void Start()
     {
@@ -295,15 +297,7 @@ public class RhythmGameMapper : MonoBehaviour
     }
 
     
-     void OnAudioEnd()
-    {
-        if (!paused)
-        {
-            sceneChange = true;
-            musicSource.Pause();
-            
-        }
-    }
+     
     void Awake()
     {
         canPress = true;
@@ -313,7 +307,7 @@ public class RhythmGameMapper : MonoBehaviour
         birbTurn3 = true;
         if (autoPlay)
         {
-            musicSource.clip = song2;
+            musicSource.clip = song1;
             songLength = musicSource.clip.length;
 
 
@@ -337,7 +331,8 @@ public class RhythmGameMapper : MonoBehaviour
         }
         StartMusic();
         paused = true;
-        killmeplease = 2;
+        killmeplease = 0;
+        no = false;
 
 
    
@@ -357,11 +352,21 @@ public class RhythmGameMapper : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         musicSource.Play();
         paused = false;
+        mappingCode.backingTrack2();
+        no = true;
+    }
+
+    IEnumerator killmeplease2()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+       paused = false;
     }
 
 
     void Update()
     {
+
+       
         musicSource.pitch = 1f;
         if (lives == 0)
         {
@@ -387,14 +392,20 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (musicSource.isPlaying == false)
         {
-            
-             if (!paused)
+          
+            if (no)
             {
+                if (!paused)
+        {
                 songPosition = 0;
                 sceneChange = true;
                 killmeplease += 1;
                 Debug.Log("change");
+                
             }
+            }
+                 
+            
             
         }
 
@@ -901,7 +912,7 @@ public class RhythmGameMapper : MonoBehaviour
 
     public void Resume()
     {
-        paused = false;
+        StartCoroutine(killmeplease2());
         blackOut.SetBool("Focus", false);
         StartCoroutine(DelayResume());
         Resume2 = true;
