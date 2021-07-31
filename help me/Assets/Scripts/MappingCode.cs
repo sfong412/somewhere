@@ -465,6 +465,70 @@ public class MappingCode : MonoBehaviour
                     rhythms.Events[17].timeMode = false;
                     rhythms.Events[17].beatRest = true;
                     rhythms.Events[17].timeRest = false;
+
+                    rhythms.Events[18].beatsBtwWave = 3;
+                    rhythms.Events[18].eventType = 0;
+                    rhythms.Events[18].noOfEvents = 1;
+                    rhythms.Events[18].beatMode = true;
+                    rhythms.Events[18].timeMode = false;
+                    rhythms.Events[18].beatRest = true;
+                    rhythms.Events[18].timeRest = false;
+
+                    rhythms.Events[19].beatsBtwWave = 1;
+                    rhythms.Events[19].eventType = 13;
+                    rhythms.Events[19].noOfEvents = 1;
+                    rhythms.Events[19].beatMode = true;
+                    rhythms.Events[19].timeMode = false;
+                    rhythms.Events[19].beatRest = true;
+                    rhythms.Events[19].timeRest = false;
+
+                    rhythms.Events[20].beatsBtwWave = 1;
+                    rhythms.Events[20].eventType = 16;
+                    rhythms.Events[20].noOfEvents = 1;
+                    rhythms.Events[20].beatMode = true;
+                    rhythms.Events[20].timeMode = false;
+                    rhythms.Events[20].beatRest = true;
+                    rhythms.Events[20].timeRest = false;
+
+                    rhythms.Events[21].beatsBtwWave = 1;
+                    rhythms.Events[21].eventType = 11;
+                    rhythms.Events[21].noOfEvents = 1;
+                    rhythms.Events[21].beatMode = true;
+                    rhythms.Events[21].timeMode = false;
+                    rhythms.Events[21].beatRest = true;
+                    rhythms.Events[21].timeRest = false;
+
+                    rhythms.Events[22].beatsBtwWave = 5;
+                    rhythms.Events[22].eventType = 0;
+                    rhythms.Events[22].noOfEvents = 1;
+                    rhythms.Events[22].beatMode = true;
+                    rhythms.Events[22].timeMode = false;
+                    rhythms.Events[22].beatRest = true;
+                    rhythms.Events[22].timeRest = false;
+
+                    rhythms.Events[23].beatsBtwWave = 1;
+                    rhythms.Events[23].eventType = 6;
+                    rhythms.Events[23].noOfEvents = 1;
+                    rhythms.Events[23].beatMode = true;
+                    rhythms.Events[23].timeMode = false;
+                    rhythms.Events[23].beatRest = true;
+                    rhythms.Events[23].timeRest = false;
+
+                    rhythms.Events[24].beatsBtwWave = 1;
+                    rhythms.Events[24].eventType = 4;
+                    rhythms.Events[24].noOfEvents = 1;
+                    rhythms.Events[24].beatMode = true;
+                    rhythms.Events[24].timeMode = false;
+                    rhythms.Events[24].beatRest = true;
+                    rhythms.Events[24].timeRest = false;
+
+                    rhythms.Events[25].beatsBtwWave = 1;
+                    rhythms.Events[25].eventType = 7;
+                    rhythms.Events[25].noOfEvents = 1;
+                    rhythms.Events[25].beatMode = true;
+                    rhythms.Events[25].timeMode = false;
+                    rhythms.Events[25].beatRest = true;
+                    rhythms.Events[25].timeRest = false;
                     
     }  
 }

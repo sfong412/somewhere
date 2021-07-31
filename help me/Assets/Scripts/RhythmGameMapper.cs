@@ -313,7 +313,7 @@ public class RhythmGameMapper : MonoBehaviour
         birbTurn3 = true;
         if (autoPlay)
         {
-            musicSource.clip = song3;
+            musicSource.clip = song2;
             songLength = musicSource.clip.length;
 
 
