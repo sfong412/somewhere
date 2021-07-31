@@ -5508,7 +5508,7 @@ MonoBehaviour:
   changeNumber: 0
   paused: 0
   notBadAtGame: 0
-  lives: 999
+  lives: 3
   tutorial: 0
   radioMouth: {fileID: 859086048}
   loopType: 0
