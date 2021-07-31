@@ -211,6 +211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8096299488237573050}
+  - component: {fileID: 5947895390977958112}
   m_Layer: 0
   m_Name: Black bird 2
   m_TagString: Cardinals
@@ -233,3 +234,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5947895390977958112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8096299488237573051}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9afdb9074d1566479504a76d05e6741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birbMouth: {fileID: 5721920689904492462}
+  mapper: {fileID: 0}
+  birbMove: {fileID: 8096299488236300269}
+  birb: {fileID: 7663620386042387355}

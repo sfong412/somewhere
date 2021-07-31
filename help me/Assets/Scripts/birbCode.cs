@@ -9,7 +9,7 @@ public class birbCode : MonoBehaviour
     public Animator birbMove;
     public Animator birb;
 
-    bool justSang;
+    bool exit = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +29,9 @@ public class birbCode : MonoBehaviour
         if (mapper.birbTurn == true)
         {
            StartCoroutine(birbTurn());
-            justSang = true;
+          //  justSang = true;
         }
-        if (mapper.birbTurn3 == false && justSang == true)
+        if (exit == false)
         {
             birbMove.SetBool("birbGo", false);
             birb.SetBool("mySing", false);
@@ -60,9 +60,11 @@ public class birbCode : MonoBehaviour
 
     public void birbTurn3()
     {
-        birbMove.SetBool("birbGo", false);
-        birb.SetBool("mySing", false);
-        StartCoroutine(Death());
+      //  birbMove.SetBool("birbGo", false);
+       // birb.SetBool("mySing", false);
+       // StartCoroutine(Death());
+
+       exit = false;
     }
 
     IEnumerator Death()
