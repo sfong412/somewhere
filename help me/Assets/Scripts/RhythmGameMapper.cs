@@ -423,7 +423,6 @@ public class RhythmGameMapper : MonoBehaviour
                     randomBirdnumber = Random.Range(0, 4);
                     currentEvent = Events[currentEventNumber];
                     timeGo = true;
-                    Debug.Log("i");
 
                 }
             }
