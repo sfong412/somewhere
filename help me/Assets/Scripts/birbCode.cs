@@ -31,7 +31,7 @@ public class birbCode : MonoBehaviour
            StartCoroutine(birbTurn());
           //  justSang = true;
         }
-        if (exit == false)
+        if (exit == false || (mapper.birbTurn3 == false && mapper.tutorial == true))
         {
             birbMove.SetBool("birbGo", false);
             birb.SetBool("mySing", false);
