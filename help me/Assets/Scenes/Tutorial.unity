@@ -5716,6 +5716,7 @@ MonoBehaviour:
   bullFinch: {fileID: 0}
   highScoreText: {fileID: 0}
   GameOverScreen: {fileID: 0}
+  parrot: {fileID: 0}
 --- !u!114 &839761182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6818,7 +6819,7 @@ MonoBehaviour:
   lives: 9999
   tutorial: 1
   radioMouth: {fileID: 34907649}
-  loopType: 7
+  loopType: 0
   mappingCode: {fileID: 1408502519}
   Enter: {fileID: 282905546}
   watching: 0
@@ -6869,6 +6870,11 @@ MonoBehaviour:
   parent4: {fileID: 338136074}
   lampPost: {fileID: 0}
   lampPost2: {fileID: 0}
+  song1: {fileID: 0}
+  song2: {fileID: 0}
+  song3: {fileID: 0}
+  killmeplease: 0
+  no: 0
   beatsInLoop: 0
 --- !u!82 &944396418
 AudioSource:
@@ -16440,6 +16446,7 @@ MonoBehaviour:
   bullFinch: {fileID: 0}
   highScoreText: {fileID: 0}
   GameOverScreen: {fileID: 0}
+  parrot: {fileID: 0}
 --- !u!1 &2136708051
 GameObject:
   m_ObjectHideFlags: 0

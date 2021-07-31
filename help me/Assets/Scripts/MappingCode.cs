@@ -370,8 +370,8 @@ public class MappingCode : MonoBehaviour
                     rhythms.Events[5].beatRest = true;
                     rhythms.Events[5].timeRest = false;
 
-                    rhythms.Events[6].beatsBtwWave = 1;
-                    rhythms.Events[6].eventType = 11;
+                    rhythms.Events[6].beatsBtwWave = 3;
+                    rhythms.Events[6].eventType = 15;
                     rhythms.Events[6].noOfEvents = 1;
                     rhythms.Events[6].beatMode = true;
                     rhythms.Events[6].timeMode = false;
@@ -379,7 +379,7 @@ public class MappingCode : MonoBehaviour
                     rhythms.Events[6].timeRest = false;
 
                     rhythms.Events[7].beatsBtwWave = 1;
-                    rhythms.Events[7].eventType = 1;
+                    rhythms.Events[7].eventType = 0;
                     rhythms.Events[7].noOfEvents = 1;
                     rhythms.Events[7].beatMode = true;
                     rhythms.Events[7].timeMode = false;

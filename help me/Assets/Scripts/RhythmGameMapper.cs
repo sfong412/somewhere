@@ -307,9 +307,13 @@ public class RhythmGameMapper : MonoBehaviour
         birbTurn3 = true;
         if (autoPlay)
         {
-            musicSource.clip = song1;
+            if (!tutorial)
+            {
+            musicSource.clip = song3;
             songLength = musicSource.clip.length;
 
+            }
+            
 
 
         }
@@ -331,7 +335,7 @@ public class RhythmGameMapper : MonoBehaviour
         }
         StartMusic();
         paused = true;
-        killmeplease = 0;
+        killmeplease = 2;
         no = false;
 
 
@@ -352,7 +356,7 @@ public class RhythmGameMapper : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         musicSource.Play();
         paused = false;
-        mappingCode.backingTrack1();
+        //mappingCode.backingTrack1();
         no = true;
     }
 
@@ -392,8 +396,9 @@ public class RhythmGameMapper : MonoBehaviour
 
         if (musicSource.isPlaying == false)
         {
-          
-            if (no)
+          if (!tutorial)
+          { 
+               if (no)
             {
                 if (!paused)
         {
@@ -404,6 +409,8 @@ public class RhythmGameMapper : MonoBehaviour
                 
             }
             }
+          }
+           
                  
             
             
